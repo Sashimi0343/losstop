@@ -33,7 +33,7 @@ Things you may want to cover:
 | encrypted_password | string  | null: false               |
 | president          | string  | null: false               |
 | profile            | string  | null: false               |
-| phone              | integer | null: false               |
+| phone              | string  | null: false               |
 | prefecture_id      | integer | null: false               |
 | city               | string  | null: false               |
 | address            | string  | null: false               |

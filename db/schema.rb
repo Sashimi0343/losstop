@@ -18,7 +18,7 @@ ActiveRecord::Schema.define(version: 2021_06_11_165543) do
     t.string "encrypted_password", default: "", null: false
     t.string "president", null: false
     t.string "profile", null: false
-    t.integer "phone", null: false
+    t.string "phone", null: false
     t.integer "prefecture_id", null: false
     t.string "city", null: false
     t.string "address", null: false
