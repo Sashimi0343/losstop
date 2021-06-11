@@ -15,7 +15,7 @@ class Company < ApplicationRecord
     validates :address
   end
 
-  validates :prefecture_id, numericality: { other_than: 0, message: '都道府県を選択してください。' }
+  validates :prefecture_id, numericality: { other_than: 0, message: 'を選択してください。' }
 
   VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i
   validates :password, format: { with: VALID_PASSWORD_REGEX, message: 'は、半角の英数字両方を使用してください。' }
