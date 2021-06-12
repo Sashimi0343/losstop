@@ -21,6 +21,7 @@ ja:
         last_name_kana: 苗字（カタカナ）
         birthday: 誕生日
       bazaar:
+        image: 画像
         title: 商品名
         description: 商品の紹介
         price: 価格
