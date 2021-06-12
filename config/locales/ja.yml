@@ -20,3 +20,12 @@ ja:
         first_name_kana: 名前（カタカナ）
         last_name_kana: 苗字（カタカナ）
         birthday: 誕生日
+      bazaar:
+        title: 商品名
+        description: 商品の紹介
+        price: 価格
+        stock: 在庫
+        deadline: 消費期限
+        category_id: カテゴリー
+        delivery_charge_id: 送料の負担
+        days_to_ship_id: 発送までの日にち
