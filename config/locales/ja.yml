@@ -3,7 +3,10 @@ ja:
     attributes:
       company:
         name: 会社・お店の名前
-        president: 代表者
+        email: Eメール
+        password: パスワード
+        password_confirmation: パスワード（確認用）
+        president: 代表者名
         profile: 会社・お店の紹介
         phone: 電話番号
         prefecture_id: 都道府県

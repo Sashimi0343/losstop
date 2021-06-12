@@ -10,7 +10,8 @@ class Company < ApplicationRecord
     validates :name
     validates :president
     validates :profile
-    validates :phone, numericality: { only_integer: true, message: '電話番号は半角数字で入力してください。' }
+    validates :phone, numericality: { only_integer: true, message: 'は半角数字で入力してください。' },
+                      length: { maximum: 11, message: 'は11桁以内で入力してください。' }
     validates :city
     validates :address
   end
