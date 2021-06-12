@@ -21,7 +21,7 @@ class Bazaar < ApplicationRecord
   belongs_to :days_to_ship
   belongs_to :delivery_charge
 
-  has_many_attached :images
+  has_one_attached :image
   has_many :bazaar_orders
 #  has_many :reviews
   belongs_to :company
