@@ -41,7 +41,7 @@ Things you may want to cover:
 
 ### Association
 
-- has_many :items
+- has_many :bazaars
 - has_many :reviews
 - has_many :contact_bazaars
 
@@ -68,7 +68,7 @@ Things you may want to cover:
 
 
 
-## items テーブル
+## bazaars テーブル
 
 | Column              | Type       | Options                        |
 | ------------------- | ---------- | ------------------------------ |
@@ -96,14 +96,14 @@ Things you may want to cover:
 | Column    | Type       | Options                        |
 | --------- | ---------- | ------------------------------ |
 | quantity  | integer    |                                |
-| item      | references | null: false, foreign_key: true |
+| bazaar    | references | null: false, foreign_key: true |
 | user      | references | null: false, foreign_key: true |
 
 ### Association
 
 - has_one    :contact_bazaar
 - belongs_to :user
-- belongs_to :item
+- belongs_to :bazaar
 
 
 
@@ -129,12 +129,12 @@ Things you may want to cover:
 | Column    | Type       | Options                        |
 | --------- | ---------- | ------------------------------ |
 | text      | string     | null: false                    |
-| item      | references | null: false, foreign_key: true |
+| bazaar    | references | null: false, foreign_key: true |
 | company   | references | null: false, foreign_key: true |
 | user      | references | null: false, foreign_key: true |
 
 ### Association
 
-- belongs_to :item
+- belongs_to :bazaar
 - belongs_to :company
 - belongs_to :user
