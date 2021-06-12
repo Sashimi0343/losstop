@@ -22,7 +22,7 @@ class Company < ApplicationRecord
   validates :password, format: { with: VALID_PASSWORD_REGEX, message: 'は、半角の英数字両方を使用してください。' }
 
   belongs_to :prefecture
-#  has_many :order_bazaars
+  has_many :bazaars
 #  has_many :reviews
 #  has_many :contact_bazaars
 end
