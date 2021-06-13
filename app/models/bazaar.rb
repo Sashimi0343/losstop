@@ -1,7 +1,6 @@
 class Bazaar < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
 
-
   with_options presence: true do
     validates :title, :description, :deadline, :image
 
@@ -16,13 +15,12 @@ class Bazaar < ApplicationRecord
     validates :category_id, :delivery_charge_id, :days_to_ship_id
   end
 
-
   belongs_to :category
   belongs_to :days_to_ship
   belongs_to :delivery_charge
 
   has_one_attached :image
   has_many :bazaar_orders
-#  has_many :reviews
+  #  has_many :reviews
   belongs_to :company
 end

@@ -22,13 +22,13 @@ RSpec.describe Company, type: :model do
         it 'NG：nameが空' do
           @company.name = ''
           @company.valid?
-          expect(@company.errors.full_messages).to include("会社・お店の名前を入力してください")
+          expect(@company.errors.full_messages).to include('会社・お店の名前を入力してください')
         end
 
         it 'NG：emailが空' do
           @company.email = ''
           @company.valid?
-          expect(@company.errors.full_messages).to include("Eメールを入力してください")
+          expect(@company.errors.full_messages).to include('Eメールを入力してください')
         end
 
         it 'NG：emailが既に使用されている' do
@@ -48,7 +48,7 @@ RSpec.describe Company, type: :model do
         it 'NG：passwordが空' do
           @company.password = ''
           @company.valid?
-          expect(@company.errors.full_messages).to include("パスワードを入力してください")
+          expect(@company.errors.full_messages).to include('パスワードを入力してください')
         end
 
         it 'NG：passwordが5文字以下' do
@@ -82,7 +82,7 @@ RSpec.describe Company, type: :model do
         it 'NG：password_confirmationが不一致' do
           @company.password_confirmation = 'test10000'
           @company.valid?
-          expect(@company.errors.full_messages).to include("パスワード（確認用）とパスワードの入力が一致しません")
+          expect(@company.errors.full_messages).to include('パスワード（確認用）とパスワードの入力が一致しません')
         end
       end
 
@@ -122,7 +122,6 @@ RSpec.describe Company, type: :model do
           @company.valid?
           expect(@company.errors.full_messages).to include('電話番号は半角数字で入力してください。')
         end
-
       end
 
       context 'prefecture・city・addressについて' do
@@ -144,7 +143,6 @@ RSpec.describe Company, type: :model do
           expect(@company.errors.full_messages).to include('番地〜建物〜部屋番号を入力してください')
         end
       end
-
     end
   end
 end

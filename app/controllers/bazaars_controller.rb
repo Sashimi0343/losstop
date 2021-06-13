@@ -1,5 +1,5 @@
 class BazaarsController < ApplicationController
-  before_action :set_bazaar, only: [:show, :edit, :update, :destroy]
+  before_action :set_bazaar, only: %i[show edit update destroy]
 
   def index
     @bazaars = Bazaar.order('created_at DESC')
@@ -17,11 +17,9 @@ class BazaarsController < ApplicationController
     end
   end
 
-  def show
-  end
+  def show; end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @bazaar.update(bazaar_params)
@@ -35,9 +33,7 @@ class BazaarsController < ApplicationController
     redirect_to bazaars_path if @bazaar.destroy
   end
 
-  def search
-  end
-
+  def search; end
 
   private
 
@@ -49,5 +45,4 @@ class BazaarsController < ApplicationController
   def set_bazaar
     @bazaar = Bazaar.find(params[:id])
   end
-
 end

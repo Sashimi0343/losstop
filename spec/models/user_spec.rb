@@ -17,13 +17,13 @@ RSpec.describe User, type: :model do
         it 'NG：nicknameが空' do
           @user.nickname = ''
           @user.valid?
-          expect(@user.errors.full_messages).to include("ニックネームを入力してください")
+          expect(@user.errors.full_messages).to include('ニックネームを入力してください')
         end
 
         it 'NG：emailが空' do
           @user.email = ''
           @user.valid?
-          expect(@user.errors.full_messages).to include("Eメールを入力してください")
+          expect(@user.errors.full_messages).to include('Eメールを入力してください')
         end
 
         it 'NG：emailが既に使用されている' do
@@ -43,7 +43,7 @@ RSpec.describe User, type: :model do
         it 'NG：passwordが空' do
           @user.password = ''
           @user.valid?
-          expect(@user.errors.full_messages).to include("パスワードを入力してください")
+          expect(@user.errors.full_messages).to include('パスワードを入力してください')
         end
 
         it 'NG：passwordが5文字以下' do
@@ -77,7 +77,7 @@ RSpec.describe User, type: :model do
         it 'NG：password_confirmationが不一致' do
           @user.password_confirmation = 'test10000'
           @user.valid?
-          expect(@user.errors.full_messages).to include("パスワード（確認用）とパスワードの入力が一致しません")
+          expect(@user.errors.full_messages).to include('パスワード（確認用）とパスワードの入力が一致しません')
         end
       end
 
@@ -85,7 +85,7 @@ RSpec.describe User, type: :model do
         it 'NG：last_nameが空' do
           @user.last_name = ''
           @user.valid?
-          expect(@user.errors.full_messages).to include("苗字を入力してください")
+          expect(@user.errors.full_messages).to include('苗字を入力してください')
         end
 
         it 'NG：last_nameがひらがな・カタカナ・漢字ではない' do
@@ -97,7 +97,7 @@ RSpec.describe User, type: :model do
         it 'NG：first_nameが空' do
           @user.first_name = ''
           @user.valid?
-          expect(@user.errors.full_messages).to include("名前を入力してください")
+          expect(@user.errors.full_messages).to include('名前を入力してください')
         end
 
         it 'NG：first_nameがひらがな・カタカナ・漢字ではない' do
@@ -109,7 +109,7 @@ RSpec.describe User, type: :model do
         it 'NG：last_name_kanaが空' do
           @user.last_name_kana = ''
           @user.valid?
-          expect(@user.errors.full_messages).to include("苗字（カタカナ）を入力してください")
+          expect(@user.errors.full_messages).to include('苗字（カタカナ）を入力してください')
         end
 
         it 'NG：last_name_kanaがカタカナではない' do
@@ -121,7 +121,7 @@ RSpec.describe User, type: :model do
         it 'NG：first_name_kanaが空' do
           @user.first_name_kana = ''
           @user.valid?
-          expect(@user.errors.full_messages).to include("名前（カタカナ）を入力してください")
+          expect(@user.errors.full_messages).to include('名前（カタカナ）を入力してください')
         end
 
         it 'NG：first_name_kanaがカタカナではない' do
@@ -133,7 +133,7 @@ RSpec.describe User, type: :model do
         it 'NG：birthdayが空' do
           @user.birthday = ''
           @user.valid?
-          expect(@user.errors.full_messages).to include("誕生日を入力してください")
+          expect(@user.errors.full_messages).to include('誕生日を入力してください')
         end
       end
     end
