@@ -1,0 +1,58 @@
+ここが詳細ページ。
+ひとまず、ビューの出来はさておき最低限の機能を実装。
+
+<div class="">
+  <div class="">
+    <h2 class="name">
+      <%= @bazaar.title %>
+    </h2>
+    <div class="">
+      <%= image_tag @bazaar.image ,class:"" %>
+    </div>
+    <div class="">
+      <span class="">
+        <%= "¥#{@bazaar.price}" %>
+      </span>
+      <span class="">
+        <%= "在庫；#{@bazaar.stock}" %>
+      </span>
+      <span class="">
+        <%= "期限；#{@bazaar.deadline}" %>
+      </span>
+    </div>
+
+      <% if company_signed_in? %>
+        <% if current_company.id == @bazaar.company.id %>
+          <%= link_to "商品の編集", edit_bazaar_path(@bazaar.id), method: :get, class: "" %>
+          <p class="or-text">or</p>
+          <%= link_to "削除", bazaar_path(@bazaar.id), method: :delete, class:"" %>
+        <% else %>
+          <%= link_to "購入画面に進む", bazaar_orders_path(@bazaar.id) ,class:""%>
+        <% end %>
+      <% end %>
+
+
+    <div class="">
+      <span><%= @bazaar.description %></span>
+    </div>
+    <table class="">
+      <tbody>
+        <tr>
+          <th class="">出品者</th>
+          <td class=""><%= @bazaar.company.name %></td>
+        </tr>
+        <tr>
+          <th class="">カテゴリー</th>
+          <td class=""><%= @bazaar.category.name %></td>
+        </tr>
+        <tr>
+          <th class="">配送料の負担</th>
+          <td class=""><%= @bazaar.delivery_charge.name %></td>
+        </tr>
+        <tr>
+          <th class="">発送日の目安(取引成立後)</th>
+          <td class=""><%= @bazaar.days_to_ship.name %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
