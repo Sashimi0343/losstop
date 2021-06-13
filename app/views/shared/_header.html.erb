@@ -1,8 +1,14 @@
+<li><%= link_to 'トップへ戻る', root_path %></li>
+
 <% if user_signed_in? %>
   <li><%= link_to current_user.nickname, "#" %></li>
   <li><%= link_to '一般ログアウト', destroy_user_session_path, method: :delete %> </li>
+
 <% elsif company_signed_in? %>
+<li><%= link_to current_company.name, "#" %></li>
+  <li><%= link_to '出品する', bazaars_new_path %></li>
   <li><%= link_to '会社ログアウト', destroy_company_session_path, method: :delete %> </li>
+
 <% else %>
   <li><%= link_to '会社ログイン', new_company_session_path %></li>
   <li><%= link_to '会社新規登録', new_company_registration_path %></li>
