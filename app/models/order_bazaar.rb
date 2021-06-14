@@ -1,0 +1,2 @@
+class OrderBazaar < ApplicationRecord
+end

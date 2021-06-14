@@ -1,0 +1,2 @@
+class ContactBazaar < ApplicationRecord
+end
