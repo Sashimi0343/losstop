@@ -127,8 +127,8 @@ Things you may want to cover:
 | ------------- | ---------- | ------------------------------ |
 | message       | text       | null: false                    |
 | order_bazaar  | references | null: false, foreign_key: true |
-| company       | references | null: false, foreign_key: true |
-| user          | references | null: false, foreign_key: true |
+| company       | references | foreign_key: true              |
+| user          | references | foreign_key: true              |
 
 ### Association
 - belongs_to :order_bazaar

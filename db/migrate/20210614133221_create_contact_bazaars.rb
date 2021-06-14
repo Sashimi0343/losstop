@@ -4,8 +4,8 @@ class CreateContactBazaars < ActiveRecord::Migration[6.0]
 
       t.text :message, null: false
       t.references :order_bazaar, null: false, foreign_key: true
-      t.references :Company, null: false, foreign_key: true
-      t.references :user, null: false, foreign_key: true
+      t.references :company, foreign_key: true
+      t.references :user, foreign_key: true
       t.timestamps
     end
   end
