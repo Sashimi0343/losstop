@@ -199,7 +199,7 @@ Things you may want to cover:
 ## contact_auctions テーブル
 
 | Column         | Type       | Options                        |
-| ------------- -| ---------- | ------------------------------ |
+| -------------- | ---------- | ------------------------------ |
 | message        | string     | null: false                    |
 | auction_order  | references | null: false, foreign_key: true |
 | user           | references | null: false, foreign_key: true |
