@@ -24,6 +24,9 @@ Things you may want to cover:
 * ...
 
 
+
+#===========================共通で使用するテーブル==============================
+
 ## companysテーブル
 
 | Column             | Type    | Options                   |
@@ -39,11 +42,17 @@ Things you may want to cover:
 | address            | string  | null: false               |
 | homepage           | string  |                           |
 
-### Association
-
+### Association：バザー
 - has_many :bazaars
-- has_many :reviews
+- has_many :review_bazaars
 - has_many :contact_bazaars
+
+
+### Association：逆オークション
+- has_many :order_auctions
+- has_many :review_auctions
+- has_many :contact_auctions
+
 
 
 
@@ -60,13 +69,20 @@ Things you may want to cover:
 | last_name_kana     | string | null: false               |
 | birthday           | date   | null: false               |
 
-### Association
-
-- has_many :bazaar_orders
-- has_many :reviews
+### Association：バザー
+- has_many :order_bazaars
+- has_many :review_bazaars
 - has_many :contact_bazaars
 
 
+### Association：逆オークション
+- has_many :auctions
+- has_many :review_auctions
+- has_many :contact_auctions
+
+
+
+#===========================バザーでのみ使用するテーブル==============================
 
 ## bazaars テーブル
 
@@ -84,14 +100,13 @@ Things you may want to cover:
 #### imageはActiveStorageを使用するため未記載
 
 ### Association
-
-- has_many   :bazaar_orders
-- has_many   :reviews
+- has_many   :order_bazaars
+- has_many   :review-bazaars
 - belongs_to :company
 
 
 
-## bazaar_orders テーブル
+## order_bazaars テーブル
 
 | Column    | Type       | Options                        |
 | --------- | ---------- | ------------------------------ |
@@ -100,7 +115,6 @@ Things you may want to cover:
 | user      | references | null: false, foreign_key: true |
 
 ### Association
-
 - has_one    :contact_bazaar
 - belongs_to :user
 - belongs_to :bazaar
@@ -111,30 +125,104 @@ Things you may want to cover:
 
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
-| text          | string     | null: false                    |
+| message       | string     | null: false                    |
 | bazaar_order  | references | null: false, foreign_key: true |
 | company       | references | null: false, foreign_key: true |
 | user          | references | null: false, foreign_key: true |
 
 ### Association
-
-- belongs_to :bazaar_order
+- belongs_to :order_bazaar
 - belongs_to :company
 - belongs_to :user
 
 
 
-## reviews テーブル
+## review_bazaars テーブル
 
 | Column    | Type       | Options                        |
 | --------- | ---------- | ------------------------------ |
-| text      | string     | null: false                    |
+| comment   | string     | null: false                    |
 | bazaar    | references | null: false, foreign_key: true |
 | company   | references | null: false, foreign_key: true |
 | user      | references | null: false, foreign_key: true |
 
 ### Association
+- belongs_to :bazaar
+- belongs_to :company
+- belongs_to :user
 
+
+
+#===========================逆オークションでのみ使用するテーブル==============================
+
+
+## auctions テーブル
+
+| Column              | Type       | Options                        |
+| ------------------- | ---------- | ------------------------------ |
+| title               | string     | null: false                    |
+| description         | text       | null: false                    |
+| price               | integer    | null: false                    |
+| stock               | integer    | null: false                    |
+| category_id         | integer    | null: false                    |
+| delivery_charge_id  | integer    | null: false                    |
+| days_to_ship_id     | integer    | null: false                    |
+| user                | references | null: false, foreign_key: true |
+#### imageはActiveStorageを使用するため未記載
+
+### Association
+- has_many   :order_auctions
+- has_many   :reviews
+- belongs_to :company
+
+
+
+
+## order_auctions テーブル
+
+| Column       | Type       | Options                        |
+| ------------ | ---------- | ------------------------------ |
+| title        | string     |                                |
+| description  | text       |                                |
+| stock        | integer    |                                |
+| auction      | references | null: false, foreign_key: true |
+| company      | references | null: false, foreign_key: true |
+
+### Association
+- has_one    :contact_auction
+- belongs_to :auction
+- belongs_to :company
+
+
+
+
+## contact_auctions テーブル
+
+| Column         | Type       | Options                        |
+| ------------- -| ---------- | ------------------------------ |
+| message        | string     | null: false                    |
+| auction_order  | references | null: false, foreign_key: true |
+| user           | references | null: false, foreign_key: true |
+| company        | references | null: false, foreign_key: true |
+
+### Association
+- belongs_to :order_order
+- belongs_to :user
+- belongs_to :company
+
+
+
+
+## review_auctions テーブル
+
+| Column    | Type       | Options                        |
+| --------- | ---------- | ------------------------------ |
+| comment   | string     | null: false                    |
+| auction   | references | null: false, foreign_key: true |
+| user      | references | null: false, foreign_key: true |
+| company   | references | null: false, foreign_key: true |
+
+### Association
 - belongs_to :bazaar
 - belongs_to :company
 - belongs_to :user
