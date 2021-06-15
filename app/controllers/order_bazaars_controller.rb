@@ -14,9 +14,10 @@ class OrderBazaarsController < ApplicationController
   end
 
   def show
-    @order_bazaar = OrderBazaar.find(params[:bazaar_id])
-    @contact_bazaar = ContactBazaar.new
-    @contact_bazaars = @order_bazaar.contact_bazaars.includes(:user, :companys)
+    @bazaar = Bazaar.find(params[:id])
+    @order = OrderBazaar.find(params[:bazaar_id])
+    @contact = ContactBazaar.new
+    @contact_bazaars = @order.contact_bazaars.includes(:user, :companys)
   end
 
 
