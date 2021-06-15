@@ -35,12 +35,12 @@ Things you may want to cover:
 | email              | string  | null: false, unique: true |
 | encrypted_password | string  | null: false               |
 | president          | string  | null: false               |
-| profile            | string  | null: false               |
+| profile            | text    | null: false               |
 | phone              | string  | null: false               |
 | prefecture_id      | integer | null: false               |
 | city               | string  | null: false               |
 | address            | string  | null: false               |
-| homepage           | string  |                           |
+| homepage           | text    |                           |
 
 ### Association：バザー
 - has_many :bazaars
@@ -125,10 +125,10 @@ Things you may want to cover:
 
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
-| message       | string     | null: false                    |
-| bazaar_order  | references | null: false, foreign_key: true |
-| company       | references | null: false, foreign_key: true |
-| user          | references | null: false, foreign_key: true |
+| message       | text       | null: false                    |
+| order_bazaar  | references | null: false, foreign_key: true |
+| company       | references | foreign_key: true              |
+| user          | references | foreign_key: true              |
 
 ### Association
 - belongs_to :order_bazaar
@@ -141,7 +141,7 @@ Things you may want to cover:
 
 | Column    | Type       | Options                        |
 | --------- | ---------- | ------------------------------ |
-| comment   | string     | null: false                    |
+| comment   | text       | null: false                    |
 | bazaar    | references | null: false, foreign_key: true |
 | company   | references | null: false, foreign_key: true |
 | user      | references | null: false, foreign_key: true |
@@ -200,7 +200,7 @@ Things you may want to cover:
 
 | Column         | Type       | Options                        |
 | -------------- | ---------- | ------------------------------ |
-| message        | string     | null: false                    |
+| message        | text       | null: false                    |
 | auction_order  | references | null: false, foreign_key: true |
 | user           | references | null: false, foreign_key: true |
 | company        | references | null: false, foreign_key: true |
@@ -217,7 +217,7 @@ Things you may want to cover:
 
 | Column    | Type       | Options                        |
 | --------- | ---------- | ------------------------------ |
-| comment   | string     | null: false                    |
+| comment   | text       | null: false                    |
 | auction   | references | null: false, foreign_key: true |
 | user      | references | null: false, foreign_key: true |
 | company   | references | null: false, foreign_key: true |
