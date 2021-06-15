@@ -1,7 +1,5 @@
 Rails.application.routes.draw do
-  get 'bazaars/index'
-  get 'bazaars/new'
-  get 'bazaars/create'
+
   devise_for :companys, controllers: {
     sessions: 'companys/sessions',
     passwords: 'companys/passwords',
@@ -16,5 +14,7 @@ Rails.application.routes.draw do
   root to: 'losstop#index'
 
   resources :losstop
-  resources :bazaars
+  resources :bazaars do
+    resources :order_bazaars
+  end
 end

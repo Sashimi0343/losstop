@@ -17,7 +17,9 @@ class BazaarsController < ApplicationController
     end
   end
 
-  def show; end
+  def show
+    @order_bazaar = OrderBazaar.all
+  end
 
   def edit; end
 
