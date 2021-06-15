@@ -14,9 +14,10 @@ Rails.application.routes.draw do
   root to: 'losstop#index'
 
   resources :losstop, only: [:index]
+
   resources :bazaars do
     resources :order_bazaars, only: [:new, :create, :show] do
-      resources :contact_bazaar, only: [:create]
+      resources :contact_bazaars, only: [:create]
     end
   end
 end
