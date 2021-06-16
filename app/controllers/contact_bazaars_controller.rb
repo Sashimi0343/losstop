@@ -1,12 +1,12 @@
 class ContactBazaarsController < ApplicationController
 
   def create
-    contact_bazaar = ContactBazaar.create(message_params)
+    contact_bazaar = ContactBazaar.create(contact_params)
   end
 
   private
 
-  def message_params
+  def contact_params
     if current_user == nil
       params.require(:contact_bazaar).permit(:message).merge(order_bazaar_id: params[:order_bazaar_id], company_id: current_company.id)
     else
