@@ -21,6 +21,6 @@ class Bazaar < ApplicationRecord
 
   has_one_attached :image
   has_many :order_bazaars
-  #  has_many :reviews
+  has_many :review_bazaars
   belongs_to :company
 end

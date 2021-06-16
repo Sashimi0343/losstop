@@ -24,5 +24,5 @@ class Company < ApplicationRecord
   belongs_to :prefecture
   has_many :bazaars
   has_many :contact_bazaars
-  #  has_many :reviews
+  has_many :review_bazaars
 end

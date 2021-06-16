@@ -71,3 +71,26 @@
       </tbody>
     </table>
   </div>
+</div>
+
+
+
+  <%= "ユーザーレビュー" %>
+  <%= form_with model: @review, url: bazaar_review_bazaars_path(bazaar_id: @bazaar.id), local: true do |f| %>
+  <%= f.text_area :comment, placeholder: "ここに入力してください", rows: "2" %>
+  <%= f.submit "送信" %>
+<% end %>
+
+<% @reviews.each do |review| %>
+  <% if review.user_id == nil %>
+    <div>
+      <p><%= review.company.name %></p>
+      <p><strong><%= review.comment %></strong></p><br>
+    </div>
+  <% else %>
+    <div>
+      <p><%= review.user.nickname %></p>
+      <p><strong><%= review.comment %></strong></p><br>
+    </div>
+  <% end %>
+<% end %>

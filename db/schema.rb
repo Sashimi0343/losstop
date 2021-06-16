@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_14_133221) do
+ActiveRecord::Schema.define(version: 2021_06_16_122945) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -90,6 +90,18 @@ ActiveRecord::Schema.define(version: 2021_06_14_133221) do
     t.index ["user_id"], name: "index_order_bazaars_on_user_id"
   end
 
+  create_table "review_bazaars", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "comment", null: false
+    t.bigint "bazaar_id", null: false
+    t.bigint "company_id"
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["bazaar_id"], name: "index_review_bazaars_on_bazaar_id"
+    t.index ["company_id"], name: "index_review_bazaars_on_company_id"
+    t.index ["user_id"], name: "index_review_bazaars_on_user_id"
+  end
+
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "nickname", null: false
     t.string "email", default: "", null: false
@@ -115,4 +127,7 @@ ActiveRecord::Schema.define(version: 2021_06_14_133221) do
   add_foreign_key "contact_bazaars", "users"
   add_foreign_key "order_bazaars", "bazaars"
   add_foreign_key "order_bazaars", "users"
+  add_foreign_key "review_bazaars", "bazaars"
+  add_foreign_key "review_bazaars", "companies"
+  add_foreign_key "review_bazaars", "users"
 end

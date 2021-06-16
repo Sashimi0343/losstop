@@ -16,6 +16,7 @@ Rails.application.routes.draw do
   resources :losstop, only: [:index]
 
   resources :bazaars do
+    resources :review_bazaars, only: [:create]
     resources :order_bazaars, only: [:new, :create, :show] do
       resources :contact_bazaars, only: [:create]
     end
