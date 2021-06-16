@@ -17,7 +17,7 @@ class OrderBazaarsController < ApplicationController
     @bazaar = Bazaar.find(params[:id])
     @order = OrderBazaar.find(params[:bazaar_id])
     @contact = ContactBazaar.new
-    @contact_bazaars = @order.contact_bazaars.includes(:user, :companys)
+    @contacts = @order.contact_bazaars.order('created_at DESC')
   end
 
 

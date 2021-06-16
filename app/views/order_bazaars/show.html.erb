@@ -1,6 +1,21 @@
 <%= image_tag @order.bazaar.image %>
 
+
 <%= form_with model: @contact, url: bazaar_order_bazaar_contact_bazaars_path(bazaar_id: @bazaar.id, order_bazaar_id: @order.id), local: true do |f| %>
   <%= f.text_area :message, placeholder: "ここに入力してください", rows: "2" %>
   <%= f.submit "送信" %>
+<% end %>
+
+<% @contacts.each do |contact| %>
+  <% if contact.user_id == nil %>
+    <div>
+      <p><%= contact.company.name %></p>
+      <p><strong><%= contact.message %></strong></p><br>
+    </div>
+  <% else %>
+    <div>
+      <p><%= contact.user.nickname %></p>
+      <p><strong><%= contact.message %></strong></p><br>
+    </div>
+  <% end %>
 <% end %>
