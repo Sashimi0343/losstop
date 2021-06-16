@@ -1,0 +1,2 @@
+module ContactBazaarsHelper
+end

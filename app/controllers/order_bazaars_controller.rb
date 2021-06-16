@@ -14,7 +14,10 @@ class OrderBazaarsController < ApplicationController
   end
 
   def show
-    @order_bazaar = OrderBazaar.find(params[:bazaar_id])
+    @bazaar = Bazaar.find(params[:id])
+    @order = OrderBazaar.find(params[:bazaar_id])
+    @contact = ContactBazaar.new
+    @contacts = @order.contact_bazaars.order('created_at DESC')
   end
 
 
