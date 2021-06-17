@@ -75,10 +75,13 @@
 
 
 
-  <%= "ユーザーレビュー" %>
+<%= "ユーザーレビュー" %>
+
+<% if user_signed_in? || company_signed_in? %>
   <%= form_with model: @review, url: bazaar_review_bazaars_path(bazaar_id: @bazaar.id), local: true do |f| %>
-  <%= f.text_area :comment, placeholder: "ここに入力してください", rows: "2" %>
-  <%= f.submit "送信" %>
+    <%= f.text_area :comment, placeholder: "ここに入力してください", rows: "2" %>
+    <%= f.submit "送信" %>
+  <% end %>
 <% end %>
 
 <% @reviews.each do |review| %>

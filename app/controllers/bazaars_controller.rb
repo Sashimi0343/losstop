@@ -1,5 +1,8 @@
 class BazaarsController < ApplicationController
   before_action :set_bazaar, only: %i[show edit update destroy]
+  before_action :authenticate_company!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :check_company, only: %i[edit update destroy]
+
 
   def index
     @bazaars = Bazaar.order('created_at DESC')
@@ -23,7 +26,8 @@ class BazaarsController < ApplicationController
     @reviews = @bazaar.review_bazaars.order('created_at DESC')
   end
 
-  def edit; end
+  def edit
+  end
 
   def update
     if @bazaar.update(bazaar_params)
@@ -48,5 +52,11 @@ class BazaarsController < ApplicationController
 
   def set_bazaar
     @bazaar = Bazaar.find(params[:id])
+  end
+
+  def check_company
+    if @bazaar.company.id != current_company.id
+      redirect_to bazaar_path
+    end
   end
 end
