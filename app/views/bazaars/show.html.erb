@@ -34,15 +34,21 @@
 
 
     <% @order_bazaar.each do |order| %>
-      <% unless company_signed_in? %>
-        <% if user_signed_in? %>
-          <% if (order.bazaar_id == @bazaar.id) && (order.user_id == current_user.id) %>
+      <% if current_company == nil %>
+        <% if (order.bazaar_id == @bazaar.id) && (order.user_id == current_user.id) %>
+          <div class="">
             <div class="">
-              <div class="">
-                <%= link_to "取引連絡部屋へ", bazaar_order_bazaar_path(order.id)%>
-              </div>
+              <%= link_to "取引連絡部屋へ", bazaar_order_bazaar_path(order.id)%>
             </div>
-          <% end %>
+          </div>
+        <% end %>
+      <% elsif current_user == nil %>
+        <% if (order.bazaar_id == @bazaar.id) && (@bazaar.company_id == current_company.id) %>
+          <div class="">
+            <div class="">
+              <%= link_to "取引連絡部屋へ", bazaar_order_bazaar_path(order.id)%>
+            </div>
+          </div>
         <% end %>
       <% end %>
     <% end %>
