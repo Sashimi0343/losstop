@@ -1,7 +1,7 @@
 class OrderBazaarsController < ApplicationController
   before_action :set_bazaar, only: [:new, :create]
   before_action :authenticate_user!, only: [:new, :create]
-  #before_action :check_login, only: [:show]
+
 
   def new
     @order_bazaar = OrderBazaar.new
@@ -20,6 +20,16 @@ class OrderBazaarsController < ApplicationController
     @order = OrderBazaar.find(params[:bazaar_id])
     @contact = ContactBazaar.new
     @contacts = @order.contact_bazaars.order('created_at DESC')
+
+    if user_signed_in? || company_signed_in?
+      if current_company == nil && current_user.id != @order.user.id
+        redirect_to root_path
+      elsif current_user == nil && current_company.id != @order.bazaar.company.id
+        redirect_to root_path
+      end
+    else
+      redirect_to root_path
+    end
   end
 
 
@@ -32,11 +42,4 @@ class OrderBazaarsController < ApplicationController
   def set_bazaar
     @bazaar = Bazaar.find(params[:bazaar_id])
   end
-
-  def check_login
-    unless user_signed_in? || company_signed_in?
-      redirect_to root_path
-    end
-  end
-
 end

@@ -2,7 +2,15 @@ class ContactBazaarsController < ApplicationController
   before_action :check_login, only: %i[create]
 
   def create
-    contact_bazaar = ContactBazaar.create(contact_params)
+    contact_bazaar = ContactBazaar.new(contact_params)
+
+    if current_company == nil && (current_user.id != contact_bazaar.user.id)
+      redirect_to root_path
+    elsif current_user == nil && (current_company.id != contact_bazaar.company.id)
+      redirect_to root_path
+    else
+      contact_bazaar.save
+    end
   end
 
   private
@@ -20,5 +28,4 @@ class ContactBazaarsController < ApplicationController
       redirect_to root_path
     end
   end
-
 end

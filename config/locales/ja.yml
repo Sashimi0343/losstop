@@ -32,3 +32,7 @@ ja:
         days_to_ship_id: 発送までの日にち
       order_bazaar:
         quantity: 購入希望数
+      contact_bazaar:
+        message: メッセージ
+      review_bazaar:
+        comment: コメント
