@@ -21,4 +21,5 @@ class User < ApplicationRecord
   has_many :review_bazaars
 
   has_many :auctions
+  has_many :contact_auctions, dependent: :destroy
 end
