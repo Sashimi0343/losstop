@@ -31,6 +31,7 @@ Rails.application.routes.draw do
   end
 
   resources :auctions do
+    resources :review_auctions, only: [:create]
     resources :order_auctions, only: [:new, :create, :show] do
       resources :contact_auctions, only: [:create]
     end

@@ -1,0 +1,2 @@
+class ReviewAuctionsController < ApplicationController
+end

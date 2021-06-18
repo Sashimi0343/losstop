@@ -1,0 +1,2 @@
+class ReviewAuction < ApplicationRecord
+end
