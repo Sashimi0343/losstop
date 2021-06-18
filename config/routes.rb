@@ -30,5 +30,7 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :auctions
+  resources :auctions do
+    resources :order_bazaars, only: [:new, :create, :show]
+  end
 end
