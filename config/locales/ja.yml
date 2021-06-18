@@ -36,3 +36,13 @@ ja:
         message: メッセージ
       review_bazaar:
         comment: コメント
+      auction:
+        title: タイトル
+        description: 欲しい商品の詳細
+        price: 希望価格(単価)
+        stock: 購入希望上限数
+        category_id: カテゴリー
+        delivery_charge_id: 送料の負担
+        days_to_ship_id: 発送までの日にち
+
+
