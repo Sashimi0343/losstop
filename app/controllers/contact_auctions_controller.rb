@@ -1,0 +1,2 @@
+class ContactAuctionsController < ApplicationController
+end

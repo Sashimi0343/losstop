@@ -1,0 +1,2 @@
+class ContactAuction < ApplicationRecord
+end
