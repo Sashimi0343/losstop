@@ -22,8 +22,8 @@ class AuctionsController < ApplicationController
 
   def show
     @order_auction = OrderAuction.all
-    #@review = ReviewAuction.new
-    #@reviews = @auction.review_auctions.order('created_at DESC')
+    @review = ReviewAuction.new
+    @reviews = @auction.review_auctions.order('created_at DESC')
   end
 
   def edit

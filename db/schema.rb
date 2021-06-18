@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_18_171159) do
+ActiveRecord::Schema.define(version: 2021_06_18_181701) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -128,6 +128,18 @@ ActiveRecord::Schema.define(version: 2021_06_18_171159) do
     t.index ["user_id"], name: "index_order_bazaars_on_user_id"
   end
 
+  create_table "review_auctions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "comment", null: false
+    t.bigint "auction_id", null: false
+    t.bigint "user_id"
+    t.bigint "company_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["auction_id"], name: "index_review_auctions_on_auction_id"
+    t.index ["company_id"], name: "index_review_auctions_on_company_id"
+    t.index ["user_id"], name: "index_review_auctions_on_user_id"
+  end
+
   create_table "review_bazaars", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "comment", null: false
     t.bigint "bazaar_id", null: false
@@ -171,6 +183,9 @@ ActiveRecord::Schema.define(version: 2021_06_18_171159) do
   add_foreign_key "order_auctions", "companies"
   add_foreign_key "order_bazaars", "bazaars"
   add_foreign_key "order_bazaars", "users"
+  add_foreign_key "review_auctions", "auctions"
+  add_foreign_key "review_auctions", "companies"
+  add_foreign_key "review_auctions", "users"
   add_foreign_key "review_bazaars", "bazaars"
   add_foreign_key "review_bazaars", "companies"
   add_foreign_key "review_bazaars", "users"
