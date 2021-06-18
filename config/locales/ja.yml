@@ -51,5 +51,7 @@ ja:
         quantity: 販売希望数
       contact_auction:
         message: メッセージ
+      review_auction:
+        comment: コメント
 
 

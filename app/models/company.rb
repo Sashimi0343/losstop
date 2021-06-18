@@ -28,4 +28,5 @@ class Company < ApplicationRecord
 
   has_many :order_auctions, dependent: :destroy
   has_many :contact_auctions, dependent: :destroy
+  has_many :review_auctions, dependent: :destroy
 end

@@ -1,9 +1,11 @@
 FactoryBot.define do
-  factory :review_bazaar do
+  factory :review_auction do
+
     comment     { Faker::Lorem.sentence }
 
     association :user
     association :company
-    association :bazaar
+    association :auction
+
   end
 end
