@@ -184,9 +184,10 @@ Things you may want to cover:
 | ------------ | ---------- | ------------------------------ |
 | title        | string     |                                |
 | description  | text       |                                |
-| stock        | integer    |                                |
+| quantity     | integer    |                                |
 | auction      | references | null: false, foreign_key: true |
 | company      | references | null: false, foreign_key: true |
+#### imageはActiveStorageを使用するため未記載
 
 ### Association
 - has_one    :contact_auction

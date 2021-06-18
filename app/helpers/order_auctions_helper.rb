@@ -1,0 +1,2 @@
+module OrderAuctionsHelper
+end
