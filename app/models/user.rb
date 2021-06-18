@@ -19,4 +19,6 @@ class User < ApplicationRecord
   has_many :order_bazaars
   has_many :contact_bazaars
   has_many :review_bazaars
+
+  has_many :auctions
 end

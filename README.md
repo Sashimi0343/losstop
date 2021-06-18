@@ -173,7 +173,7 @@ Things you may want to cover:
 ### Association
 - has_many   :order_auctions
 - has_many   :reviews
-- belongs_to :company
+- belongs_to :user
 
 
 

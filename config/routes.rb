@@ -1,5 +1,13 @@
 Rails.application.routes.draw do
 
+  get 'auctions/index'
+  get 'auctions/new'
+  get 'auctions/create'
+  get 'auctions/show'
+  get 'auctions/edit'
+  get 'auctions/update'
+  get 'auctions/destroy'
+  get 'auctions/search'
   devise_for :companys, controllers: {
     sessions: 'companys/sessions',
     passwords: 'companys/passwords',
@@ -21,4 +29,6 @@ Rails.application.routes.draw do
       resources :contact_bazaars, only: [:create]
     end
   end
+
+  resources :auctions
 end

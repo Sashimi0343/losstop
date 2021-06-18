@@ -1,8 +1,8 @@
-class Bazaar < ApplicationRecord
+class Auction < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
 
   with_options presence: true do
-    validates :title, :description, :deadline, :image
+    validates :title, :description
 
     validates :price, numericality: { only_integer: true, message: 'は半角数字で入力してください。' }
     validates_inclusion_of :price, in: 300..999_999_999, message: 'は300円から設定可能です。'
@@ -19,8 +19,7 @@ class Bazaar < ApplicationRecord
   belongs_to :days_to_ship
   belongs_to :delivery_charge
 
-  has_one_attached :image
-  has_many :order_bazaars, dependent: :destroy
-  has_many :review_bazaars, dependent: :destroy
-  belongs_to :company
+  #has_many :order_auctions
+  #has_many :review_auctions
+  belongs_to :user
 end
