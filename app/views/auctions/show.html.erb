@@ -31,8 +31,7 @@
         <%= link_to "削除", auction_path(@auction.id), method: :delete, class:"" %>
       <% end %>
     <% elsif company_signed_in? %>
-      <%= "ここはorder_auction実装後" %>
-      <%#= link_to "購入画面に進む", new_bazaar_order_bazaar_path(@bazaar.id) ,class:""%>
+      <%= link_to "購入画面に進む", new_auction_order_auction_path(@auction.id) ,class:""%>
     <% end %>
 
 
