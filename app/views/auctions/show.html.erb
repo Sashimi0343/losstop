@@ -24,6 +24,30 @@
       </span>
     </div>
 
+    <div class="">
+      <span><%= @auction.description %></span>
+    </div>
+    <table class="">
+      <tbody>
+        <tr>
+          <th class="">買いたい人</th>
+          <td class=""><%= @auction.user.nickname %></td>
+        </tr>
+        <tr>
+          <th class="">カテゴリー</th>
+          <td class=""><%= @auction.category.name %></td>
+        </tr>
+        <tr>
+          <th class="">配送料の負担</th>
+          <td class=""><%= @auction.delivery_charge.name %></td>
+        </tr>
+        <tr>
+          <th class="">この日までに欲しい！</th><%= "ここ後で日付に変更する。deadline流用する。" %>
+          <td class=""><%= @auction.days_to_ship.name %></td>
+        </tr>
+      </tbody>
+    </table>
+
     <% if user_signed_in? %>
       <% if current_user.id == @auction.user.id %>
         <%= link_to "出品内容の編集", edit_auction_path(@auction.id), method: :get, class: "" %>
@@ -31,12 +55,38 @@
         <%= link_to "削除", auction_path(@auction.id), method: :delete, class:"" %>
       <% end %>
     <% elsif company_signed_in? %>
-      <%= link_to "購入画面に進む", new_auction_order_auction_path(@auction.id) ,class:""%>
+      <%= link_to "販売交渉へ進む", new_auction_order_auction_path(@auction.id) ,class:""%>
     <% end %>
 
 
-<%#=ここから先はorder_auction実装後にコピペする。取引一覧のやつ。  %>
 
+    <% @order_auction.each do |order| %>
+      <% if current_user == nil %>
+        <% if (order.auction_id == @auction.id) && (order.company_id == current_company.id) %>
+          <div class="">
+            <div class="">
+              <%= image_tag order.image %>
+            </div>
+            <div class="">
+              <%= link_to "取引連絡部屋へ", auction_order_auction_path(order.id)%>
+            </div>
+          </div>
+        <% end %>
+      <% elsif current_company == nil %>
+        <% if (order.auction_id == @auction.id) && (@auction.user_id == current_user.id) %>
+          <div class="">
+            <div class="">
+              <%= image_tag order.image %>
+            </div>
+            <div class="">
+              <%= link_to "取引連絡部屋へ", auction_order_auction_path(order.id)%>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
+    <% end %>
+  </div>
+</div>
 <%#=ここから先はreview_auction実装後にコピペする。レビューのやつ  %>
 
 <%= "ユーザーレビュー" %>
