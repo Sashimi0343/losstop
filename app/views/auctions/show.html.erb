@@ -1,2 +1,43 @@
-<h1>Auctions#show</h1>
-<p>Find me in app/views/auctions/show.html.erb</p>
+ここが詳細ページ。
+ひとまず、ビューの出来はさておき最低限の機能を実装。
+
+<div class="">
+  <div class="">
+    <div>
+      <h2 class="">
+        <%= @auction.title %>
+      </h2>
+    </div>
+
+    <div>
+      <h3 class="">
+        <%= @auction.description %>
+      </h3>
+    </div>
+
+    <div class="">
+      <span class="">
+        <%= "希望価格：#{@auction.price}" %>
+      </span>
+      <span class="">
+        <%= "購入希望上限数；#{@auction.stock}" %>
+      </span>
+    </div>
+
+    <% if user_signed_in? %>
+      <% if current_user.id == @auction.user.id %>
+        <%= link_to "出品内容の編集", edit_auction_path(@auction.id), method: :get, class: "" %>
+        <p class="or-text">or</p>
+        <%= link_to "削除", auction_path(@auction.id), method: :delete, class:"" %>
+      <% end %>
+    <% elsif company_signed_in? %>
+      <%= "ここはorder_auction実装後" %>
+      <%#= link_to "購入画面に進む", new_bazaar_order_bazaar_path(@bazaar.id) ,class:""%>
+    <% end %>
+
+
+<%#=ここから先はorder_auction実装後にコピペする。取引一覧のやつ。  %>
+
+<%#=ここから先はreview_auction実装後にコピペする。レビューのやつ  %>
+
+<%= "ユーザーレビュー" %>

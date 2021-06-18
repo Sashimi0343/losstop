@@ -1,2 +1,10 @@
-<h1>Auctions#new</h1>
-<p>Find me in app/views/auctions/new.html.erb</p>
+<p>ここが逆オークションの出品</p>
+<br>
+<br>
+<br>
+<br>
+
+
+<%= render partial: "form", locals: { auction: @auction }%>
+
+<li><%= link_to 'トップへ戻る', auctions_path %></li>
