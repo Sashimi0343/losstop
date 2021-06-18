@@ -49,5 +49,7 @@ ja:
         description: 商品説明欄
         image: 商品の画像
         quantity: 販売希望数
+      contact_auction:
+        message: メッセージ
 
 
