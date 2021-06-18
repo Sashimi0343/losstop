@@ -20,7 +20,7 @@ class Bazaar < ApplicationRecord
   belongs_to :delivery_charge
 
   has_one_attached :image
-  has_many :order_bazaars
-  has_many :review_bazaars
+  has_many :order_bazaars, dependent: :destroy
+  has_many :review_bazaars, dependent: :destroy
   belongs_to :company
 end

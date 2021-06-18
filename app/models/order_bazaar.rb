@@ -5,7 +5,7 @@ class OrderBazaar < ApplicationRecord
     validates :quantity, numericality: { only_integer: true, message: 'は半角数字で入力してください。' }
   end
 
-  has_many :contact_bazaars
+  has_many :contact_bazaars, dependent: :destroy
   belongs_to :bazaar
   belongs_to :user
 end
