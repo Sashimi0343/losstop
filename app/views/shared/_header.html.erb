@@ -4,6 +4,7 @@
 
 <% if user_signed_in? %>
   <li><%= link_to current_user.nickname, "#" %></li>
+  <li><%= link_to '買いたいを出品する', new_auction_path %></li>
   <li><%= link_to '一般ログアウト', destroy_user_session_path, method: :delete %> </li>
 
 <% elsif company_signed_in? %>
