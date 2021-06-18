@@ -20,6 +20,7 @@ class User < ApplicationRecord
   has_many :contact_bazaars
   has_many :review_bazaars
 
-  has_many :auctions
+  has_many :auctions, dependent: :destroy
   has_many :contact_auctions, dependent: :destroy
+  has_many :review_auctions, dependent: :destroy
 end

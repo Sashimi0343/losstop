@@ -19,7 +19,7 @@ class Auction < ApplicationRecord
   belongs_to :days_to_ship
   belongs_to :delivery_charge
 
-  #has_many :order_auctions
-  #has_many :review_auctions
+  has_many :order_auctions, dependent: :destroy
+  has_many :review_auctions, dependent: :destroy
   belongs_to :user
 end
