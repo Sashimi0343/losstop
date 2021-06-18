@@ -25,4 +25,6 @@ class Company < ApplicationRecord
   has_many :bazaars, dependent: :destroy
   has_many :contact_bazaars, dependent: :destroy
   has_many :review_bazaars, dependent: :destroy
+
+  has_many :order_auctions, dependent: :destroy
 end

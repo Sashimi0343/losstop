@@ -1,0 +1,25 @@
+<%= @order.company.name %><p>さんと</p><br>
+<%= @order.auction.user.nickname %><p>さんの取引連絡ページ。</p><br>
+
+<div>
+  <br>
+  <p>商品画像</p><br>
+  <%= image_tag @order.image %>
+</div>
+
+<div>
+  <br>
+  <p>商品名：</p><%= @order.title %>
+</div>
+
+<div>
+  <br>
+  <p>商品説明文：</p><%= @order.description %>
+</div>
+
+<div>
+  <br>
+  <p>販売希望数：</p><%= @order.quantity %>
+</div>
+
+<%#= コンタクトはこの後実装するときにコピペする %>
