@@ -19,8 +19,8 @@ class OrderAuctionsController < ApplicationController
   def show
     @auction = Auction.find(params[:id])
     @order = OrderAuction.find(params[:auction_id])
-    #@contact = ContactAuction.new
-    #@contacts = @auction.contact_auctions.order('created_at DESC')
+    @contact = ContactAuction.new
+    @contacts = @order.contact_auctions.order('created_at DESC')
 
     if user_signed_in? || company_signed_in?
       if current_user == nil && current_company.id != @order.company.id

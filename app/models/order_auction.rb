@@ -6,7 +6,7 @@ class OrderAuction < ApplicationRecord
   end
 
   has_one_attached :image
-  #has_many :contact_auctions, dependent: :destroy
+  has_many :contact_auctions, dependent: :destroy
   belongs_to :auction
   belongs_to :company
 

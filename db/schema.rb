@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_18_154903) do
+ActiveRecord::Schema.define(version: 2021_06_18_171159) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -82,6 +82,18 @@ ActiveRecord::Schema.define(version: 2021_06_18_154903) do
     t.index ["reset_password_token"], name: "index_companies_on_reset_password_token", unique: true
   end
 
+  create_table "contact_auctions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.text "message", null: false
+    t.bigint "order_auction_id", null: false
+    t.bigint "user_id"
+    t.bigint "company_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["company_id"], name: "index_contact_auctions_on_company_id"
+    t.index ["order_auction_id"], name: "index_contact_auctions_on_order_auction_id"
+    t.index ["user_id"], name: "index_contact_auctions_on_user_id"
+  end
+
   create_table "contact_bazaars", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "message", null: false
     t.bigint "order_bazaar_id", null: false
@@ -149,6 +161,9 @@ ActiveRecord::Schema.define(version: 2021_06_18_154903) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "auctions", "users"
   add_foreign_key "bazaars", "companies"
+  add_foreign_key "contact_auctions", "companies"
+  add_foreign_key "contact_auctions", "order_auctions"
+  add_foreign_key "contact_auctions", "users"
   add_foreign_key "contact_bazaars", "companies"
   add_foreign_key "contact_bazaars", "order_bazaars"
   add_foreign_key "contact_bazaars", "users"
