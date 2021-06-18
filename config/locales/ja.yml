@@ -44,5 +44,10 @@ ja:
         category_id: カテゴリー
         delivery_charge_id: 送料の負担
         days_to_ship_id: 発送までの日にち
+      order_auction:
+        title: 商品名
+        description: 商品説明欄
+        image: 商品の画像
+        quantity: 販売希望数
 
 
