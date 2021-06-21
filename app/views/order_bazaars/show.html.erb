@@ -8,16 +8,18 @@
   <%= f.submit "送信" %>
 <% end %>
 
-<% @contacts.each do |contact| %>
-  <% if contact.user_id == nil %>
-    <div>
-      <p><%= contact.company.name %></p>
-      <p><strong><%= contact.message %></strong></p><br>
-    </div>
-  <% else %>
-    <div>
-      <p><%= contact.user.nickname %></p>
-      <p><strong><%= contact.message %></strong></p><br>
-    </div>
+<div id='messages'>
+  <% @contacts.each do |contact| %>
+    <% if contact.user_id == nil %>
+      <div>
+        <p><%= contact.company.name %></p>
+        <p><strong><%= contact.message %></strong></p><br>
+      </div>
+    <% else %>
+      <div>
+        <p><%= contact.user.nickname %></p>
+        <p><strong><%= contact.message %></strong></p><br>
+      </div>
+    <% end %>
   <% end %>
-<% end %>
+</div>

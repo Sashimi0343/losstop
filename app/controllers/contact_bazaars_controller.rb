@@ -10,6 +10,7 @@ class ContactBazaarsController < ApplicationController
       redirect_to root_path
     else
       contact_bazaar.save
+      ActionCable.server.broadcast 'contact_bazaar_channel', content: contact_bazaar
     end
   end
 
