@@ -91,15 +91,8 @@
 <% end %>
 
 <% @reviews.each do |review| %>
-  <% if review.user_id == nil %>
-    <div>
-      <p><%= review.company.name %></p>
-      <p><strong><%= review.comment %></strong></p><br>
-    </div>
-  <% else %>
-    <div>
-      <p><%= review.user.nickname %></p>
-      <p><strong><%= review.comment %></strong></p><br>
-    </div>
-  <% end %>
+  <div>
+    <p><%= review.name %></p>
+    <p><strong><%= review.comment %></strong></p><br>
+  </div>
 <% end %>

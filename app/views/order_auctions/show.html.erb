@@ -28,15 +28,8 @@
 <% end %>
 
 <% @contacts.each do |contact| %>
-  <% if contact.company_id == nil %>
-    <div>
-      <p><%= contact.user.nickname %></p>
-      <p><strong><%= contact.message %></strong></p><br>
-    </div>
-  <% else %>
-    <div>
-      <p><%= contact.company.name %></p>
-      <p><strong><%= contact.message %></strong></p><br>
-    </div>
-  <% end %>
+  <div>
+    <p><%= contact.name %></p>
+    <p><strong><%= contact.message %></strong></p><br>
+  </div>
 <% end %>
