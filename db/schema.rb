@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_18_154903) do
+ActiveRecord::Schema.define(version: 2021_06_18_181701) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -82,6 +82,32 @@ ActiveRecord::Schema.define(version: 2021_06_18_154903) do
     t.index ["reset_password_token"], name: "index_companies_on_reset_password_token", unique: true
   end
 
+  create_table "contact_auctions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "message", null: false
+    t.bigint "order_auction_id", null: false
+    t.bigint "user_id"
+    t.bigint "company_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["company_id"], name: "index_contact_auctions_on_company_id"
+    t.index ["order_auction_id"], name: "index_contact_auctions_on_order_auction_id"
+    t.index ["user_id"], name: "index_contact_auctions_on_user_id"
+  end
+
+  create_table "contact_bazaars", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "message", null: false
+    t.bigint "order_bazaar_id", null: false
+    t.bigint "company_id"
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["company_id"], name: "index_contact_bazaars_on_company_id"
+    t.index ["order_bazaar_id"], name: "index_contact_bazaars_on_order_bazaar_id"
+    t.index ["user_id"], name: "index_contact_bazaars_on_user_id"
+  end
+
   create_table "order_auctions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
     t.text "description", null: false
@@ -102,6 +128,32 @@ ActiveRecord::Schema.define(version: 2021_06_18_154903) do
     t.datetime "updated_at", precision: 6, null: false
     t.index ["bazaar_id"], name: "index_order_bazaars_on_bazaar_id"
     t.index ["user_id"], name: "index_order_bazaars_on_user_id"
+  end
+
+  create_table "review_auctions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "comment", null: false
+    t.bigint "auction_id", null: false
+    t.bigint "user_id"
+    t.bigint "company_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["auction_id"], name: "index_review_auctions_on_auction_id"
+    t.index ["company_id"], name: "index_review_auctions_on_company_id"
+    t.index ["user_id"], name: "index_review_auctions_on_user_id"
+  end
+
+  create_table "review_bazaars", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.text "comment", null: false
+    t.bigint "bazaar_id", null: false
+    t.bigint "company_id"
+    t.bigint "user_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["bazaar_id"], name: "index_review_bazaars_on_bazaar_id"
+    t.index ["company_id"], name: "index_review_bazaars_on_company_id"
+    t.index ["user_id"], name: "index_review_bazaars_on_user_id"
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -125,8 +177,20 @@ ActiveRecord::Schema.define(version: 2021_06_18_154903) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "auctions", "users"
   add_foreign_key "bazaars", "companies"
+  add_foreign_key "contact_auctions", "companies"
+  add_foreign_key "contact_auctions", "order_auctions"
+  add_foreign_key "contact_auctions", "users"
+  add_foreign_key "contact_bazaars", "companies"
+  add_foreign_key "contact_bazaars", "order_bazaars"
+  add_foreign_key "contact_bazaars", "users"
   add_foreign_key "order_auctions", "auctions"
   add_foreign_key "order_auctions", "companies"
   add_foreign_key "order_bazaars", "bazaars"
   add_foreign_key "order_bazaars", "users"
+  add_foreign_key "review_auctions", "auctions"
+  add_foreign_key "review_auctions", "companies"
+  add_foreign_key "review_auctions", "users"
+  add_foreign_key "review_bazaars", "bazaars"
+  add_foreign_key "review_bazaars", "companies"
+  add_foreign_key "review_bazaars", "users"
 end
