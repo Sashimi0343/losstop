@@ -92,15 +92,17 @@
 <%= "ユーザーレビュー" %>
 
 <% if user_signed_in? || company_signed_in? %>
-  <%= form_with model: @review, url: auction_review_auctions_path(auction_id: @auction.id), local: true do |f| %>
+  <%= form_with model: @review, url: auction_review_auctions_path(auction_id: @auction.id) do |f| %>
     <%= f.text_area :comment, placeholder: "ここに入力してください", rows: "2" %>
     <%= f.submit "送信" %>
   <% end %>
 <% end %>
 
-<% @reviews.each do |review| %>
-  <div>
-    <p><%= review.name %></p>
-    <p><strong><%= review.comment %></strong></p><br>
-  </div>
-<% end %>
+<div id='messages'>
+  <% @reviews.each do |review| %>
+    <div>
+      <p><%= review.name %></p>
+      <p><strong><%= review.comment %></strong></p><br>
+    </div>
+  <% end %>
+</div>

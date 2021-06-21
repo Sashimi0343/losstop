@@ -3,6 +3,7 @@ class ReviewAuctionsController < ApplicationController
 
   def create
     review_auction = ReviewAuction.create(review_params)
+    ActionCable.server.broadcast 'review_auction_channel', content: review_auction
   end
 
   private

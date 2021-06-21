@@ -3,6 +3,7 @@ class ReviewBazaarsController < ApplicationController
 
   def create
     review_bazaar = ReviewBazaar.create(review_params)
+    ActionCable.server.broadcast 'review_bazaar_channel', content: review_bazaar
   end
 
   private
