@@ -1,7 +1,7 @@
 class ReviewBazaar < ApplicationRecord
 
   with_options presence: true do
-    validates :comment
+    validates :comment, :name
   end
 
 

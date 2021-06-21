@@ -1,7 +1,7 @@
 class ReviewAuction < ApplicationRecord
 
   with_options presence: true do
-    validates :comment
+    validates :comment, :name
   end
 
   belongs_to :auction
