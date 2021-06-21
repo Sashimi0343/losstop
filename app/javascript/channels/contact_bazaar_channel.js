@@ -11,17 +11,10 @@ consumer.subscriptions.create("ContactBazaarChannel", {
 
   received(data) {
     const html = `
-      <% if contact.user_id == nil %>
-        <div>
-          <p><%= data.content.company.name %></p>
-          <p><strong>${data.content.message}</strong></p><br>
-        </div>
-      <% else %>
-        <div>
-          <p><%= data.content.user.nickname %></p>
-          <p><strong>${data.content.message}</strong></p><br>
-        </div>
-      <% end %>`;
+      <div>
+        <p>${data.content.name}</p>
+        <p><strong>${data.content.message}</strong></p><br>
+      </div>`;
     const messages = document.getElementById('messages');
     const newMessage = document.getElementById('contact_bazaar_message');
     messages.insertAdjacentHTML('afterbegin', html);
