@@ -83,6 +83,7 @@ ActiveRecord::Schema.define(version: 2021_06_18_181701) do
   end
 
   create_table "contact_auctions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
     t.text "message", null: false
     t.bigint "order_auction_id", null: false
     t.bigint "user_id"
@@ -95,6 +96,7 @@ ActiveRecord::Schema.define(version: 2021_06_18_181701) do
   end
 
   create_table "contact_bazaars", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
     t.text "message", null: false
     t.bigint "order_bazaar_id", null: false
     t.bigint "company_id"
@@ -129,6 +131,7 @@ ActiveRecord::Schema.define(version: 2021_06_18_181701) do
   end
 
   create_table "review_auctions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
     t.text "comment", null: false
     t.bigint "auction_id", null: false
     t.bigint "user_id"
@@ -141,6 +144,7 @@ ActiveRecord::Schema.define(version: 2021_06_18_181701) do
   end
 
   create_table "review_bazaars", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
     t.text "comment", null: false
     t.bigint "bazaar_id", null: false
     t.bigint "company_id"

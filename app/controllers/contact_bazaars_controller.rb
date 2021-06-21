@@ -10,6 +10,7 @@ class ContactBazaarsController < ApplicationController
       redirect_to root_path
     else
       contact_bazaar.save
+      ActionCable.server.broadcast 'contact_bazaar_channel', content: contact_bazaar
     end
   end
 
@@ -17,9 +18,9 @@ class ContactBazaarsController < ApplicationController
 
   def contact_params
     if current_user == nil
-      params.require(:contact_bazaar).permit(:message).merge(order_bazaar_id: params[:order_bazaar_id], company_id: current_company.id)
+      params.require(:contact_bazaar).permit(:message).merge(name: current_company.name, order_bazaar_id: params[:order_bazaar_id], company_id: current_company.id)
     else
-      params.require(:contact_bazaar).permit(:message).merge(order_bazaar_id: params[:order_bazaar_id], user_id: current_user.id)
+      params.require(:contact_bazaar).permit(:message).merge(name: current_user.nickname, order_bazaar_id: params[:order_bazaar_id], user_id: current_user.id)
     end
   end
 

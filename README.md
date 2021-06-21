@@ -125,6 +125,7 @@ Things you may want to cover:
 
 | Column        | Type       | Options                        |
 | ------------- | ---------- | ------------------------------ |
+| name          | string     | null: false                    |
 | message       | text       | null: false                    |
 | order_bazaar  | references | null: false, foreign_key: true |
 | company       | references | foreign_key: true              |
@@ -141,6 +142,7 @@ Things you may want to cover:
 
 | Column    | Type       | Options                        |
 | --------- | ---------- | ------------------------------ |
+| name      | string     | null: false                    |
 | comment   | text       | null: false                    |
 | bazaar    | references | null: false, foreign_key: true |
 | company   | references | null: false, foreign_key: true |
@@ -201,6 +203,7 @@ Things you may want to cover:
 
 | Column         | Type       | Options                        |
 | -------------- | ---------- | ------------------------------ |
+| name           | string     | null: false                    |
 | message        | text       | null: false                    |
 | auction_order  | references | null: false, foreign_key: true |
 | user           | references | null: false, foreign_key: true |
@@ -218,6 +221,7 @@ Things you may want to cover:
 
 | Column    | Type       | Options                        |
 | --------- | ---------- | ------------------------------ |
+| name      | string     | null: false                    |
 | comment   | text       | null: false                    |
 | auction   | references | null: false, foreign_key: true |
 | user      | references | null: false, foreign_key: true |

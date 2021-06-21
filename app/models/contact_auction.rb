@@ -1,7 +1,7 @@
 class ContactAuction < ApplicationRecord
 
   with_options presence: true do
-    validates :message
+    validates :message, :name
   end
 
 

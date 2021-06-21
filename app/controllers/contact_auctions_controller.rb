@@ -10,6 +10,7 @@ class ContactAuctionsController < ApplicationController
       redirect_to root_path
     else
       contact_auction.save
+      ActionCable.server.broadcast 'contact_auction_channel', content: contact_auction
     end
   end
 
@@ -17,9 +18,9 @@ class ContactAuctionsController < ApplicationController
 
   def contact_params
     if current_user == nil
-      params.require(:contact_auction).permit(:message).merge(order_auction_id: params[:order_auction_id], company_id: current_company.id)
+      params.require(:contact_auction).permit(:message).merge(name: current_company.name, order_auction_id: params[:order_auction_id], company_id: current_company.id)
     else
-      params.require(:contact_auction).permit(:message).merge(order_auction_id: params[:order_auction_id], user_id: current_user.id)
+      params.require(:contact_auction).permit(:message).merge(name: current_user.nickname, order_auction_id: params[:order_auction_id], user_id: current_user.id)
     end
   end
 
