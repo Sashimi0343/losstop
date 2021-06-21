@@ -10,6 +10,7 @@ class ContactAuctionsController < ApplicationController
       redirect_to root_path
     else
       contact_auction.save
+      ActionCable.server.broadcast 'contact_auction_channel', content: contact_auction
     end
   end
 

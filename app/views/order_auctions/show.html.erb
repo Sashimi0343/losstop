@@ -22,14 +22,16 @@
   <p>販売希望数：</p><%= @order.quantity %>
 </div>
 
-<%= form_with model: @contact, url: auction_order_auction_contact_auctions_path(auction_id: @auction.id, order_auction_id: @order.id), local: true do |f| %>
+<%= form_with model: @contact, url: auction_order_auction_contact_auctions_path(auction_id: @auction.id, order_auction_id: @order.id) do |f| %>
   <%= f.text_area :message, placeholder: "ここに入力してください", rows: "2" %>
   <%= f.submit "送信" %>
 <% end %>
 
-<% @contacts.each do |contact| %>
-  <div>
-    <p><%= contact.name %></p>
-    <p><strong><%= contact.message %></strong></p><br>
-  </div>
-<% end %>
+<div id='messages'>
+  <% @contacts.each do |contact| %>
+    <div>
+      <p><%= contact.name %></p>
+      <p><strong><%= contact.message %></strong></p><br>
+    </div>
+  <% end %>
+</div>
