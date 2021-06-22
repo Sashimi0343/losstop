@@ -168,7 +168,7 @@ Things you may want to cover:
 | stock               | integer    | null: false                    |
 | category_id         | integer    | null: false                    |
 | delivery_charge_id  | integer    | null: false                    |
-| days_to_ship_id     | integer    | null: false                    |
+| deadline            | date       | null: false                    |
 | user                | references | null: false, foreign_key: true |
 #### imageはActiveStorageを使用するため未記載
 
