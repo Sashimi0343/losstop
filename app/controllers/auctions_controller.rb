@@ -46,8 +46,8 @@ class AuctionsController < ApplicationController
   private
 
   def auction_params
-    params.require(:auction).permit(:title, :description, :price, :stock, :category_id,
-                                    :delivery_charge_id, :days_to_ship_id).merge(user_id: current_user.id)
+    params.require(:auction).permit(:title, :description, :price, :stock, :deadline, :category_id,
+                                    :delivery_charge_id).merge(user_id: current_user.id)
   end
 
   def set_auction

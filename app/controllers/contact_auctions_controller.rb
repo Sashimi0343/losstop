@@ -20,7 +20,7 @@ class ContactAuctionsController < ApplicationController
     if current_user == nil
       params.require(:contact_auction).permit(:message).merge(name: current_company.name, order_auction_id: params[:order_auction_id], company_id: current_company.id)
     else
-      params.require(:contact_auction).permit(:message).merge(name: current_user.nickname, order_auction_id: params[:order_auction_id], user_id: current_user.id)
+      params.require(:contact_auction).permit(:message).merge(name: current_user.name, order_auction_id: params[:order_auction_id], user_id: current_user.id)
     end
   end
 

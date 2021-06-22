@@ -20,7 +20,7 @@ class ContactBazaarsController < ApplicationController
     if current_user == nil
       params.require(:contact_bazaar).permit(:message).merge(name: current_company.name, order_bazaar_id: params[:order_bazaar_id], company_id: current_company.id)
     else
-      params.require(:contact_bazaar).permit(:message).merge(name: current_user.nickname, order_bazaar_id: params[:order_bazaar_id], user_id: current_user.id)
+      params.require(:contact_bazaar).permit(:message).merge(name: current_user.name, order_bazaar_id: params[:order_bazaar_id], user_id: current_user.id)
     end
   end
 
