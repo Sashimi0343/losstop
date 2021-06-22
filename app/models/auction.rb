@@ -2,7 +2,7 @@ class Auction < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
 
   with_options presence: true do
-    validates :title, :description
+    validates :title, :description, :deadline
 
     validates :price, numericality: { only_integer: true, message: 'は半角数字で入力してください。' }
     validates_inclusion_of :price, in: 300..999_999_999, message: 'は300円から設定可能です。'
@@ -12,7 +12,7 @@ class Auction < ApplicationRecord
   end
 
   with_options numericality: { other_than: 0, message: 'を選択してください。' } do
-    validates :category_id, :delivery_charge_id, :days_to_ship_id
+    validates :category_id, :delivery_charge_id
   end
 
   belongs_to :category

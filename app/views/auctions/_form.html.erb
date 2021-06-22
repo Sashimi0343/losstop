@@ -46,8 +46,18 @@
   <br>
 
   <div>
-    <%= f.label :days_to_ship_id %><br>
-    <%= f.collection_select(:days_to_ship_id, DaysToShip.all, :id, :name, {}, {class:"", id:""}) %>
+    <%= f.label :deadline %><br />
+        <%= raw sprintf(
+                      f.date_select(
+                        :deadline,
+                        class:'',
+                        id:"",
+                        use_month_numbers: true,
+                        prompt:'--',
+                        start_year: 2020,
+                        end_year: (Time.now.year + 5),
+                        date_separator: '%s'),
+                      " 年 ", " 月 ") + " 日 " %>
   </div>
 
   <br>
