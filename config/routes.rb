@@ -1,13 +1,4 @@
 Rails.application.routes.draw do
-
-  get 'auctions/index'
-  get 'auctions/new'
-  get 'auctions/create'
-  get 'auctions/show'
-  get 'auctions/edit'
-  get 'auctions/update'
-  get 'auctions/destroy'
-  get 'auctions/search'
   devise_for :companys, controllers: {
     sessions: 'companys/sessions',
     passwords: 'companys/passwords',
@@ -19,9 +10,11 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
-  root to: 'losstop#index'
 
+  root to: 'losstop#index'
   resources :losstop, only: [:index]
+  resources :companys, only: [:show, :edit, :update]
+  resources :users, only: [:show, :edit, :update]
 
   resources :bazaars do
     resources :review_bazaars, only: [:create]
