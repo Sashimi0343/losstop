@@ -61,7 +61,7 @@
 
 
     <% @order_auction.each do |order| %>
-      <% if current_user == nil %>
+      <% if current_user.nil? %>
         <% if (order.auction_id == @auction.id) && (order.company_id == current_company.id) %>
           <div class="">
             <div class="">
@@ -72,7 +72,7 @@
             </div>
           </div>
         <% end %>
-      <% elsif current_company == nil %>
+      <% elsif current_company.nil? %>
         <% if (order.auction_id == @auction.id) && (@auction.user_id == current_user.id) %>
           <div class="">
             <div class="">

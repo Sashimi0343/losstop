@@ -22,9 +22,9 @@ class OrderBazaarsController < ApplicationController
     @contacts = @order.contact_bazaars.order('created_at DESC')
 
     if user_signed_in? || company_signed_in?
-      if current_company == nil && current_user.id != @order.user.id
+      if current_company.nil? && current_user.id != @order.user.id
         redirect_to root_path
-      elsif current_user == nil && current_company.id != @order.bazaar.company.id
+      elsif current_user.nil? && current_company.id != @order.bazaar.company.id
         redirect_to root_path
       end
     else

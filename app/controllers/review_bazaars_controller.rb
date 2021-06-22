@@ -9,7 +9,7 @@ class ReviewBazaarsController < ApplicationController
   private
 
   def review_params
-    if current_user == nil
+    if current_user.nil?
       params.require(:review_bazaar).permit(:comment).merge(name: current_company.name, bazaar_id: params[:bazaar_id], company_id: current_company.id)
     else
       params.require(:review_bazaar).permit(:comment).merge(name: current_user.name, bazaar_id: params[:bazaar_id], user_id: current_user.id)

@@ -23,9 +23,9 @@ class OrderAuctionsController < ApplicationController
     @contacts = @order.contact_auctions.order('created_at DESC')
 
     if user_signed_in? || company_signed_in?
-      if current_user == nil && current_company.id != @order.company.id
+      if current_user.nil? && current_company.id != @order.company.id
         redirect_to root_path
-      elsif current_company == nil && current_user.id != @order.auction.user.id
+      elsif current_company.nil? && current_user.id != @order.auction.user.id
         redirect_to root_path
       end
     else
