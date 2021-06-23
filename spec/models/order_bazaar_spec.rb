@@ -32,14 +32,14 @@ RSpec.describe OrderBazaar, type: :model do
         it 'NG：bazaar_idが空' do
           @order.bazaar_id = nil
           @order.valid?
-          expect(@order.errors.full_messages).to include("Bazaarを入力してください", "Bazaarを入力してください")
+          expect(@order.errors.full_messages).to include('Bazaarを入力してください', 'Bazaarを入力してください')
           sleep 1
         end
 
         it 'NG：user_idが空' do
           @order.user_id = nil
           @order.valid?
-          expect(@order.errors.full_messages).to include("Userを入力してください", "Userを入力してください")
+          expect(@order.errors.full_messages).to include('Userを入力してください', 'Userを入力してください')
           sleep 1
         end
       end

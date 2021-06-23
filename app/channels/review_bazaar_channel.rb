@@ -1,6 +1,6 @@
 class ReviewBazaarChannel < ApplicationCable::Channel
   def subscribed
-    stream_from "review_bazaar_channel"
+    stream_from 'review_bazaar_channel'
   end
 
   def unsubscribed

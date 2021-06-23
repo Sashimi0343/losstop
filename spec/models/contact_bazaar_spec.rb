@@ -5,7 +5,7 @@ RSpec.describe ContactBazaar, type: :model do
     user = FactoryBot.create(:user)
     company = FactoryBot.create(:company)
     order = FactoryBot.create(:order_bazaar)
-    @contact = FactoryBot.build(:contact_bazaar, company_id: company.id, user_id: user.id, order_bazaar_id: order.id, )
+    @contact = FactoryBot.build(:contact_bazaar, company_id: company.id, user_id: user.id, order_bazaar_id: order.id)
   end
 
   describe '取引連絡のメッセージについて' do
@@ -29,16 +29,16 @@ RSpec.describe ContactBazaar, type: :model do
     end
     context 'NG：取引メッセージが送信できない×' do
       it 'NG：messageが空' do
-        @contact.message = ""
+        @contact.message = ''
         @contact.valid?
-        expect(@contact.errors.full_messages).to include("メッセージを入力してください")
+        expect(@contact.errors.full_messages).to include('メッセージを入力してください')
         sleep 1
       end
 
       it 'NG：order_bazaar_idが存在しない' do
         @contact.order_bazaar_id = nil
         @contact.valid?
-        expect(@contact.errors.full_messages).to include("Order bazaarを入力してください")
+        expect(@contact.errors.full_messages).to include('Order bazaarを入力してください')
         sleep 1
       end
     end

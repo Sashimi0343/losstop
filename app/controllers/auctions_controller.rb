@@ -1,8 +1,7 @@
 class AuctionsController < ApplicationController
   before_action :set_auction, only: %i[show edit update destroy]
-  before_action :authenticate_user!, only: [:new, :create, :edit, :update, :destroy]
+  before_action :authenticate_user!, only: %i[new create edit update destroy]
   before_action :check_user, only: %i[edit update destroy]
-
 
   def index
     @auctions = Auction.order('created_at DESC')
@@ -26,8 +25,7 @@ class AuctionsController < ApplicationController
     @reviews = @auction.review_auctions.order('created_at DESC')
   end
 
-  def edit
-  end
+  def edit; end
 
   def update
     if @auction.update(auction_params)
@@ -55,8 +53,6 @@ class AuctionsController < ApplicationController
   end
 
   def check_user
-    if @auction.user.id != current_user.id
-      redirect_to auctions_path
-    end
+    redirect_to auctions_path if @auction.user.id != current_user.id
   end
 end

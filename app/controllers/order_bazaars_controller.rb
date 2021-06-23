@@ -1,7 +1,6 @@
 class OrderBazaarsController < ApplicationController
-  before_action :set_bazaar, only: [:new, :create]
-  before_action :authenticate_user!, only: [:new, :create]
-
+  before_action :set_bazaar, only: %i[new create]
+  before_action :authenticate_user!, only: %i[new create]
 
   def new
     @order_bazaar = OrderBazaar.new
@@ -31,7 +30,6 @@ class OrderBazaarsController < ApplicationController
       redirect_to root_path
     end
   end
-
 
   private
 

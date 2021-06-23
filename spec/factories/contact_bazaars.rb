@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :contact_bazaar do
-    message {Faker::Lorem.sentence}
+    message { Faker::Lorem.sentence }
 
     association :user
     association :company

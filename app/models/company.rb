@@ -7,15 +7,11 @@ class Company < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
 
   with_options presence: true do
-    validates :name
-    validates :president
-    validates :profile
-    validates :city
-    validates :address
+    validates :name, :president, :profile, :city, :address, :image
   end
 
   validates :phone, numericality: { only_integer: true, message: 'は半角数字で入力してください。' },
-                      length: { maximum: 11, message: 'は11桁以内で入力してください。' }
+                    length: { maximum: 11, message: 'は11桁以内で入力してください。' }
   validates :prefecture_id, numericality: { other_than: 0, message: 'を選択してください。' }
 
   VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i

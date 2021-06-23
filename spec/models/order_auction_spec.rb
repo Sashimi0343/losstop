@@ -15,7 +15,6 @@ RSpec.describe OrderAuction, type: :model do
     end
     context 'NG：取引部屋作成×' do
       context 'NG：title・description・quantity・auction_id・company_idについて' do
-
         it 'NG：titleが空' do
           @order.title = ''
           @order.valid?
@@ -61,14 +60,14 @@ RSpec.describe OrderAuction, type: :model do
         it 'NG：auction_idが空' do
           @order.auction_id = nil
           @order.valid?
-          expect(@order.errors.full_messages).to include("Auctionを入力してください")
+          expect(@order.errors.full_messages).to include('Auctionを入力してください')
           sleep 1
         end
 
         it 'NG：company_idが空' do
           @order.company_id = nil
           @order.valid?
-          expect(@order.errors.full_messages).to include("Companyを入力してください")
+          expect(@order.errors.full_messages).to include('Companyを入力してください')
           sleep 1
         end
       end

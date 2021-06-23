@@ -1,8 +1,6 @@
 class OrderAuctionsController < ApplicationController
-
-  before_action :set_auction, only: [:new, :create]
-  before_action :authenticate_company!, only: [:new, :create]
-
+  before_action :set_auction, only: %i[new create]
+  before_action :authenticate_company!, only: %i[new create]
 
   def new
     @order_auction = OrderAuction.new
@@ -33,15 +31,15 @@ class OrderAuctionsController < ApplicationController
     end
   end
 
-
   private
 
   def order_auction_params
-    params.require(:order_auction).permit(:title, :description, :quantity, :image).merge(company_id: current_company.id, auction_id: @auction.id)
+    params.require(:order_auction).permit(:title, :description, :quantity, :image).merge(
+      company_id: current_company.id, auction_id: @auction.id
+    )
   end
 
   def set_auction
     @auction = Auction.find(params[:auction_id])
   end
-
 end

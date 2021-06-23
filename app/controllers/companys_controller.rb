@@ -1,15 +1,10 @@
 class CompanysController < ApplicationController
-
   def show
     @company = Company.find(params[:id])
     @bazaars = @company.bazaars
   end
 
-  def edit
+  def edit; end
 
-  end
-
-  def update
-
-  end
+  def update; end
 end

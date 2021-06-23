@@ -1,7 +1,6 @@
 class CreateContactBazaars < ActiveRecord::Migration[6.0]
   def change
     create_table :contact_bazaars do |t|
-
       t.string :name, null: false
       t.text :message, null: false
       t.references :order_bazaar, null: false, foreign_key: true

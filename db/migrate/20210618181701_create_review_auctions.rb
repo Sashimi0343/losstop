@@ -1,7 +1,6 @@
 class CreateReviewAuctions < ActiveRecord::Migration[6.0]
   def change
     create_table :review_auctions do |t|
-
       t.string :name, null: false
       t.text :comment, null: false
       t.references :auction, null: false, foreign_key: true

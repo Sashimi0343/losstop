@@ -10,22 +10,21 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
-
   root to: 'losstop#index'
   resources :losstop, only: [:index]
-  resources :companys, only: [:show, :edit, :update]
-  resources :users, only: [:show, :edit, :update]
+  resources :companys, only: %i[show edit update]
+  resources :users, only: %i[show edit update]
 
   resources :bazaars do
     resources :review_bazaars, only: [:create]
-    resources :order_bazaars, only: [:new, :create, :show] do
+    resources :order_bazaars, only: %i[new create show] do
       resources :contact_bazaars, only: [:create]
     end
   end
 
   resources :auctions do
     resources :review_auctions, only: [:create]
-    resources :order_auctions, only: [:new, :create, :show] do
+    resources :order_auctions, only: %i[new create show] do
       resources :contact_auctions, only: [:create]
     end
   end

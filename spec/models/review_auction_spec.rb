@@ -29,16 +29,16 @@ RSpec.describe ReviewAuction, type: :model do
     end
     context 'NG：レビューができない×' do
       it 'NG：commentが空' do
-        @review.comment = ""
+        @review.comment = ''
         @review.valid?
-        expect(@review.errors.full_messages).to include("コメントを入力してください")
+        expect(@review.errors.full_messages).to include('コメントを入力してください')
         sleep 1
       end
 
       it 'NG：auction_idが存在しない' do
         @review.auction_id = nil
         @review.valid?
-        expect(@review.errors.full_messages).to include("Auctionを入力してください")
+        expect(@review.errors.full_messages).to include('Auctionを入力してください')
         sleep 1
       end
     end

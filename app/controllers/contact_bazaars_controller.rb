@@ -19,15 +19,15 @@ class ContactBazaarsController < ApplicationController
 
   def contact_params
     if current_user.nil?
-      params.require(:contact_bazaar).permit(:message).merge(name: current_company.name, order_bazaar_id: params[:order_bazaar_id], company_id: current_company.id)
+      params.require(:contact_bazaar).permit(:message).merge(name: current_company.name,
+                                                              order_bazaar_id: params[:order_bazaar_id], company_id: current_company.id)
     else
-      params.require(:contact_bazaar).permit(:message).merge(name: current_user.name, order_bazaar_id: params[:order_bazaar_id], user_id: current_user.id)
+      params.require(:contact_bazaar).permit(:message).merge(name: current_user.name,
+                                                              order_bazaar_id: params[:order_bazaar_id], user_id: current_user.id)
     end
   end
 
   def check_login
-    unless user_signed_in? || company_signed_in?
-      redirect_to root_path
-    end
+    redirect_to root_path unless user_signed_in? || company_signed_in?
   end
 end

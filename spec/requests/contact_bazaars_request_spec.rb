@@ -1,5 +1,4 @@
 require 'rails_helper'
 
-RSpec.describe "ContactBazaars", type: :request do
-
+RSpec.describe 'ContactBazaars', type: :request do
 end

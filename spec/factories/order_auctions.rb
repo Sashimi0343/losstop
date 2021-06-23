@@ -1,9 +1,8 @@
 FactoryBot.define do
   factory :order_auction do
-
-    title {Faker::Lorem.sentence}
-    description {Faker::Lorem.sentence}
-    quantity           { '100' }
+    title { Faker::Lorem.sentence }
+    description { Faker::Lorem.sentence }
+    quantity { '100' }
 
     association :company
     association :auction
