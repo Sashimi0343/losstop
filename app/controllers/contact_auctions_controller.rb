@@ -2,6 +2,7 @@ class ContactAuctionsController < ApplicationController
   before_action :check_login, only: %i[create]
 
   def create
+    auction = OrderAuction.find(params[:auction_id])
     contact_auction = ContactAuction.new(contact_params)
 
     if current_company.nil? && (current_user.id != contact_auction.user.id)
@@ -10,7 +11,7 @@ class ContactAuctionsController < ApplicationController
       redirect_to root_path
     else
       contact_auction.save
-      ActionCable.server.broadcast 'contact_auction_channel', content: contact_auction
+      redirect_to auction_order_auction_path(auction.auction.id, auction.id)
     end
   end
 

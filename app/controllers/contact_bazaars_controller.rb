@@ -2,6 +2,7 @@ class ContactBazaarsController < ApplicationController
   before_action :check_login, only: %i[create]
 
   def create
+    order = OrderBazaar.find(params[:bazaar_id])
     contact_bazaar = ContactBazaar.new(contact_params)
 
     if current_company.nil? && (current_user.id != contact_bazaar.user.id)
@@ -10,7 +11,7 @@ class ContactBazaarsController < ApplicationController
       redirect_to root_path
     else
       contact_bazaar.save
-      ActionCable.server.broadcast 'contact_bazaar_channel', content: contact_bazaar
+      redirect_to bazaar_order_bazaar_path(order.bazaar.id, order.id)
     end
   end
 
