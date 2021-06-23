@@ -68,7 +68,7 @@ ActiveRecord::Schema.define(version: 2021_06_18_181701) do
     t.string "encrypted_password", default: "", null: false
     t.string "president", null: false
     t.string "profile", null: false
-    t.string "phone", null: false
+    t.string "phone"
     t.integer "prefecture_id", null: false
     t.string "city", null: false
     t.string "address", null: false
@@ -157,7 +157,8 @@ ActiveRecord::Schema.define(version: 2021_06_18_181701) do
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "nickname", null: false
+    t.string "name", null: false
+    t.text "profile"
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "first_name", null: false

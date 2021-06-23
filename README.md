@@ -27,7 +27,7 @@ Things you may want to cover:
 
 ### ↓------共通で使用するテーブル------↓
 
-## companysテーブル
+## companiesテーブル
 
 | Column             | Type    | Options                   |
 | ------------------ | ------- | ------------------------- |
@@ -41,6 +41,7 @@ Things you may want to cover:
 | city               | string  | null: false               |
 | address            | string  | null: false               |
 | homepage           | text    |                           |
+#### imageはActiveStorageを使用するため未記載
 
 ### Association：バザー
 - has_many :bazaars
@@ -60,7 +61,8 @@ Things you may want to cover:
 
 | Column             | Type   | Options                   |
 | ------------------ | ------ | ------------------------- |
-| nickname           | string | null: false               |
+| name               | string | null: false               |
+| profile            | text   |                           |
 | email              | string | null: false, unique: true |
 | encrypted_password | string | null: false               |
 | first_name         | string | null: false               |

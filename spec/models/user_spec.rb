@@ -13,9 +13,9 @@ RSpec.describe User, type: :model do
     end
 
     context 'ユーザー登録ができない' do
-      context 'nickname・email・passwordについて' do
-        it 'NG：nicknameが空' do
-          @user.nickname = ''
+      context 'name・email・passwordについて' do
+        it 'NG：nameが空' do
+          @user.name = ''
           @user.valid?
           expect(@user.errors.full_messages).to include('ニックネームを入力してください')
         end
