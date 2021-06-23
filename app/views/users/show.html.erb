@@ -1,1 +1,48 @@
-<h1>マイページテスト</h1>
+<div>
+  <div>
+    <p><%= @user.name %>さんのマイページ</p><br>
+    <%= link_to "マイページを編集する", edit_user_registration_path(@user.id) %>
+  </div>
+
+  <div>
+    <div>
+      <table>
+        <tbody>
+          <tr>
+            <th>名前</th>
+            <td><%= @user.name %></td>
+          </tr>
+
+          <tr>
+            <th>プロフィール</th>
+            <td><%= @user.profile %></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  <br><br><br>
+    <div>
+      <table>
+        <tbody>
+          <tr>
+            <th>カテゴリー</th>
+            <td>買いたい物</td>
+            <td>希望額</td>
+            <td>　締切日</td>
+          </tr>
+
+          <% @auctions.each do |auction| %>
+            <tr>
+              <th><%= auction.category.name %></th>
+              <td><%= auction.title %></td>
+              <td><%= auction.price %></td>
+              <td><%= auction.deadline %></td>
+              <td><%= link_to "詳細ページへ", auction_path(auction.id) %><td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
