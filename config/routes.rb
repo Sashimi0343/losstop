@@ -15,6 +15,7 @@ Rails.application.routes.draw do
   resources :companys, only: %i[show edit update]
   resources :users, only: %i[show edit update]
 
+  get 'bazaars/seatch'
   resources :bazaars do
     resources :review_bazaars, only: [:create]
     resources :order_bazaars, only: %i[new create show] do
