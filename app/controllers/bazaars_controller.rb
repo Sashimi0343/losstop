@@ -2,6 +2,7 @@ class BazaarsController < ApplicationController
   before_action :set_bazaar, only: %i[show edit update destroy]
   before_action :authenticate_company!, only: %i[new create edit update destroy]
   before_action :check_company, only: %i[edit update destroy]
+  #before_action :search_bazaar, only: [:index, :search]
 
 
   def index
@@ -48,7 +49,7 @@ class BazaarsController < ApplicationController
 
 
   def search
-
+    #@results = @b.result
   end
 
 
@@ -66,4 +67,9 @@ class BazaarsController < ApplicationController
   def check_company
     redirect_to bazaar_path if @bazaar.company.id != current_company.id
   end
+
+  def search_bazaar
+    #@b = Bazaar.ransack(params[:q])
+  end
+
 end

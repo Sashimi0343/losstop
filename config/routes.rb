@@ -10,12 +10,13 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
-  root to: 'losstop#index'
-  resources :losstop, only: [:index]
+  get 'losstops/search'
+  root to: 'losstops#index'
+  resources :losstops, only: [:index]
   resources :companys, only: %i[show edit update]
   resources :users, only: %i[show edit update]
 
-  get 'bazaars/seatch'
+  get 'bazaars/search'
   resources :bazaars do
     resources :review_bazaars, only: [:create]
     resources :order_bazaars, only: %i[new create show] do

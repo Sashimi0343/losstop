@@ -1,22 +1,37 @@
-<li><%= link_to 'トップへ', root_path %></li>
-<li><%= link_to 'バザートップへ', bazaars_path %></li>
-<li><%= link_to '逆オークショントップへ', auctions_path %></li>
+<div class="head-container">
+  <div class="head-nav">
+    <li><%= link_to 'トップへ', root_path %></li>
+    <li><%= link_to 'バザートップへ', bazaars_path %></li>
+    <li><%= link_to '逆オークショントップへ', auctions_path %></li>
+  </div>
 
-<% if user_signed_in? %>
-  <li><%= link_to current_user.name, user_path(current_user.id) %></li>
-  <li><%= link_to '買いたいを出品する', new_auction_path %></li>
-  <li><%= link_to '一般ログアウト', destroy_user_session_path, method: :delete %> </li>
+  <div class="head-menu">
+    <% if user_signed_in? %>
+      <li><%= link_to current_user.name, user_path(current_user.id) %></li>
+      <li><%= link_to '買いたいを出品する', new_auction_path %></li>
+      <li><%= link_to '一般ログアウト', destroy_user_session_path, method: :delete %> </li>
 
-<% elsif company_signed_in? %>
-<li><%= link_to current_company.name, company_path(current_company.id) %></li>
-  <li><%= link_to '出品する', new_bazaar_path %></li>
-  <li><%= link_to '会社ログアウト', destroy_company_session_path, method: :delete %> </li>
+    <% elsif company_signed_in? %>
+    <li><%= link_to current_company.name, company_path(current_company.id) %></li>
+      <li><%= link_to '出品する', new_bazaar_path %></li>
+      <li><%= link_to '会社ログアウト', destroy_company_session_path, method: :delete %> </li>
 
-<% else %>
-  <li><%= link_to '会社ログイン', new_company_session_path %></li>
-  <li><%= link_to '会社新規登録', new_company_registration_path %></li>
-  <li><%= link_to '一般ログイン', new_user_session_path %></li>
-  <li><%= link_to '一般新規登録', new_user_registration_path %></li>
-<% end %>
+    <% else %>
+      <li><%= link_to '会社ログイン', new_company_session_path %></li>
+      <li><%= link_to '会社新規登録', new_company_registration_path %></li>
+      <li><%= link_to '一般ログイン', new_user_session_path %></li>
+      <li><%= link_to '一般新規登録', new_user_registration_path %></li>
+    <% end %>
+  </div>
+
+  <div class="head-search">
+    <%= search_form_for @b, url: losstop_search_path do |f| %>
+      <%= f.label :title_eq, '商品名' %>
+      <%= f.collection_select :title_eq, @bazaars, :title, :title,  include_blank: '指定なし' %>
+
+      <%= f.submit '検索' %>
+    <% end %>
+  </div>
+</div>
 
 <p>_____________________________境界線____________________________</p>
