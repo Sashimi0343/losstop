@@ -1,23 +1,11 @@
-<p>ここがバザーのトップページ</p>
-<p>とりあえず一覧を表示</p>
-<br>
-<br>
-<br>
+<div class="wrapper">
 
-<% @bazaars.each do |bazaar| %>
-  <li class=''>
-    <%= link_to bazaar_path(bazaar.id) do %>
-      <div class=''>
-        <%= image_tag bazaar.image, class: "" %>
-      </div>
-      <div class=''>
-        <h3 class=''>
-          <%= bazaar.title %>
-        </h3>
-        <div class=''>
-          <span><%= bazaar.price %>円<br><%= bazaar.delivery_charge.name %></span>
-        </div>
-      </div>
-    <% end %>
-  </li><br><br><br>
-<% end %>
+  <div class="search">
+    <%= render "search" %>
+  </div>
+
+  <div class="top-bazaar">
+    <%= render "main" %>
+  </div>
+
+</div>

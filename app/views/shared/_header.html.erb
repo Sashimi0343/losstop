@@ -23,15 +23,6 @@
       <li><%= link_to '一般新規登録', new_user_registration_path %></li>
     <% end %>
   </div>
-
-  <div class="head-search">
-    <%= search_form_for @b, url: losstop_search_path do |f| %>
-      <%= f.label :title_eq, '商品名' %>
-      <%= f.collection_select :title_eq, @bazaars, :title, :title,  include_blank: '指定なし' %>
-
-      <%= f.submit '検索' %>
-    <% end %>
-  </div>
 </div>
 
 <p>_____________________________境界線____________________________</p>

@@ -10,7 +10,7 @@ Rails.application.routes.draw do
     registrations: 'users/registrations'
   }
 
-  get 'losstops/search'
+
   root to: 'losstops#index'
   resources :losstops, only: [:index]
   resources :companys, only: %i[show edit update]
@@ -24,6 +24,7 @@ Rails.application.routes.draw do
     end
   end
 
+  get 'auctions/search'
   resources :auctions do
     resources :review_auctions, only: [:create]
     resources :order_auctions, only: %i[new create show] do

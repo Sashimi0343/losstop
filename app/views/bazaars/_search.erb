@@ -1,0 +1,24 @@
+<div>
+  <p>サイドバー
+  <br>ここに検索を入れる。</p>
+</div><br><br>
+
+<div>
+  <div>
+    <%= search_form_for @b, url: bazaars_search_path do |f| %>
+      <p>キーワード検索</p>
+      <%= f.search_field :title_cont, placeholder:"(例：牛肉" %>
+
+      <br><br>
+      <%= f.label :category_id_eq, 'カテゴリー' %><br>
+      <%= f.collection_select :category_id_eq, Category.all, :id, :name,  include_blank: '指定なし' %>
+
+      <br><br>
+      <p>価格で絞り込み</p>
+        <%= f.search_field :price_gteq, placeholder:"○○円以上" %>
+        <br>
+        <%= f.search_field :price_lteq, placeholder:"○○円以下" %>
+      <%= f.submit '検索' %>
+    <% end %>
+  </div>
+</div>
