@@ -1,8 +1,10 @@
-<%= form_with model: bazaar, local: true do |f| %>
+<%= form_with model: bazaar, id: 'new_bazaar', local: true do |f| %>
 <%= render 'shared/error_messages', model: f.object %>
 
+  <div id="image_bazaar"></div>
+
   <div>
-    <p>クリックしてファイルをアップロード</p>
+    <p id="text_bazaar">クリックしてファイルをアップロード</p>
     <%= f.file_field :image %>
   </div>
 
