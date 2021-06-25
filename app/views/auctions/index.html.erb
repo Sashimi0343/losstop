@@ -1,20 +1,11 @@
-<p>ここがオークションのトップページ</p>
-<p>とりあえず一覧を表示</p>
-<br>
-<br>
-<br>
+<div class="wrapper">
 
-<% @auctions.each do |auction| %>
-  <li class=''>
-    <%= link_to auction_path(auction.id) do %>
-      <div class=''>
-        <h1 class=''>
-          <%= auction.title %>
-        </h1>
-        <div class=''>
-          <span><%= auction.price %>円<br><%= auction.delivery_charge.name %></span>
-        </div>
-      </div>
-    <% end %>
-  </li><br><br><br>
-<% end %>
+  <div class="search">
+    <%= render "search" %>
+  </div>
+
+  <div class="top-auction">
+    <%= render "main" %>
+  </div>
+
+</div>

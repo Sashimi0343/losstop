@@ -2,6 +2,7 @@ class AuctionsController < ApplicationController
   before_action :set_auction, only: %i[show edit update destroy]
   before_action :authenticate_user!, only: %i[new create edit update destroy]
   before_action :check_user, only: %i[edit update destroy]
+  before_action :search_auction, only: [:index, :search]
 
   def index
     @auctions = Auction.order('created_at DESC')
@@ -39,7 +40,9 @@ class AuctionsController < ApplicationController
     redirect_to auctions_path if @auction.destroy
   end
 
-  def search; end
+  def search
+    @results_auction = @a.result
+  end
 
   private
 
@@ -54,5 +57,9 @@ class AuctionsController < ApplicationController
 
   def check_user
     redirect_to auctions_path if @auction.user.id != current_user.id
+  end
+
+  def search_auction
+    @a = Auction.ransack(params[:q])
   end
 end

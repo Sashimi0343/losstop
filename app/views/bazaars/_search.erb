@@ -1,6 +1,6 @@
 <div>
   <p>サイドバー
-  <br>ここに検索を入れる。</p>
+  <br>バザーの検索をする。</p>
 </div><br><br>
 
 <div>
@@ -11,13 +11,14 @@
 
       <br><br>
       <%= f.label :category_id_eq, 'カテゴリー' %><br>
-      <%= f.collection_select :category_id_eq, Category.all, :id, :name,  include_blank: '指定なし' %>
+      <%= f.collection_select :category_id_eq, Category.all, :id, :name, include_blank: '指定なし' %>
 
       <br><br>
       <p>価格で絞り込み</p>
         <%= f.search_field :price_gteq, placeholder:"○○円以上" %>
         <br>
         <%= f.search_field :price_lteq, placeholder:"○○円以下" %>
+      <br>
       <%= f.submit '検索' %>
     <% end %>
   </div>

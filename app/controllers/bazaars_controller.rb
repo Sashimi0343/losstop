@@ -49,7 +49,7 @@ class BazaarsController < ApplicationController
 
 
   def search
-    @results = @b.result
+    @results_bazaar = @b.result
   end
 
 
