@@ -6,17 +6,19 @@
   <br>
 
   <% @auctions.each do |auction| %>
-    <li class=''>
+    <% if auction.deadline > Time.new %>
       <%= link_to auction_path(auction.id) do %>
-        <div class=''>
-          <h1 class=''>
-            <%= auction.title %>
-          </h1>
+        <li class=''>
           <div class=''>
-            <span><%= auction.price %>円<br><%= auction.delivery_charge.name %></span>
+            <h1 class=''>
+              <%= auction.title %>
+            </h1>
+            <div class=''>
+              <span><%= auction.price %>円<br><%= auction.delivery_charge.name %></span>
+            </div>
           </div>
-        </div>
+        </li><br><br><br>
       <% end %>
-    </li><br><br><br>
+    <% end %>
   <% end %>
 </div>
