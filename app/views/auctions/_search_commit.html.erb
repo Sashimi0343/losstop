@@ -6,18 +6,20 @@
   <%# 検索結果の個数で条件分岐 %>
   <% if @results_auction.length !=0 %>
     <% @results_auction.each do |result| %>
-      <li class=''>
+      <% if result.deadline > Time.new %>
         <%= link_to auction_path(result.id) do %>
-          <div class=''>
-            <h1 class=''>
-              <%= result.title %>
-            </h1>
+          <li class=''>
             <div class=''>
-              <span><%= result.price %>円<br><%= result.delivery_charge.name %></span>
+              <h1 class=''>
+                <%= result.title %>
+              </h1>
+              <div class=''>
+                <span><%= result.price %>円<br><%= result.delivery_charge.name %></span>
+              </div>
             </div>
-          </div>
+          </li><br><br><br>
         <% end %>
-      </li><br><br><br>
+      <% end %>
     <% end %>
   <% else %>
     該当する商品はありません

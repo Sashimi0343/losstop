@@ -1,7 +1,9 @@
 <div>
   <div>
     <p><%= @user.name %>さんのマイページ</p><br>
-    <%= link_to "マイページを編集する", edit_user_registration_path(@user.id) %>
+    <% if current_company.nil? && @user.id == current_user.id %>
+      <%= link_to "マイページを編集する", edit_user_registration_path(@user.id) %>
+    <% end %>
   </div>
 
   <div>
@@ -32,13 +34,15 @@
           </tr>
 
           <% @auctions.each do |auction| %>
-            <tr>
-              <th><%= auction.category.name %></th>
-              <td><%= auction.title %></td>
-              <td><%= auction.price %></td>
-              <td><%= auction.deadline %></td>
-              <td><%= link_to "詳細ページへ", auction_path(auction.id) %><td>
-            </tr>
+            <% if auction.deadline > Time.new %>
+              <tr>
+                <th><%= auction.category.name %></th>
+                <td><%= auction.title %></td>
+                <td><%= auction.price %></td>
+                <td><%= auction.deadline %></td>
+                <td><%= link_to "詳細ページへ", auction_path(auction.id) %><td>
+              </tr>
+            <% end %>
           <% end %>
         </tbody>
       </table>

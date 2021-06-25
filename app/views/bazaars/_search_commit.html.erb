@@ -6,21 +6,24 @@
   <%# 検索結果の個数で条件分岐 %>
   <% if @results_bazaar.length !=0 %>
     <% @results_bazaar.each do |result| %>
-      <li class=''>
+      <% if result.deadline > Time.new %>
         <%= link_to bazaar_path(result.id) do %>
-          <div class=''>
-            <%= image_tag result.image, class: "" %>
-          </div>
-          <div class=''>
-            <h3 class=''>
-              <%= result.title %>
-            </h3>
+          <li class=''>
             <div class=''>
-              <span><%= result.price %>円<br><%= result.delivery_charge.name %></span>
+              <%= image_tag result.image, class: "" %>
             </div>
-          </div>
+            <div class=''>
+              <h3 class=''>
+                <%= result.title %>
+              </h3>
+              <div class=''>
+                <span><%= result.price %>円<br><%= result.delivery_charge.name %></span>
+              </div>
+            </div>
+          </li><br><br><br>
         <% end %>
-      </li><br><br><br>
+      <% else %>
+      <% end %>
     <% end %>
   <% else %>
     該当する商品はありません

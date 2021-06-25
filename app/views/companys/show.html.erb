@@ -2,7 +2,9 @@
   <div>
     <p><%= @company.name %>さんのマイページ</p><br>
     <%= image_tag @company.image %><br>
-    <%= link_to "マイページを編集する", edit_company_registration_path(@company.id) %>
+    <% if current_user.nil? && @company.id == current_company.id %>
+      <%= link_to "マイページを編集する", edit_company_registration_path(@company.id) %>
+    <% end %>
   </div>
 
   <div>
@@ -54,13 +56,15 @@
           </tr>
 
           <% @bazaars.each do |bazaar| %>
-            <tr>
-              <th><%= bazaar.category.name %></th>
-              <td><%= bazaar.title %></td>
-              <td><%= bazaar.price %></td>
-              <td><%= bazaar.stock %></td>
-              <td><%= link_to "詳細ページへ", bazaar_path(bazaar.id) %><td>
-            </tr>
+            <% if bazaar.deadline > Time.new %>
+              <tr>
+                <th><%= bazaar.category.name %></th>
+                <td><%= bazaar.title %></td>
+                <td><%= bazaar.price %></td>
+                <td><%= bazaar.stock %></td>
+                <td><%= link_to "詳細ページへ", bazaar_path(bazaar.id) %><td>
+              </tr>
+            <% end %>
           <% end %>
         </tbody>
       </table>

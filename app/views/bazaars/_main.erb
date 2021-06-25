@@ -6,20 +6,23 @@
   <br>
 
   <% @bazaars.each do |bazaar| %>
-    <li class=''>
+    <% if bazaar.deadline > Time.new %>
       <%= link_to bazaar_path(bazaar.id) do %>
-        <div class=''>
-          <%= image_tag bazaar.image, class: "" %>
-        </div>
-        <div class=''>
-          <h3 class=''>
-            <%= bazaar.title %>
-          </h3>
+        <li class=''>
           <div class=''>
-            <span><%= bazaar.price %>円<br><%= bazaar.delivery_charge.name %></span>
+            <%= image_tag bazaar.image, class: "" %>
           </div>
-        </div>
+          <div class=''>
+            <h3 class=''>
+              <%= bazaar.title %>
+            </h3>
+            <div class=''>
+              <span><%= bazaar.price %>円<br><%= bazaar.delivery_charge.name %></span>
+            </div>
+          </div>
+        </li><br><br><br>
       <% end %>
-    </li><br><br><br>
+    <% else %>
+    <% end %>
   <% end %>
 </div>
