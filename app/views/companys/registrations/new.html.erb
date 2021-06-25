@@ -1,4 +1,4 @@
-<h2>Sign up</h2>
+<h1 id="new_company">会社新規登録</h1><br>
 
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "companys/shared/error_messages", resource: resource %>
@@ -32,8 +32,9 @@
 
 <%# ================================残り８項目============================== %>
 
+  <div id="image_company"></div>
   <div>
-    <p>クリックしてファイルをアップロード</p>
+    <p id="text_company">クリックしてファイルをアップロード</p>
     <%= f.file_field :image %>
   </div>
 
