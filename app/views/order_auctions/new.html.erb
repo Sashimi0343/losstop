@@ -10,12 +10,13 @@
 <p>送料：<%= @auction.delivery_charge.name %></p>
 
 
-<%= form_with model: @order_auction, url: auction_order_auctions_path, local: true do |f| %>
+<%= form_with model: @order_auction, url: auction_order_auctions_path, id: 'new_auction', local: true do |f| %>
 <%= render 'shared/error_messages', model: f.object %>
   <br>
 
+  <div id=image_auction></div>
   <div>
-    <p>クリックしてファイルをアップロード</p>
+    <p id="text_auction">クリックしてファイルをアップロード</p>
     <%= f.file_field :image %>
   </div>
 
