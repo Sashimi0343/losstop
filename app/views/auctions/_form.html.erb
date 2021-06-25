@@ -5,7 +5,7 @@
 
   <div>
     <%= f.label :category_id %><br>
-    <%= f.collection_select(:category_id, Category.all, :id, :name, {}, {class:"", id:""}) %>
+    <%= f.collection_select(:category_id, Category.all, :id, :name, {include_blank: '--'}, {class:"", id:""}) %>
   </div>
 
   <br>
