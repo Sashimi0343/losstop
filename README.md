@@ -45,6 +45,7 @@ Things you may want to cover:
 
 ### Association：バザー
 - has_many :bazaars
+- has_many :order_bazaars
 - has_many :review_bazaars
 - has_many :contact_bazaars
 
@@ -79,6 +80,7 @@ Things you may want to cover:
 
 ### Association：逆オークション
 - has_many :auctions
+- has_many :order_auctions
 - has_many :review_auctions
 - has_many :contact_auctions
 
@@ -118,8 +120,9 @@ Things you may want to cover:
 
 ### Association
 - has_one    :contact_bazaar
-- belongs_to :user
 - belongs_to :bazaar
+- belongs_to :company
+- belongs_to :user
 
 
 
@@ -197,6 +200,7 @@ Things you may want to cover:
 - has_one    :contact_auction
 - belongs_to :auction
 - belongs_to :company
+- belongs_to :user
 
 
 
