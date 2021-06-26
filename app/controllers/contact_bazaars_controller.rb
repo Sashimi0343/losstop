@@ -11,7 +11,7 @@ class ContactBazaarsController < ApplicationController
       redirect_to root_path
     else
       contact_bazaar.save
-      redirect_to bazaar_order_bazaar_path(order.bazaar.id, order.id)
+      redirect_back(fallback_location: bazaar_order_bazaar_path(order.id, order.bazaar.id))
     end
   end
 

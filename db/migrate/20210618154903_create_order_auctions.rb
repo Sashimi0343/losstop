@@ -5,6 +5,7 @@ class CreateOrderAuctions < ActiveRecord::Migration[6.0]
       t.text :description, null: false
       t.integer :quantity, null: false
       t.references :auction, null: false, foreign_key: true
+      t.references :user, null: false, foreign_key: true
       t.references :company, null: false, foreign_key: true
       t.timestamps
     end

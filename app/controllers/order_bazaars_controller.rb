@@ -34,7 +34,7 @@ class OrderBazaarsController < ApplicationController
   private
 
   def order_bazaar_params
-    params.require(:order_bazaar).permit(:quantity).merge(user_id: current_user.id, bazaar_id: @bazaar.id)
+    params.require(:order_bazaar).permit(:quantity).merge(user_id: current_user.id, company_id: @bazaar.company.id, bazaar_id: @bazaar.id)
   end
 
   def set_bazaar

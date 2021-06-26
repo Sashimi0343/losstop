@@ -16,11 +16,14 @@ class User < ApplicationRecord
   VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i
   validates :password, format: { with: VALID_PASSWORD_REGEX, message: 'は、半角の英数字両方を使用してください。' }
 
-  has_many :order_bazaars
-  has_many :contact_bazaars
-  has_many :review_bazaars
+  with_options dependent: :destroy do
+    has_many :order_bazaars
+    has_many :contact_bazaars
+    has_many :review_bazaars
 
-  has_many :auctions, dependent: :destroy
-  has_many :contact_auctions, dependent: :destroy
-  has_many :review_auctions, dependent: :destroy
+    has_many :auctions
+    has_many :order_auctions
+    has_many :contact_auctions
+    has_many :review_auctions
+  end
 end
