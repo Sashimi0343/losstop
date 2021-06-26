@@ -18,13 +18,16 @@ class Company < ApplicationRecord
   validates :password, format: { with: VALID_PASSWORD_REGEX, message: 'は、半角の英数字両方を使用してください。' }
 
   has_one_attached :image
-
   belongs_to :prefecture
-  has_many :bazaars, dependent: :destroy
-  has_many :contact_bazaars, dependent: :destroy
-  has_many :review_bazaars, dependent: :destroy
 
-  has_many :order_auctions, dependent: :destroy
-  has_many :contact_auctions, dependent: :destroy
-  has_many :review_auctions, dependent: :destroy
+  with_options dependent: :destroy do
+    has_many :bazaars
+    has_many :order_bazaars
+    has_many :contact_bazaars
+    has_many :review_bazaars
+
+    has_many :order_auctions
+    has_many :contact_auctions
+    has_many :review_auctions
+  end
 end
