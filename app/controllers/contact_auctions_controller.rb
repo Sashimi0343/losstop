@@ -11,7 +11,7 @@ class ContactAuctionsController < ApplicationController
       redirect_to root_path
     else
       contact_auction.save
-      redirect_to auction_order_auction_path(auction.auction.id, auction.id)
+      redirect_back(fallback_location: auction_order_auction_path(auction.auction.id, auction.id))
     end
   end
 
