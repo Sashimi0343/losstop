@@ -42,20 +42,22 @@
           <td class=""><%= @auction.delivery_charge.name %></td>
         </tr>
         <tr>
-          <th class="">この日までに欲しい！</th><%= "ここ後で日付に変更する。deadline流用する。" %>
+          <th class="">この日までに欲しい！</th>
           <td class=""><%= @auction.deadline %></td>
         </tr>
       </tbody>
     </table>
 
-    <% if user_signed_in? %>
-      <% if current_user.id == @auction.user.id %>
-        <%= link_to "出品内容の編集", edit_auction_path(@auction.id), method: :get, class: "" %>
-        <p class="or-text">or</p>
-        <%= link_to "削除", auction_path(@auction.id), method: :delete, class:"" %>
+    <% unless (@auction.stock == 0) || (@auction.deadline < Time.now) %>
+      <% if user_signed_in? %>
+        <% if current_user.id == @auction.user.id %>
+          <%= link_to "出品内容の編集", edit_auction_path(@auction.id), method: :get, class: "" %>
+          <p class="or-text">or</p>
+          <%= link_to "この出品を終了する", auction_path(@auction.id), method: :delete, class:"" %>
+        <% end %>
+      <% elsif company_signed_in? %>
+        <%= link_to "販売交渉へ進む", new_auction_order_auction_path(@auction.id) ,class:""%>
       <% end %>
-    <% elsif company_signed_in? %>
-      <%= link_to "販売交渉へ進む", new_auction_order_auction_path(@auction.id) ,class:""%>
     <% end %>
 
 
