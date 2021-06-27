@@ -6,7 +6,7 @@
   <br>
 
   <% @auctions.each do |auction| %>
-    <% if auction.deadline > Time.new %>
+    <% if (auction.deadline > Time.new) && (auction.stock > 0) %>
       <%= link_to auction_path(auction.id) do %>
         <li class=''>
           <div class=''>
