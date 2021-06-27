@@ -2,6 +2,7 @@ class BazaarsController < ApplicationController
   before_action :set_bazaar, only: %i[show edit update destroy]
   before_action :authenticate_company!, only: %i[new create edit update destroy]
   before_action :check_company, only: %i[edit update destroy]
+  before_action :deadline_or_stock, only: [:edit, :update]
   before_action :search_bazaar, only: [:index, :search]
 
 
@@ -44,7 +45,8 @@ class BazaarsController < ApplicationController
 
 
   def destroy
-    redirect_to bazaars_path if @bazaar.destroy
+    @bazaar.update(deadline: Time.now.yesterday)
+    redirect_to bazaars_path
   end
 
 
@@ -72,4 +74,9 @@ class BazaarsController < ApplicationController
     @b = Bazaar.ransack(params[:q])
   end
 
+  def deadline_or_stock
+    if (@bazaar.deadline < Time.now) || (@bazaar.stock == 0)
+      redirect_to root_path
+    end
+  end
 end

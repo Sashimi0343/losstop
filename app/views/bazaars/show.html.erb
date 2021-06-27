@@ -45,17 +45,17 @@
       </tbody>
     </table>
 
-
-    <% if company_signed_in? %>
-      <% if current_company.id == @bazaar.company.id %>
-        <%= link_to "商品の編集", edit_bazaar_path(@bazaar.id), method: :get, class: "" %>
-        <p class="or-text">or</p>
-        <%= link_to "削除", bazaar_path(@bazaar.id), method: :delete, class:"" %>
+    <% unless (@bazaar.stock == 0) || (@bazaar.deadline < Time.now) %>
+      <% if company_signed_in? %>
+        <% if current_company.id == @bazaar.company.id %>
+          <%= link_to "商品の編集", edit_bazaar_path(@bazaar.id), method: :get, class: "" %>
+          <p class="or-text">or</p>
+          <%= link_to "この出品を終了する", bazaar_path(@bazaar.id), method: :delete, class:"" %>
+        <% end %>
+      <% elsif user_signed_in? %>
+        <%= link_to "購入画面に進む", new_bazaar_order_bazaar_path(@bazaar.id) ,class:""%>
       <% end %>
-    <% elsif user_signed_in? %>
-      <%= link_to "購入画面に進む", new_bazaar_order_bazaar_path(@bazaar.id) ,class:""%>
     <% end %>
-
 
     <% @order_bazaar.each do |order| %>
       <% if current_company.nil? %>

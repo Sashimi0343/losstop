@@ -2,6 +2,7 @@ class AuctionsController < ApplicationController
   before_action :set_auction, only: %i[show edit update destroy]
   before_action :authenticate_user!, only: %i[new create edit update destroy]
   before_action :check_user, only: %i[edit update destroy]
+  before_action :deadline_or_stock, only: [:edit, :update]
   before_action :search_auction, only: [:index, :search]
 
   def index
@@ -26,7 +27,8 @@ class AuctionsController < ApplicationController
     @reviews = @auction.review_auctions.order('created_at DESC')
   end
 
-  def edit; end
+  def edit
+  end
 
   def update
     if @auction.update(auction_params)
@@ -37,7 +39,8 @@ class AuctionsController < ApplicationController
   end
 
   def destroy
-    redirect_to auctions_path if @auction.destroy
+    @auction.update(deadline: Time.now.yesterday)
+    redirect_to auctions_path
   end
 
   def search
@@ -61,5 +64,11 @@ class AuctionsController < ApplicationController
 
   def search_auction
     @a = Auction.ransack(params[:q])
+  end
+
+  def deadline_or_stock
+    if (@auction.deadline < Time.now) || (@auction.stock == 0)
+      redirect_to root_path
+    end
   end
 end
