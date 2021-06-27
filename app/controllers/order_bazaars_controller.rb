@@ -8,7 +8,9 @@ class OrderBazaarsController < ApplicationController
 
   def create
     @order_bazaar = OrderBazaar.new(order_bazaar_params)
-    if @order_bazaar.save
+    if @bazaar.stock >= @order_bazaar.quantity
+      @bazaar.update_columns(stock: @bazaar.stock - @order_bazaar.quantity)
+      @order_bazaar.save
     else
       render :new
     end

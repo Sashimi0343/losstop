@@ -6,7 +6,7 @@
   <%# 検索結果の個数で条件分岐 %>
   <% if @results_auction.length !=0 %>
     <% @results_auction.each do |result| %>
-      <% if result.deadline > Time.new %>
+      <% if (result.deadline > Time.new) && (result.stock > 0) %>
         <%= link_to auction_path(result.id) do %>
           <li class=''>
             <div class=''>

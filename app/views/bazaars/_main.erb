@@ -6,7 +6,7 @@
   <br>
 
   <% @bazaars.each do |bazaar| %>
-    <% if bazaar.deadline > Time.new %>
+    <% if (bazaar.deadline > Time.new) && (bazaar.stock > 0) %>
       <%= link_to bazaar_path(bazaar.id) do %>
         <li class=''>
           <div class=''>
