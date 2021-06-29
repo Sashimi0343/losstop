@@ -26,7 +26,7 @@ class BazaarsController < ApplicationController
 
 
   def show
-    @order_bazaar = OrderBazaar.all
+    @order = @bazaar.order_bazaars
     @review = ReviewBazaar.new
     @reviews = @bazaar.review_bazaars.order('created_at DESC')
   end

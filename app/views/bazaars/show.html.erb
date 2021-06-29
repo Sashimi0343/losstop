@@ -45,35 +45,29 @@
       </tbody>
     </table>
 
-    <% unless (@bazaar.stock == 0) || (@bazaar.deadline < Time.now) %>
-      <% if company_signed_in? %>
-        <% if current_company.id == @bazaar.company.id %>
-          <%= link_to "商品の編集", edit_bazaar_path(@bazaar.id), method: :get, class: "" %>
-          <p class="or-text">or</p>
-          <%= link_to "この出品を終了する", bazaar_path(@bazaar.id), method: :delete, class:"" %>
-        <% end %>
+    <% if (@bazaar.stock != 0) || (@bazaar.deadline > Time.now) %>
+      <% if (company_signed_in?) && (current_company.id == @bazaar.company.id) %>
+        <%= link_to "商品の編集", edit_bazaar_path(@bazaar.id), method: :get, class: "" %>
+        <p class="or-text">or</p>
+        <%= link_to "この出品を終了する", bazaar_path(@bazaar.id), method: :delete, class:"" %>
       <% elsif user_signed_in? %>
         <%= link_to "購入画面に進む", new_bazaar_order_bazaar_path(@bazaar.id) ,class:""%>
       <% end %>
     <% end %>
 
-    <% @order_bazaar.each do |order| %>
-      <% if current_company.nil? %>
-        <% if (order.bazaar_id == @bazaar.id) && (order.user_id == current_user.id) %>
+    <% @order.each do |order| %>
+      <% if (current_company.nil?) && (order.user_id == current_user.id) %>
+        <div class="">
           <div class="">
-            <div class="">
-              <%= link_to "取引連絡部屋へ", bazaar_order_bazaar_path(order.id)%>
-            </div>
+            <%= link_to "取引連絡部屋へ", bazaar_order_bazaar_path(order.id) %>
           </div>
-        <% end %>
-      <% elsif current_user.nil? %>
-        <% if (order.bazaar_id == @bazaar.id) && (@bazaar.company_id == current_company.id) %>
+        </div>
+      <% elsif (current_user.nil?) && (@bazaar.company_id == current_company.id) %>
+        <div class="">
           <div class="">
-            <div class="">
-              <%= link_to "取引連絡部屋へ", bazaar_order_bazaar_path(order.id)%>
-            </div>
+            <%= link_to "取引連絡部屋へ", bazaar_order_bazaar_path(order.id) %>
           </div>
-        <% end %>
+        </div>
       <% end %>
     <% end %>
   </div>
