@@ -59,13 +59,13 @@
       <% if (current_company.nil?) && (order.user_id == current_user.id) %>
         <div class="">
           <div class="">
-            <%= link_to "取引連絡部屋へ", bazaar_order_bazaar_path(order.id)%>
+            <%= link_to "取引連絡部屋へ", bazaar_order_bazaar_path(order.id) %>
           </div>
         </div>
       <% elsif (current_user.nil?) && (@bazaar.company_id == current_company.id) %>
         <div class="">
           <div class="">
-            <%= link_to "取引連絡部屋へ", bazaar_order_bazaar_path(order.id)%>
+            <%= link_to "取引連絡部屋へ", bazaar_order_bazaar_path(order.id) %>
           </div>
         </div>
       <% end %>

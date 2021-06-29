@@ -70,5 +70,31 @@
       </table>
     </div>
 
+    <br><br>
+
+    <div>
+      <table>
+        <tbody>
+          <tr>
+            <th>バザー取引一覧</th>
+            <td>タイトル</td>
+            <td>お相手のお名前</td>
+            <td>連絡部屋へ</td>
+          </tr>
+
+          <% @orders.each_with_index do |order, index| %>
+            <% if order.bazaar.deadline > Time.new %>
+              <tr>
+                <th><%= "取引番号#{index}" %></th>
+                <td><%= order.bazaar.title %></th>
+                <td><%= order.user.name %></td>
+                <td><%= link_to "取引部屋へ", bazaar_order_bazaar_path(order.id) %><td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
   </div>
 </div>
