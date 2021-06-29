@@ -48,5 +48,31 @@
       </table>
     </div>
 
+    <br><br>
+
+    <div>
+      <table>
+        <tbody>
+          <tr>
+            <th>オークション取引一覧</th>
+            <td>タイトル</td>
+            <td>お相手のお名前</td>
+            <td>連絡部屋へ</td>
+          </tr>
+
+          <% @orders.each_with_index do |order, index| %>
+            <% if order.auction.deadline > Time.new %>
+              <tr>
+                <th><%= "取引番号#{index}" %></th>
+                <td><%= order.auction.title %></th>
+                <td><%= order.company.name %></td>
+                <td><%= link_to "連絡部屋へ", auction_order_auction_path(order.id) %><td>
+              </tr>
+            <% end %>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+
   </div>
 </div>

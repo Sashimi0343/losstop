@@ -48,7 +48,7 @@
       </tbody>
     </table>
 
-    <% unless (@auction.stock == 0) || (@auction.deadline < Time.now) %>
+    <% if (@auction.stock != 0) || (@auction.deadline > Time.now) %>
       <% if user_signed_in? %>
         <% if current_user.id == @auction.user.id %>
           <%= link_to "出品内容の編集", edit_auction_path(@auction.id), method: :get, class: "" %>
