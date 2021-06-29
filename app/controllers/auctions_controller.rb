@@ -22,7 +22,7 @@ class AuctionsController < ApplicationController
   end
 
   def show
-    @order_auction = OrderAuction.all
+    @order = @auction.order_auctions
     @review = ReviewAuction.new
     @reviews = @auction.review_auctions.order('created_at DESC')
   end

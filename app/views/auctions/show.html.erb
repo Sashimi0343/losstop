@@ -62,29 +62,25 @@
 
 
 
-    <% @order_auction.each do |order| %>
-      <% if current_user.nil? %>
-        <% if (order.auction_id == @auction.id) && (order.company_id == current_company.id) %>
+    <% @order.each do |order| %>
+      <% if current_user.nil? && (order.company_id == current_company.id) %>
+        <div class="">
           <div class="">
-            <div class="">
-              <%= image_tag order.image %>
-            </div>
-            <div class="">
-              <%= link_to "取引連絡部屋へ", auction_order_auction_path(order.id)%>
-            </div>
+            <%= image_tag order.image %>
           </div>
-        <% end %>
-      <% elsif current_company.nil? %>
-        <% if (order.auction_id == @auction.id) && (@auction.user_id == current_user.id) %>
           <div class="">
-            <div class="">
-              <%= image_tag order.image %>
-            </div>
-            <div class="">
-              <%= link_to "取引連絡部屋へ", auction_order_auction_path(order.id)%>
-            </div>
+            <%= link_to "取引連絡部屋へ", auction_order_auction_path(order.id)%>
           </div>
-        <% end %>
+        </div>
+      <% elsif current_company.nil? && (@auction.user_id == current_user.id) %>
+        <div class="">
+          <div class="">
+            <%= image_tag order.image %>
+          </div>
+          <div class="">
+            <%= link_to "取引連絡部屋へ", auction_order_auction_path(order.id)%>
+          </div>
+        </div>
       <% end %>
     <% end %>
   </div>
