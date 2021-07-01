@@ -17,6 +17,8 @@ class User < ApplicationRecord
   validates :password, format: { with: VALID_PASSWORD_REGEX, message: 'は、半角の英数字両方を使用してください。' }
 
   with_options dependent: :destroy do
+    has_many :active_notice_companys, class_name: 'notice_company', foreign_key: 'visitor_user_id'
+
     has_many :order_bazaars
     has_many :contact_bazaars
     has_many :review_bazaars

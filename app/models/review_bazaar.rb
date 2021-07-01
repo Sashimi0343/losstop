@@ -3,6 +3,8 @@ class ReviewBazaar < ApplicationRecord
     validates :comment, :name
   end
 
+  has_many :notice_companies, dependent: :destroy
+
   belongs_to :bazaar
   belongs_to :user, optional: true
   belongs_to :company, optional: true
