@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_18_181701) do
+ActiveRecord::Schema.define(version: 2021_07_01_192023) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -106,6 +106,25 @@ ActiveRecord::Schema.define(version: 2021_06_18_181701) do
     t.index ["company_id"], name: "index_contact_bazaars_on_company_id"
     t.index ["order_bazaar_id"], name: "index_contact_bazaars_on_order_bazaar_id"
     t.index ["user_id"], name: "index_contact_bazaars_on_user_id"
+  end
+
+  create_table "notice_companies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "visitor_user_id", null: false
+    t.integer "visited_company_id", null: false
+    t.integer "contact_bazaars_id"
+    t.integer "review_bazaars_id"
+    t.integer "contact_auctions_id"
+    t.integer "review_auctions_id"
+    t.string "action", default: "", null: false
+    t.boolean "checked", default: false, null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["contact_auctions_id"], name: "index_notice_companies_on_contact_auctions_id"
+    t.index ["contact_bazaars_id"], name: "index_notice_companies_on_contact_bazaars_id"
+    t.index ["review_auctions_id"], name: "index_notice_companies_on_review_auctions_id"
+    t.index ["review_bazaars_id"], name: "index_notice_companies_on_review_bazaars_id"
+    t.index ["visited_company_id"], name: "index_notice_companies_on_visited_company_id"
+    t.index ["visitor_user_id"], name: "index_notice_companies_on_visitor_user_id"
   end
 
   create_table "order_auctions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
