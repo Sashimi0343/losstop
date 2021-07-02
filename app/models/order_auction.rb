@@ -8,4 +8,6 @@ class OrderAuction < ApplicationRecord
   has_many :contact_auctions, dependent: :destroy
   belongs_to :auction
   belongs_to :company
+
+  has_many :notice_companies, dependent: :destroy
 end

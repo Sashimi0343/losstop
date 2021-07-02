@@ -111,18 +111,22 @@ ActiveRecord::Schema.define(version: 2021_07_01_192023) do
   create_table "notice_companies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "visitor_user_id", null: false
     t.integer "visited_company_id", null: false
-    t.integer "contact_bazaars_id"
-    t.integer "review_bazaars_id"
-    t.integer "contact_auctions_id"
-    t.integer "review_auctions_id"
+    t.integer "order_bazaar_id"
+    t.integer "contact_bazaar_id"
+    t.integer "bazaar_id"
+    t.integer "review_bazaar_id"
+    t.integer "order_auction_id"
+    t.integer "contact_auction_id"
     t.string "action", default: "", null: false
     t.boolean "checked", default: false, null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["contact_auctions_id"], name: "index_notice_companies_on_contact_auctions_id"
-    t.index ["contact_bazaars_id"], name: "index_notice_companies_on_contact_bazaars_id"
-    t.index ["review_auctions_id"], name: "index_notice_companies_on_review_auctions_id"
-    t.index ["review_bazaars_id"], name: "index_notice_companies_on_review_bazaars_id"
+    t.index ["bazaar_id"], name: "index_notice_companies_on_bazaar_id"
+    t.index ["contact_auction_id"], name: "index_notice_companies_on_contact_auction_id"
+    t.index ["contact_bazaar_id"], name: "index_notice_companies_on_contact_bazaar_id"
+    t.index ["order_auction_id"], name: "index_notice_companies_on_order_auction_id"
+    t.index ["order_bazaar_id"], name: "index_notice_companies_on_order_bazaar_id"
+    t.index ["review_bazaar_id"], name: "index_notice_companies_on_review_bazaar_id"
     t.index ["visited_company_id"], name: "index_notice_companies_on_visited_company_id"
     t.index ["visitor_user_id"], name: "index_notice_companies_on_visitor_user_id"
   end
