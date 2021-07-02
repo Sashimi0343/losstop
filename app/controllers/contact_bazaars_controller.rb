@@ -4,6 +4,7 @@ class ContactBazaarsController < ApplicationController
   def create
     order = OrderBazaar.find(params[:bazaar_id])
     contact_bazaar = ContactBazaar.new(contact_params)
+    order_bazaar = contact_bazaar.order_bazaar
 
     if current_company.nil? && (current_user.id != contact_bazaar.user.id)
       redirect_to root_path
@@ -11,6 +12,8 @@ class ContactBazaarsController < ApplicationController
       redirect_to root_path
     else
       contact_bazaar.save
+
+      order_bazaar.create_notice_contact(current_company, contact_bazaar.id)
       redirect_back(fallback_location: bazaar_order_bazaar_path(order.id, order.bazaar.id))
     end
   end
