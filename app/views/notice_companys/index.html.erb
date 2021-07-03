@@ -1,6 +1,6 @@
 
-<% notice = @notice_companies.where.not(visitor_id: current_company.id)
-  if notice_companies.exists? %>
+<% notice = @notice_company.where.not(visitor_user_id: current_company.id) %>
+  <% if notice.exists? %>
     <%= render notifications %>
     <%= render partial: "_notice", locals: { notice: notices }%>
   <% else %>
