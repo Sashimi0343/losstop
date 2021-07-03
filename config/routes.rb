@@ -32,5 +32,5 @@ Rails.application.routes.draw do
     end
   end
 
-  resources :notice_companies, only: :index
+  resources :notice_companys, only: :index
 end

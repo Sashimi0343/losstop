@@ -1,0 +1,11 @@
+<% visitor = notice_company.visitor %>
+<% visited = notice_company.visited %>
+<div>
+  <div>
+    <p><%= visitor.user.name %>さんが</p>
+    <% case notice_company.action %>
+      <% when 'comment' then %>
+        <% if notice_company.order_bazaar.company_id == visited.id %>
+          <%= link_to "あなたの投稿", order_bazaar_path(notice_company.order_bazaar_path.id) %>
+          <p>にコメントしました</p>
+    <%= end %>

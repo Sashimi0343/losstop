@@ -21,7 +21,7 @@ class Company < ApplicationRecord
   belongs_to :prefecture
 
   with_options dependent: :destroy do
-    has_many :passive_notice_companies, class_name: 'notice_company', foreign_key: 'visited_company_id'
+    has_many :passive_notice_companys, class_name: 'notice_company', foreign_key: 'visited_company_id'
 
     has_many :bazaars
     has_many :order_bazaars

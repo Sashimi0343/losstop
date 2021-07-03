@@ -9,5 +9,5 @@ class OrderAuction < ApplicationRecord
   belongs_to :auction
   belongs_to :company
 
-  has_many :notice_companies, dependent: :destroy
+  has_many :notice_companys, dependent: :destroy
 end

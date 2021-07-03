@@ -24,5 +24,5 @@ class Bazaar < ApplicationRecord
   has_many :review_bazaars, dependent: :destroy
   belongs_to :company
 
-  has_many :notice_companies, dependent: :destroy
+  has_many :notice_companys, dependent: :destroy
 end

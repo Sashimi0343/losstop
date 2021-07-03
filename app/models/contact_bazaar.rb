@@ -3,7 +3,7 @@ class ContactBazaar < ApplicationRecord
     validates :message, :name
   end
 
-  has_many :notice_companies, dependent: :destroy
+  has_many :notice_companys, dependent: :destroy
 
   belongs_to :order_bazaar
   belongs_to :user, optional: true

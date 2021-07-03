@@ -8,5 +8,5 @@ class OrderBazaar < ApplicationRecord
   belongs_to :bazaar
   belongs_to :user
 
-  has_many :notice_companies, dependent: :destroy
+  has_many :notice_companys, dependent: :destroy
 end
