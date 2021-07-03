@@ -31,4 +31,6 @@ Rails.application.routes.draw do
       resources :contact_auctions, only: [:create]
     end
   end
+
+  resources :notice_companies, only: :index
 end
