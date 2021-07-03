@@ -1,0 +1,2 @@
+module NoticeCompaniesHelper
+end

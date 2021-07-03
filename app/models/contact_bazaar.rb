@@ -24,7 +24,7 @@ class ContactBazaar < ApplicationRecord
       bazaar_id: id,
       contact_bazaar_id: contact_bazaar_id,
       visited_id: visited_id,
-      action: 'contact_bazaar'
+      action: 'contact'
     )
 
     if notice.visitor_id == notice.visited_id
