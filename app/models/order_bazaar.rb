@@ -7,4 +7,6 @@ class OrderBazaar < ApplicationRecord
   has_many :contact_bazaars, dependent: :destroy
   belongs_to :bazaar
   belongs_to :user
+
+  has_many :notice_companys, dependent: :destroy
 end

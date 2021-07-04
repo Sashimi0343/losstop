@@ -3,6 +3,8 @@ class ReviewAuction < ApplicationRecord
     validates :comment, :name
   end
 
+  has_many :notice_companys, dependent: :destroy
+
   belongs_to :auction
   belongs_to :user, optional: true
   belongs_to :company, optional: true
