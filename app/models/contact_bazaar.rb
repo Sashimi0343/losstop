@@ -10,13 +10,13 @@ class ContactBazaar < ApplicationRecord
   belongs_to :company, optional: true
 
 
-  def create_notice_contact(current_company, contact_bazaar_id, user_id)
+  def create_notice_contact!(current_user, contact_bazaar_id)
 
     temp_ids = ContactBazaar.select(user_id).where(order_bazaar_id: id).where.not(company_id: current_company.id)
     temp_ids.each do |temp_id|
-      save_notice_contact!(current_company, contact_bazaar_id, temp_id['user_id'])
+      save_notice_contact!(current_user, contact_bazaar_id, temp_id['user_id'])
     end
-    save_notice_contact!(current_company, contact_bazaar_id, user_id) if temp_ids.blank?
+    save_notice_contact!(current_user, contact_bazaar_id, user_id) if temp_ids.blank?
   end
 
   def save_notice_contact(current_company, contact_bazaar_id, visited_company_id)
