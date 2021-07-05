@@ -1,5 +1,29 @@
-<p>↑ヘッダー↑</p>
-<p>ここがボディ</p>
-<li><%= link_to '逆オークションへ行く', auctions_path %></li>
-<li><%= link_to 'バザーへ行く', bazaars_path %></li>
-<p>↓フッター↓</p>
+<div class="top-wrap">
+  <p class="big-text">まだ助かる</p>
+
+  <div class="bazaar-or-auction">
+    <div class="go-bazaar">
+      <%= link_to(bazaars_path) do %>
+        <p class="gate-title">バザーへ行く</p>
+        <%= image_tag 'to_bazaar.png' , size: '220x220' %>
+        <p class="gate-text">会社やお店が在庫を抱えています。
+        <br>「買って、食べる」
+        <br>これが彼らを救う方法です。</p>
+      <% end %>
+    </div>
+
+    <div class="go-auction">
+      <%= link_to(auctions_path) do %>
+        <p class="gate-title">逆オークションへいく</p>
+        <%= image_tag 'to_auction.png' , size: '220x220' %>
+        <p class="gate-text">普段は目にしない食品たち。
+        <br>「こんな物が食べてみたい。」
+        <br>その希望に彼らが提案してくれます。</p>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+
+
+<%= render 'shared/footer' %>
