@@ -1,0 +1,50 @@
+<div class="commit-wrap">
+  <div class="search-nav-list">
+    <p class="commit-text">検索結果</p>
+    <ul>
+      <li class="search-nav">新着</li>
+      <li class="search-nav">価格</li>
+      <li class="search-nav">在庫</li>
+    </ul>
+  </div>
+
+
+</div>
+
+
+
+
+
+
+<div class="commit">
+  <h1>
+    検索結果
+  </h1>
+  <%# 検索結果の個数で条件分岐 %>
+  <% if @results_bazaar.length !=0 %>
+    <% @results_bazaar.each do |result| %>
+      <% if (result.deadline > Time.new) && (result.stock > 0) %>
+        <%= link_to bazaar_path(result.id) do %>
+          <li class=''>
+            <div class=''>
+              <%= image_tag result.image, class: "" %>
+            </div>
+            <div class=''>
+              <h3 class=''>
+                <%= result.title %>
+              </h3>
+              <div class=''>
+                <span><%= result.price %>円<br><%= result.delivery_charge.name %></span>
+              </div>
+            </div>
+          </li><br><br><br>
+        <% end %>
+      <% end %>
+    <% end %>
+  <% else %>
+    該当する商品はありません
+  <% end %>
+  <br>
+  <%= link_to '戻る', bazaars_path %>
+
+</div>
