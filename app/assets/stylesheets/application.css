@@ -19,7 +19,7 @@
  * {
   box-sizing: border-box;
   list-style: none;
-  background: #f8f8f8;
+  background: #ffffff;
 }
 
 html,body{
@@ -28,12 +28,13 @@ html,body{
 
 /* ヘッダー全体の配置・設定 */
 .header-wrap {
-  height: 16vh;
+  height: 18vh;
   width: 100vw;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  border-bottom: solid 0.2rem black;
+  border-bottom: solid 0.3rem black;
+  margin: 0 0 2rem;
 }
 
 

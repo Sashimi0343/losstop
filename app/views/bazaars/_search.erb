@@ -1,25 +1,22 @@
-<div>
-  <p>サイドバー
-  <br>バザーの検索をする。</p>
-</div><br><br>
+<div class="search-wrap">
+  <%= search_form_for @b, url: bazaars_search_path do |f| %>
 
-<div>
-  <div>
-    <%= search_form_for @b, url: bazaars_search_path do |f| %>
-      <p>キーワード検索</p>
-      <%= f.search_field :title_cont, placeholder:"(例：牛肉" %>
+    <%= image_tag 'search/key_word.png', size: '20x20' %>キーワード検索<br>
+    <%= f.search_field :title_cont, placeholder:"(例：牛" %>
+    <br><br>
 
-      <br><br>
-      <%= f.label :category_id_eq, 'カテゴリー' %><br>
-      <%= f.collection_select :category_id_eq, Category.all, :id, :name, include_blank: '指定なし' %>
+    <%= image_tag 'search/question.png' , size: '20x20' %>カテゴリーで探す<br>
+    <%= f.collection_select :category_id_eq, Category.all, :id, :name, include_blank: '指定なし' %>
+    <br><br>
 
-      <br><br>
-      <p>価格で絞り込み</p>
-        <%= f.search_field :price_gteq, placeholder:"○○円以上" %>
-        <br>
-        <%= f.search_field :price_lteq, placeholder:"○○円以下" %>
-      <br>
-      <%= f.submit '検索' %>
-    <% end %>
-  </div>
+    <%= image_tag 'search/yen.png' , size: '20x20' %>価格で絞り込む<br>
+    <%= f.search_field :price_gteq, placeholder:"○○円以上" %>
+    <br>
+    <%= f.search_field :price_lteq, placeholder:"○○円以下" %>
+    <br><span class="price-search">片方だけでも検索できます。
+    <br>※5000円以下で検索など</span>
+    <br><br>
+
+    <%= f.submit '検索' %>
+  <% end %>
 </div>

@@ -1,20 +1,40 @@
-.wrapper {
+
+/* バザートップ下地 */
+.bazaar-wrapper {
   display: flex;
+  width: 100vw;
 }
 
-.top-bazaar {
-  width: 80vw;
-}
-
-.search {
-  height: 70vh;
+.bazaar-search {
   width: 20vw;
-
+  font-size: 2rem;
 }
 
-.search-commit {
-  height: 70vh;
+.bazaar-top {
   width: 80vw;
+  font-size: 2rem;
 }
+
+/* searchアクション用の左側 */
+
+.search-wrap {
+  width: 18vw;
+  border: 0.7rem double black;
+  padding: 1rem;
+  margin: 1rem;
+  font-size: 2rem;
+}
+
+.price-search {
+  font-size: 1.5rem;
+}
+
+
+/* searchアクションの右側 */
+.search-commit {
+  width: 80vw;
+  font-size: 2rem;
+}
+
 
 
