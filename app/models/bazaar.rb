@@ -16,7 +16,7 @@ class Bazaar < ApplicationRecord
   end
 
   belongs_to :category
-  belongs_to :days_to_ship
+  belongs_to :days_to_ship, optional: true
   belongs_to :delivery_charge
 
   has_one_attached :image

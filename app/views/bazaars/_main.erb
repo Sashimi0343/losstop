@@ -1,9 +1,9 @@
 <div class="bazaar-container">
-  <h1>その食品…<br>
-  <span class="h1-text">棄てるにはまだ早い！</span></h1>
+  <p class="index-guide1">その食品…<br>
+  <span class="h1-text">棄てるにはまだ早い！</span></p>
 
 
-  <h5>最近多いこうした出来事…</h5>
+  <p class="index-guide2">最近多いこうした出来事…</h5>
   <table class="bazaar-examples">
     <tr>
       <td><%= image_tag 'bazaar/example1.png' , size: '450x450' %></td>
@@ -16,25 +16,25 @@
   </table>
 
 
-  <h2>諦めていた在庫たち…<br>
+  <p class="index-guide3">諦めていた在庫たち…<br>
   <span class="h2-text">もしかしたら売れるかも！</span></h2>
   <div class="bazaar-index-image">
     <%= image_tag 'bazaar/maybe.png', size: '300x400' %>
   </div>
 
 
-  <h6>かんたん！4つの出品手順！</h6>
+  <p class="index-guide4">かんたん！4つの出品手順！</p>
   <ul class="bazaar-steps">
     <li><%= image_tag 'bazaar/step1.png' , size: '300x300' %></li>
     <li><%= image_tag 'bazaar/step2.png' , size: '300x300' %></li>
     <li><%= image_tag 'bazaar/step3.png' , size: '300x300' %></li>
     <li><%= image_tag 'bazaar/step4.png' , size: '300x300' %></li>
   </ul>
-  <h3>もし諦めていたのなら<br>
-  ぜひここで出品してみましょうっ！</h3>
+  <p class="index-guide5">もし諦めていたのなら<br>
+  ぜひここで出品してみましょうっ！</p>
 
 
-  <h4>新着10件</h4>
+  <p class="index-guide6">新着10件</p>
 
   <% @bazaars.each do |bazaar| %>
     <% if (bazaar.deadline > Time.new) && (bazaar.stock > 0) %>

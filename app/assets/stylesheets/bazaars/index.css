@@ -5,7 +5,7 @@
 }
 
 /* 導入 */
-h1 {
+.index-guide1 {
   font-size: 8rem;
   text-align: center;
   margin: 18rem 0 20rem;
@@ -16,7 +16,8 @@ h1 {
   font-size: 12rem;
 }
 
-h5 {
+
+.index-guide2 {
   font-size: 8rem;
   text-align: center;
 }
@@ -29,7 +30,8 @@ h5 {
   padding: 0 8rem 8rem;
 }
 
-h2 {
+
+.index-guide3 {
   font-size: 6rem;
   text-align: center;
   margin-top: 15rem;
@@ -46,13 +48,13 @@ h2 {
 
 /* 出品手順 */
 
-h6 {
+.index-guide4 {
   margin: 20rem 0 5rem;
   font-size: 10rem;
   text-align: center;
 }
 
-ul {
+.bazaar-steps {
   display: flex;
 }
 
@@ -61,8 +63,9 @@ ul {
   margin-right: 2rem;
 }
 
+
 /* 最後の一押し */
-h3 {
+.index-guide5 {
   font-size: 8rem;
   text-align: center;
   margin: 15rem 0 15rem;
@@ -70,7 +73,7 @@ h3 {
 
 
 /* 新着商品について */
-h4 {
+.index-guide6 {
   font-size: 4rem;
   border-bottom: solid 0.2rem black;
 }
