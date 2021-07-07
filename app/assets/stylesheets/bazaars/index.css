@@ -1,0 +1,79 @@
+
+/* indexの下地 */
+.bazaar-container {
+  width: 100%;
+}
+
+/* 導入 */
+h1 {
+  font-size: 8rem;
+  text-align: center;
+  margin: 18rem 0 20rem;
+}
+
+.h1-text {
+  color: red;
+  font-size: 12rem;
+}
+
+h5 {
+  font-size: 8rem;
+  text-align: center;
+}
+
+.bazaar-examples {
+  margin: auto;
+}
+
+.bazaar-examples td{
+  padding: 0 8rem 8rem;
+}
+
+h2 {
+  font-size: 6rem;
+  text-align: center;
+  margin-top: 15rem;
+}
+
+.h2-text {
+  color: red;
+  font-size: 10rem;
+}
+
+.bazaar-index-image {
+  text-align: center;
+}
+
+/* 出品手順 */
+
+h6 {
+  margin: 20rem 0 5rem;
+  font-size: 10rem;
+  text-align: center;
+}
+
+ul {
+  display: flex;
+}
+
+.bazaar-steps li{
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+/* 最後の一押し */
+h3 {
+  font-size: 8rem;
+  text-align: center;
+  margin: 15rem 0 15rem;
+}
+
+
+/* 新着商品について */
+h4 {
+  font-size: 4rem;
+  border-bottom: solid 0.2rem black;
+}
+
+/* 商品のeach部分はsearchと同じ形 */
+/* bazaars.scssを反映するためこちらで設定する必要は無し */

@@ -1,0 +1,28 @@
+<div>
+  <p>ここがバザーのメインページ</p>
+  <p>とりあえず一覧を表示</p>
+  <br>
+  <br>
+  <br>
+
+  <% @bazaars.each do |bazaar| %>
+    <% if (bazaar.deadline > Time.new) && (bazaar.stock > 0) %>
+      <%= link_to bazaar_path(bazaar.id) do %>
+        <li class=''>
+          <div class=''>
+            <%= image_tag bazaar.image, class: "" %>
+          </div>
+          <div class=''>
+            <h3 class=''>
+              <%= bazaar.title %>
+            </h3>
+            <div class=''>
+              <span><%= bazaar.price %>円<br><%= bazaar.delivery_charge.name %></span>
+            </div>
+          </div>
+        </li><br><br><br>
+      <% end %>
+    <% else %>
+    <% end %>
+  <% end %>
+</div>
