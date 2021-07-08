@@ -28,7 +28,7 @@ html,body{
 
 /* ヘッダー全体の配置・設定 */
 .header-wrap {
-  height: 18vh;
+  height: 20vh;
   width: 100vw;
   display: flex;
   justify-content: space-between;

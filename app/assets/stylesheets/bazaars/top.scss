@@ -6,19 +6,19 @@
 
 /* 導入 */
 .index-guide1 {
-  font-size: 8rem;
+  font-size: 6rem;
   text-align: center;
   margin: 18rem 0 20rem;
 }
 
 .h1-text {
   color: red;
-  font-size: 12rem;
+  font-size: 9rem;
 }
 
 
 .index-guide2 {
-  font-size: 8rem;
+  font-size: 6rem;
   text-align: center;
 }
 
@@ -32,14 +32,14 @@
 
 
 .index-guide3 {
-  font-size: 6rem;
+  font-size: 4rem;
   text-align: center;
   margin-top: 15rem;
 }
 
 .h2-text {
   color: red;
-  font-size: 10rem;
+  font-size: 8rem;
 }
 
 .bazaar-index-image {
@@ -50,12 +50,13 @@
 
 .index-guide4 {
   margin: 20rem 0 5rem;
-  font-size: 10rem;
+  font-size: 8rem;
   text-align: center;
 }
 
 .bazaar-steps {
   display: flex;
+  justify-content: space-around;
 }
 
 .bazaar-steps li{
@@ -66,7 +67,7 @@
 
 /* 最後の一押し */
 .index-guide5 {
-  font-size: 8rem;
+  font-size: 6rem;
   text-align: center;
   margin: 15rem 0 15rem;
 }
@@ -74,7 +75,7 @@
 
 /* 新着商品について */
 .index-guide6 {
-  font-size: 4rem;
+  font-size: 3rem;
   border-bottom: solid 0.2rem black;
 }
 

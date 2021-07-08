@@ -6,12 +6,12 @@
   <p class="index-guide2">最近多いこうした出来事…</h5>
   <table class="bazaar-examples">
     <tr>
-      <td><%= image_tag 'bazaar/example1.png' , size: '450x450' %></td>
-      <td><%= image_tag 'bazaar/example2.png' , size: '450x450' %></td>
+      <td><%= image_tag 'bazaar/example1.png' , size: '350x350' %></td>
+      <td><%= image_tag 'bazaar/example2.png' , size: '350x350' %></td>
     </tr>
     <tr>
-      <td><%= image_tag 'bazaar/example3.png' , size: '450x450' %></td>
-      <td><%= image_tag 'bazaar/example4.png' , size: '450x450' %></td>
+      <td><%= image_tag 'bazaar/example3.png' , size: '350x350' %></td>
+      <td><%= image_tag 'bazaar/example4.png' , size: '350x350' %></td>
     </tr>
   </table>
 
@@ -19,16 +19,16 @@
   <p class="index-guide3">諦めていた在庫たち…<br>
   <span class="h2-text">もしかしたら売れるかも！</span></h2>
   <div class="bazaar-index-image">
-    <%= image_tag 'bazaar/maybe.png', size: '300x400' %>
+    <%= image_tag 'bazaar/maybe.png', size: '230x300' %>
   </div>
 
 
   <p class="index-guide4">かんたん！4つの出品手順！</p>
   <ul class="bazaar-steps">
-    <li><%= image_tag 'bazaar/step1.png' , size: '300x300' %></li>
-    <li><%= image_tag 'bazaar/step2.png' , size: '300x300' %></li>
-    <li><%= image_tag 'bazaar/step3.png' , size: '300x300' %></li>
-    <li><%= image_tag 'bazaar/step4.png' , size: '300x300' %></li>
+    <li><%= image_tag 'bazaar/step1.png' , size: '200x200' %></li>
+    <li><%= image_tag 'bazaar/step2.png' , size: '200x200' %></li>
+    <li><%= image_tag 'bazaar/step3.png' , size: '200x200' %></li>
+    <li><%= image_tag 'bazaar/step4.png' , size: '200x200' %></li>
   </ul>
   <p class="index-guide5">もし諦めていたのなら<br>
   ぜひここで出品してみましょうっ！</p>
@@ -41,7 +41,7 @@
       <div class="search-result">
         <div class="result-image">
           <%= link_to bazaar_path(bazaar.id) do %>
-            <%= image_tag bazaar.image, size: '250x250' %>
+            <%= image_tag bazaar.image, size: '200x200' %>
           <% end %>
         </div>
 
@@ -50,7 +50,7 @@
             <th colspan="2"><%= link_to bazaar.title, bazaar_path(bazaar.id), class: "result-title" %></th>
             <th>価格：<%= bazaar.price %>円</th>
           </tr>
-          <tr>
+          <tr class="result-text">
             <td>在庫：<%= bazaar.stock %>個</td>
             <td>出品期間：<%= bazaar.deadline %>まで</td>
             <td><%= bazaar.delivery_charge.name %></td>

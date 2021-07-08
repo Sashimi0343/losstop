@@ -2,7 +2,7 @@
 
 .form-wrap {
   font-size: 2rem;
-  padding-left: 4rem;
+  padding: 3rem;
 }
 
 .new-guide1 {
@@ -10,7 +10,7 @@
 }
 
 .new-guide2 {
-  font-size: 3rem;
+  font-size: 2rem;
   margin-bottom: 10rem;
 }
 
@@ -22,7 +22,7 @@
 }
 
 .form-select1 {
-  font-size: 4rem;
+  font-size: 3rem;
   padding: 1rem;
 }
 
@@ -30,17 +30,17 @@
 .form-table1 {
   border: solid 0.2rem black;
   width: 95%;
-  margin: 3rem 0 5rem;
+  margin: 1rem 0 5rem;
 }
 
 .form-table1 th,td{
-  padding: 2rem;
+  padding: 1rem;
   border: solid 0.3rem black;
   background:rgba(188, 251, 255, 0.5);
 }
 
 .form-text1 {
-  font-size: 4rem;
+  font-size: 3rem;
   background:rgba(188, 251, 255, 0.5);
   padding: 0.3rem;
 }
@@ -57,20 +57,19 @@
 }
 
 .form-button2 {
-  width: 30rem;
-  font-size: 4rem;
+  width: 20rem;
+  font-size: 3rem;
   padding: 0.5rem;
   border-radius: 0.5rem;
   background-color: #ebebeb;
   border: 1px solid black;
   display: block;
   text-align: center;
-  margin: auto;
 }
 
 /* title */
 .form-title {
-  width: 88%;
+  width: 85%;
   font-size: 4rem;
   padding: 0.5rem;
 }

@@ -2,7 +2,7 @@
   <%= search_form_for @b, url: bazaars_search_path do |f| %>
 
     <%= image_tag 'search/key_word.png', size: '20x20' %>キーワード検索<br>
-    <%= f.search_field :title_cont, placeholder:"(例：牛" %>
+    <%= f.search_field :title_cont, placeholder:"(例：牛", class: "search-field" %>
     <br><br>
 
     <%= image_tag 'search/question.png' , size: '20x20' %>カテゴリーで探す<br>
@@ -10,9 +10,9 @@
     <br><br>
 
     <%= image_tag 'search/yen.png' , size: '20x20' %>価格で絞り込む<br>
-    <%= f.search_field :price_gteq, placeholder:"○○円以上" %>
+    <%= f.search_field :price_gteq, placeholder:"○○円以上", class: "search-field" %>
     <br>
-    <%= f.search_field :price_lteq, placeholder:"○○円以下" %>
+    <%= f.search_field :price_lteq, placeholder:"○○円以下", class: "search-field" %>
     <br><span class="price-search">片方だけでも検索できます。
     <br>※5000円以下で検索など</span>
     <br><br>

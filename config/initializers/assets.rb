@@ -20,4 +20,6 @@ Rails.application.config.assets.precompile += %w(
 
   losstops/*
   bazaars/*
+
+  order_bazaars/*
 )

@@ -12,7 +12,7 @@
             <%= link_to "商品の編集", edit_bazaar_path(@bazaar.id), method: :get, class: "show-button" %>
             <%= link_to "この出品を終了する", bazaar_path(@bazaar.id), method: :delete, class:"show-button" %>
           <% elsif user_signed_in? %>
-            <%= link_to "購入画面に進む", new_bazaar_order_bazaar_path(@bazaar.id) ,class:"show-button"%>
+            <%= link_to "購入を希望する", new_bazaar_order_bazaar_path(@bazaar.id) ,class:"show-button"%>
           <% end %>
         <% end %>
       <% end %>
@@ -67,7 +67,7 @@
 
         <div class="review-message">
           <div class="name-and-created">
-            <p><%= review.name %></p>
+            <p class="review-name"><%= review.name %></p>
             <p class="review-created"><%= review.created_at %></p>
           </div>
 

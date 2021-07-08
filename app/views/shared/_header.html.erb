@@ -8,14 +8,14 @@
       <li class="top-list">
         <%= link_to(bazaars_path) do %>
           <p>バザー</p>
-          <%= image_tag 'header/to_bazaar.png' , size: '100x100' %>
+          <%= image_tag 'header/to_bazaar.png' , size: '80x80' %>
         <% end %>
       </li>
 
       <li class="top-list">
         <%= link_to(auctions_path, class: 'to-auction') do %>
           <p>オークション</p>
-          <%= image_tag 'header/to_auction.png' , size: '100x100' %>
+          <%= image_tag 'header/to_auction.png' , size: '80x80' %>
         <% end %>
       </li>
     </ul>
@@ -29,21 +29,21 @@
         <li class="menu-list">
           <%= link_to(company_path(current_company.id)) do %>
             <p>マイページ</p>
-            <%= image_tag 'header/mypage.png' , size: '70x100' %>
+            <%= image_tag 'header/mypage.png' , size: '45x80' %>
           <% end %>
         </li>
       <% elsif user_signed_in? %>
         <li class="menu-list">
           <%= link_to(user_path(current_user.id)) do %>
             <p>マイページ</p>
-            <%= image_tag 'header/mypage.png' , size: '70x100' %>
+            <%= image_tag 'header/mypage.png' , size: '45x80' %>
           <% end %>
         </li>
       <% else %>
         <li class="menu-list">
           <%= link_to(new_company_registration_path) do %>
             <p>会社新規登録</p>
-            <%= image_tag 'header/company.png' , size: '100x100' %>
+            <%= image_tag 'header/company.png' , size: '80x80' %>
           <% end %>
         </li>
       <% end %>
@@ -53,21 +53,21 @@
         <li class="menu-list">
           <%= link_to(notice_companys_path) do %>
             <p>お知らせ</p>
-            <%= image_tag 'header/notice.png' , size: '120x100' %>
+            <%= image_tag 'header/notice.png' , size: '95x80' %>
           <% end %>
         </li>
       <% elsif user_signed_in? %>
         <li class="menu-list">
           <%= link_to(notice_companys_path) do %><%# ここ出来次第変える %>
             <p>お知らせ</p>
-            <%= image_tag 'header/notice.png' , size: '100x100' %>
+            <%= image_tag 'header/notice.png' , size: '95x80' %>
           <% end %>
         </li>
       <% else %>
         <li class="menu-list">
           <%= link_to(new_company_session_path) do %>
             <p>会社ログイン</p>
-            <%= image_tag 'header/login.png' , size: '100x100' %>
+            <%= image_tag 'header/login.png' , size: '80x80' %>
           <% end %>
         </li>
       <% end %>
@@ -77,21 +77,21 @@
         <li class="menu-list">
           <%= link_to(new_bazaar_path) do %>
             <p>これを出品！</p>
-            <%= image_tag 'header/bazaar.png' , size: '100x100' %>
+            <%= image_tag 'header/bazaar.png' , size: '80x80' %>
           <% end %>
         </li>
       <% elsif user_signed_in? %>
         <li class="menu-list">
           <%= link_to(new_auction_path) do %>
             <p>こういうの欲しい！</p>
-            <%= image_tag 'header/auction.png' , size: '100x100' %>
+            <%= image_tag 'header/auction.png' , size: '80x80' %>
           <% end %>
         </li>
       <% else %>
         <li class="menu-list">
           <%= link_to(new_user_registration_path) do %>
             <p>一般新規登録</p>
-            <%= image_tag 'header/user.png' , size: '100x100' %>
+            <%= image_tag 'header/user.png' , size: '80x80' %>
           <% end %>
         </li>
       <% end %>
@@ -101,21 +101,21 @@
         <li class="menu-list">
           <%= link_to(destroy_company_session_path, method: :delete) do %>
             <p>ログアウト</p>
-            <%= image_tag 'header/logout.png' , size: '70x100' %>
+            <%= image_tag 'header/logout.png' , size: '55x80' %>
           <% end %>
         </li>
       <% elsif user_signed_in? %>
         <li class="menu-list">
           <%= link_to(destroy_user_session_path, method: :delete) do %>
             <p>ログアウト</p>
-            <%= image_tag 'header/logout.png' , size: '70x100' %>
+            <%= image_tag 'header/logout.png' , size: '55x80' %>
           <% end %>
         </li>
       <% else %>
         <li class="menu-list">
           <%= link_to(new_user_session_path) do %>
             <p>一般ログイン</p>
-            <%= image_tag 'header/login.png' , size: '100x100' %>
+            <%= image_tag 'header/login.png' , size: '80x80' %>
           <% end %>
         </li>
       <% end %>
