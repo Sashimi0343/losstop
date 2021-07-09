@@ -1,106 +1,100 @@
-ここが詳細ページ。
-ひとまず、ビューの出来はさておき最低限の機能を実装。
+<%= stylesheet_link_tag 'auctions/show', :media => "all" %>
+<div class="show-wrap">
+<% count = 0 %>
 
-<div class="">
-  <div class="">
-    <div>
-      <h2 class="">
-        <%= @auction.title %>
-      </h2>
-    </div>
+  <div class="introduce-and-room">
+    <p class="introduce">欲しい物詳細ページ</p>
 
-    <div>
-      <h3 class="">
-        <%= @auction.description %>
-      </h3>
-    </div>
-
-    <div class="">
-      <span class="">
-        <%= "希望価格：#{@auction.price}" %>
-      </span>
-      <span class="">
-        <%= "購入希望上限数；#{@auction.stock}" %>
-      </span>
-    </div>
-
-    <div class="">
-      <span><%= @auction.description %></span>
-    </div>
-    <table class="">
-      <tbody>
-        <tr>
-          <th class="">買いたい人</th>
-          <td class=""><%= @auction.user.name %></td>
-        </tr>
-        <tr>
-          <th class="">カテゴリー</th>
-          <td class=""><%= @auction.category.name %></td>
-        </tr>
-        <tr>
-          <th class="">配送料の負担</th>
-          <td class=""><%= @auction.delivery_charge.name %></td>
-        </tr>
-        <tr>
-          <th class="">この日までに欲しい！</th>
-          <td class=""><%= @auction.deadline %></td>
-        </tr>
-      </tbody>
-    </table>
-
-    <% if (@auction.stock != 0) || (@auction.deadline > Time.now) %>
+    <div class="rooms">
+      <% @order.each do |order| %>
+        <% if (current_user.nil?) && (order.company_id == current_company.id) %>
+          <%= link_to "取引連絡部屋へ", auction_order_auction_path(order.id), class: "go-room-button" %>
+          <% count += 1 %>
+        <% end %>
+      <% end %>
       <% if user_signed_in? %>
         <% if current_user.id == @auction.user.id %>
-          <%= link_to "出品内容の編集", edit_auction_path(@auction.id), method: :get, class: "" %>
-          <p class="or-text">or</p>
-          <%= link_to "この出品を終了する", auction_path(@auction.id), method: :delete, class:"" %>
+          会社・お店様からの商品PR部屋はページ下部に一覧で表示されます。
+          <br>※このメッセージは出品者本人にのみ見えています。
         <% end %>
-      <% elsif company_signed_in? %>
-        <%= link_to "販売交渉へ進む", new_auction_order_auction_path(@auction.id) ,class:""%>
       <% end %>
-    <% end %>
+    </div>
+  </div>
 
 
+  <div class="category-and-submit">
+    <p>カテゴリー：<%= @auction.category.name %></p>
+    <div>
+      <% if @auction.stock != 0 %>
+        <% if @auction.deadline > Time.now %>
+          <% if (user_signed_in?) && (current_user.id == @auction.user.id) %>
+            <%= link_to "商品の編集", edit_auction_path(@auction.id), method: :get, class: "show-button" %>
+            <%= link_to "このページを終了する", auction_path(@auction.id), method: :delete, class:"show-button" %>
+          <% elsif company_signed_in? %>
+            <% if count == 0 %>
+              <%= link_to "商品を売り込む", new_auction_order_auction_path(@auction.id) ,class:"show-button"%>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
 
-    <% @order.each do |order| %>
-      <% if current_user.nil? && (order.company_id == current_company.id) %>
-        <div class="">
-          <div class="">
-            <%= image_tag order.image %>
-          </div>
-          <div class="">
-            <%= link_to "取引連絡部屋へ", auction_order_auction_path(order.id)%>
-          </div>
+
+  <table class="form-table1">
+    <tr>
+      <th colspan="3">欲しい人：<%= @auction.user.name %></th>
+    </tr>
+    <tr>
+      <td colspan="3"><span class="show-text1">タイトル：<%= @auction.title %></span></td>
+    </tr>
+
+    <tr>
+      <td rowspan="2" class="form-image">
+        <div id="image_bazaar">
+          <%= image_tag "bazaar/example1.png" ,class:"" %>
         </div>
-      <% elsif current_company.nil? && (@auction.user_id == current_user.id) %>
-        <div class="">
-          <div class="">
-            <%= image_tag order.image %>
-          </div>
-          <div class="">
-            <%= link_to "取引連絡部屋へ", auction_order_auction_path(order.id)%>
-          </div>
-        </div>
+      </td>
+      <td><span class="show-text1">予算(単価)<br>
+        <%= @auction.price %>円</span></td>
+      <td><span class="show-text1">欲しい数(上限)<br>
+        <%= @auction.stock %>個まで</span></td>
+    </tr>
+
+    <tr>
+      <td><span class="show-text1">送料<br>
+        <%= @auction.delivery_charge.name %></span></td>
+      <td>
+        <span class="show-text1">この日までに欲しい<br>
+        <%= @auction.deadline %></span>まで
+      </td>
+    </tr>
+    <tr>
+      <td colspan="3"><span class="show-text1">詳細説明</span>
+      <p class="show-description"><%= @auction.description %></p></td>
+    </tr>
+  </table>
+
+
+  <div class="contact-lists">
+    <% if user_signed_in? %>
+      <% if @auction.user.id == current_user.id %>
+        <p class="contact-guide">この一覧はこのページを作った本人にのみ見えています。
+        <br>※背景が水色のリストが表示されない場合は、売り込みはまだありません。</p>
+        <table class="contact-table">
+          <tr><th>部屋番号</th><th>お相手の会社名</th><th>リンク</th></tr>
+            <% @auction.order_auctions.each do |order| %>
+              <tr>
+                <td><%= order.id %></td><td><%= order.company.name %></td>
+                <td><%= link_to "商品を見る", auction_order_auction_path(order.id), class: "contact-link" %></td>
+              </tr>
+            <% end %>
+        </table>
       <% end %>
     <% end %>
   </div>
 </div>
 
 
-<%= "ユーザーレビュー" %>
 
-<% if user_signed_in? || company_signed_in? %>
-  <%= form_with model: @review, url: auction_review_auctions_path(auction_id: @auction.id) do |f| %>
-    <%= f.text_area :comment, placeholder: "ここに入力してください", rows: "2" %>
-    <%= f.submit "送信" %>
-  <% end %>
-<% end %>
 
-<div id='messages'>
-  <% @reviews.each do |review| %>
-    <div>
-      <p><%= review.name %></p>
-      <p><strong><%= review.comment %></strong></p><br>
-    </div>
-  <% end %>
-</div>

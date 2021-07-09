@@ -10,11 +10,12 @@
         <% if (current_company.nil?) && (order.user_id == current_user.id) %>
           <%= link_to "取引連絡部屋へ", bazaar_order_bazaar_path(order.id), class: "go-room-button" %>
           <% count += 1 %>
-        <% elsif company_signed_in? %>
-          <% if current_company.id == @bazaar.company.id %>
+        <% end %>
+      <% end %>
+      <% if company_signed_in? %>
+        <% if current_company.id == @bazaar.company.id %>
             ユーザーからの取引希望の連絡部屋はページ下部に一覧で表示されます。
             <br>※このメッセージは出品者本人にのみ見えています。
-          <% end %>
         <% end %>
       <% end %>
     </div>

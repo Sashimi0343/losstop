@@ -1,0 +1,158 @@
+<%= stylesheet_link_tag 'auctions/show', :media => "all" %>
+<div class="show-wrap">
+<% count = 0 %>
+
+  <div class="introduce-and-room">
+    <p class="introduce">欲しい物詳細ページ</p>
+
+    <div class="rooms">
+      <% @order.each do |order| %>
+        <% if (current_user.nil?) && (order.company_id == current_company.id) %>
+          <%= link_to "取引連絡部屋へ", auction_order_auction_path(order.id), class: "go-room-button" %>
+          <% count += 1 %>
+        <% end %>
+      <% end %>
+      <% if user_signed_in? %>
+        <% if current_user.id == @auction.user.id %>
+          ユーザーからの取引希望の連絡部屋はページ下部に一覧で表示されます。
+          <br>※このメッセージは出品者本人にのみ見えています。
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+
+  <div class="category-and-submit">
+    <p>カテゴリー：<%= @auction.category.name %></p>
+
+    <div>
+      <% if @auction.stock != 0 %>
+        <% if @auction.deadline > Time.now %>
+          <% if (user_signed_in?) && (current_user.id == @auction.user.id) %>
+            <%= link_to "商品の編集", edit_auction_path(@auction.id), method: :get, class: "show-button" %>
+            <%= link_to "このページを終了する", auction_path(@auction.id), method: :delete, class:"show-button" %>
+          <% elsif user_company_in? %>
+            <% if count == 0 %>
+              <%= link_to "商品を売り込む", new_auction_order_auction_path(@auction.id) ,class:"show-button"%>
+            <% end %>
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+ここが詳細ページ。
+ひとまず、ビューの出来はさておき最低限の機能を実装。
+
+<div class="">
+  <div class="">
+    <div>
+      <h2 class="">
+        <%= @auction.title %>
+      </h2>
+    </div>
+
+    <div>
+      <h3 class="">
+        <%= @auction.description %>
+      </h3>
+    </div>
+
+    <div class="">
+      <span class="">
+        <%= "希望価格：#{@auction.price}" %>
+      </span>
+      <span class="">
+        <%= "購入希望上限数；#{@auction.stock}" %>
+      </span>
+    </div>
+
+    <div class="">
+      <span><%= @auction.description %></span>
+    </div>
+    <table class="">
+      <tbody>
+        <tr>
+          <th class="">買いたい人</th>
+          <td class=""><%= @auction.user.name %></td>
+        </tr>
+        <tr>
+          <th class="">カテゴリー</th>
+          <td class=""><%= @auction.category.name %></td>
+        </tr>
+        <tr>
+          <th class="">配送料の負担</th>
+          <td class=""><%= @auction.delivery_charge.name %></td>
+        </tr>
+        <tr>
+          <th class="">この日までに欲しい！</th>
+          <td class=""><%= @auction.deadline %></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <% if (@auction.stock != 0) || (@auction.deadline > Time.now) %>
+      <% if user_signed_in? %>
+        <% if current_user.id == @auction.user.id %>
+          <%= link_to "出品内容の編集", edit_auction_path(@auction.id), method: :get, class: "" %>
+          <p class="or-text">or</p>
+          <%= link_to "この出品を終了する", auction_path(@auction.id), method: :delete, class:"" %>
+        <% end %>
+      <% elsif company_signed_in? %>
+        <%= link_to "販売交渉へ進む", new_auction_order_auction_path(@auction.id) ,class:""%>
+      <% end %>
+    <% end %>
+
+
+
+    <% @order.each do |order| %>
+      <% if current_user.nil? && (order.company_id == current_company.id) %>
+        <div class="">
+          <div class="">
+            <%= image_tag order.image %>
+          </div>
+          <div class="">
+            <%= link_to "取引連絡部屋へ", auction_order_auction_path(order.id)%>
+          </div>
+        </div>
+      <% elsif current_company.nil? && (@auction.user_id == current_user.id) %>
+        <div class="">
+          <div class="">
+            <%= image_tag order.image %>
+          </div>
+          <div class="">
+            <%= link_to "取引連絡部屋へ", auction_order_auction_path(order.id)%>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+
+
+<%= "ユーザーレビュー" %>
+
+<% if user_signed_in? || company_signed_in? %>
+  <%= form_with model: @review, url: auction_review_auctions_path(auction_id: @auction.id) do |f| %>
+    <%= f.text_area :comment, placeholder: "ここに入力してください", rows: "2" %>
+    <%= f.submit "送信" %>
+  <% end %>
+<% end %>
+
+<div id='messages'>
+  <% @reviews.each do |review| %>
+    <div>
+      <p><%= review.name %></p>
+      <p><strong><%= review.comment %></strong></p><br>
+    </div>
+  <% end %>
+</div>
