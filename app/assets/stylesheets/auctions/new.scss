@@ -33,27 +33,33 @@
   margin: 1rem 0 5rem;
 }
 
-.form-table1 th,td{
+.form-table1 th{
+  padding: 1rem;
+  width: 100%;
+  border: solid 0.3rem black;
+  background:rgba(188, 251, 255, 0.5);
+}
+
+.form-table1 td{
+  width: 25%;
   padding: 1rem;
   border: solid 0.3rem black;
   background:rgba(188, 251, 255, 0.5);
 }
 
 .form-text1 {
-  font-size: 3rem;
+  font-size: 2.5rem;
   background:rgba(188, 251, 255, 0.5);
   padding: 0.3rem;
 }
 
-.form-button {
-  width: 15rem;
-  padding: 0.5rem;
-  border-radius: 0.5rem;
-  background-color: #ebebeb;
-  border: 1px solid black;
-  display: block;
-  text-align: center;
-  margin: auto;
+.new-forms {
+  width: 80%;
+}
+
+.form-select2 {
+  font-size: 2.5rem;
+  padding: 1rem;
 }
 
 .form-button2 {
@@ -86,22 +92,6 @@
   text-align: center;
 }
 
-#image_bazaar {
-  margin: auto;
-  height: 300px;
-  width: 300px;
-
-}
-
-#image_bazaar img {
-  height: 300px;
-  width: 300px;
-  object-fit: contain;
-}
-
-#bazaar_image {
-  display: none;
-}
 
 
 /* description */

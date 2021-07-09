@@ -1,10 +1,7 @@
-<p>ここが逆オークションの出品</p>
-<br>
-<br>
-<br>
-<br>
+<div class="form-wrap">
+  <p class="new-guide1">出品する</p>
+  <p class="new-guide2">内容は全て記入必須です。</p>
 
+  <%= render partial: "form", locals: { auction: @auction }%>
+</div>
 
-<%= render partial: "form", locals: { auction: @auction }%>
-
-<li><%= link_to 'トップへ戻る', auctions_path %></li>

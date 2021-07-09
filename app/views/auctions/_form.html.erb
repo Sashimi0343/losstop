@@ -1,68 +1,52 @@
-<%= form_with model: auction, local: true do |f| %>
-<%= render 'shared/error_messages', model: f.object %>
+<%= stylesheet_link_tag 'auctions/new', :media => "all" %>
 
 
+<%= form_with model: auction, id: 'new_auction', local: true do |f| %>
+  <%= render 'shared/error_messages', model: f.object %>
 
-  <div>
-    <%= f.label :category_id %><br>
-    <%= f.collection_select(:category_id, Category.all, :id, :name, {include_blank: '--'}, {class:"", id:""}) %>
+
+  <div class="category-and-submit">
+    <div>
+      <%= f.collection_select(:category_id, Category.all, :id, :name, {include_blank: 'カテゴリーを選択'}, {class:"form-select1", id:""}) %>
+    </div>
+
+    <div>
+      <%= f.submit "出品する", class:"form-button2" %>
+    </div>
   </div>
 
-  <br>
+  <table class="form-table1">
+    <tr>
+      <th colspan="4"><span class="form-text1">タイトル：<%= f.text_field :title, placeholder:"30文字まで", maxlength:"30", class: "form-title" %></th>
+    </tr>
 
-  <div>
-    <%= f.label :title %><br>
-    <%= f.text_area :title, placeholder:"商品名（必須 40文字まで)", maxlength:"40" %>
-  </div>
+    <tr>
+      <td><span class="form-text1">予算(単価)<br>
+      <%= f.text_field :price, placeholder:"半角数字", class: "new-forms" %>円</span></td>
+      <td><span class="form-text1">欲しい数<br>
+      <%= f.text_field :stock, placeholder:"半角数字", class: "new-forms" %>個</span></td>
 
-  <br>
-
-  <div>
-    <%= f.label :description %><br>
-    <%= f.text_area :description, placeholder:"必須：商品説明" %>
-  </div>
-
-  <br>
-
-  <div>
-    <%= f.label :price %><br>
-    <%= f.text_field :price, placeholder:"必須：価格" %>
-  </div>
-
-  <br>
-
-  <div>
-    <%= f.label :stock %><br>
-    <%= f.text_field :stock, placeholder:"必須：在庫" %>
-  </div>
-
-  <br>
-
-  <div>
-    <%= f.label :delivery_charge_id %><br>
-    <%= f.collection_select(:delivery_charge_id, DeliveryCharge.all, :id, :name, {}, {class:"", id:""}) %>
-  </div>
-
-  <br>
-
-  <div>
-    <%= f.label :deadline %><br />
+      <td><span class="form-text1">送料の希望<br></span>
+      <%= f.collection_select(:delivery_charge_id, DeliveryCharge.all, :id, :name, {}, {class: "form-select2", id:""}) %></td>
+      <td>
+        <span class="form-text1">この日までに欲しい<br>
         <%= raw sprintf(
                       f.date_select(
                         :deadline,
-                        class:'',
+                        class:'form-select2',
                         id:"",
                         use_month_numbers: true,
                         prompt:'--',
-                        start_year: 2020,
+                        start_year: 2021,
                         end_year: (Time.now.year + 5),
                         date_separator: '%s'),
-                      " 年 ", " 月 ") + " 日 " %>
-  </div>
+                      "年 ", "月 ") + "日 " %></span>
+      </td>
+    </tr>
 
-  <br>
-
-  <div>
-    <%= f.submit "出品する" ,class:"sell-btn" %>
-  </div>
+    <tr>
+      <td colspan="4"><span class="form-text1">補足など
+      <%= f.text_area :description, placeholder:"具体的な希望など(文字数制限無し)", class: "form-description" %></span></td>
+    </tr>
+  </table>
 <% end %>

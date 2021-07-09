@@ -16,7 +16,6 @@ class Auction < ApplicationRecord
   end
 
   belongs_to :category
-  belongs_to :days_to_ship
   belongs_to :delivery_charge
 
   has_many :order_auctions, dependent: :destroy
