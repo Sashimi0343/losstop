@@ -20,7 +20,7 @@ class OrderBazaarsController < ApplicationController
     @bazaar = Bazaar.find(params[:id])
     @order = OrderBazaar.find(params[:bazaar_id])
     @contact = ContactBazaar.new
-    @contacts = @order.contact_bazaars.order('created_at DESC')
+    @contacts = @order.contact_bazaars
 
     if user_signed_in? || company_signed_in?
       if current_company.nil? && current_user.id != @order.user.id

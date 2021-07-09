@@ -1,7 +1,27 @@
 <%= stylesheet_link_tag 'bazaars/show', :media => "all" %>
 <div class="show-wrap">
+<% count = 0 %>
 
-  <p class="show-introduce">商品の詳細</p>
+  <div class="introduce-and-room">
+    <p class="introduce">商品の詳細</p>
+
+    <div class="rooms">
+      <% @order.each do |order| %>
+        <% if (current_company.nil?) && (order.user_id == current_user.id) %>
+          <%= link_to "取引連絡部屋へ", bazaar_order_bazaar_path(order.id), class: "go-room-button" %>
+          <% count += 1 %>
+        <% elsif company_signed_in? %>
+          <% if current_company.id == @bazaar.company.id %>
+            ユーザーからの取引希望の連絡部屋はページ下部に一覧で表示されます。
+            <br>※このメッセージは出品者本人にのみ見えています。
+          <% end %>
+        <% end %>
+      <% end %>
+    </div>
+  </div>
+
+
+
   <div class="category-and-submit">
     <p>カテゴリー：<%= @bazaar.category.name %></p>
 
@@ -12,7 +32,9 @@
             <%= link_to "商品の編集", edit_bazaar_path(@bazaar.id), method: :get, class: "show-button" %>
             <%= link_to "この出品を終了する", bazaar_path(@bazaar.id), method: :delete, class:"show-button" %>
           <% elsif user_signed_in? %>
-            <%= link_to "購入を希望する", new_bazaar_order_bazaar_path(@bazaar.id) ,class:"show-button"%>
+            <% if count == 0 %>
+              <%= link_to "購入を希望する", new_bazaar_order_bazaar_path(@bazaar.id) ,class:"show-button"%>
+            <% end %>
           <% end %>
         <% end %>
       <% end %>
@@ -24,7 +46,6 @@
     <tr>
       <th colspan="3">出品：<%= @bazaar.company.name %></th>
     </tr>
-
     <tr>
       <td colspan="3"><span class="show-text1">商品名：<%= @bazaar.title %></span></td>
     </tr>
@@ -35,7 +56,6 @@
           <%= image_tag @bazaar.image ,class:"" %>
         </div>
       </td>
-
       <td><span class="show-text1">価格<br>
         <%= @bazaar.price %>円</span></td>
       <td><span class="show-text1">在庫<br>
@@ -43,21 +63,33 @@
     </tr>
 
     <tr>
-      <td><span class="show-text1">送料の負担<br></span>
-        <%= @bazaar.delivery_charge.name %></td>
+      <td><span class="show-text1">送料<br>
+        <%= @bazaar.delivery_charge.name %></span></td>
       <td>
         <span class="show-text1">出品期間<br>
-        <%= @bazaar.deadline %></span>
-                        <br>まで
+        <%= @bazaar.deadline %></span>まで
       </td>
     </tr>
-
     <tr>
       <td colspan="3"><span class="show-text1">商品説明</span>
       <p class="show-description"><%= @bazaar.description %></p></td>
     </tr>
   </table>
 
+  <% if company_signed_in? %>
+    <% if @bazaar.company.id == current_company.id %>
+      <p class="contact-guide">この一覧は出品者にのみ見えています。</p>
+      <table class="contact-table">
+        <tr><th>部屋番号</th><th>お相手のお名前</th><th>リンク</th></tr>
+          <% @bazaar.order_bazaars.each do |order| %>
+            <tr>
+              <td><%= order.id %></td><td><%= order.user.name %></td>
+              <td><%= link_to "連絡部屋へ", bazaar_order_bazaar_path(order.id), class: "contact-link" %></td>
+            </tr>
+          <% end %>
+      </table>
+    <% end %>
+  <% end %>
 
   <div class="show-reviews">
     <p class="show-text2">ユーザーレビュー</p>
