@@ -1,11 +1,13 @@
-<%= stylesheet_link_tag 'bazaars/show', :media => "all" %>
+<%= stylesheet_link_tag 'bazaars/create', :media => "all" %>
 <div class="create-wrap">
 
-  <p class="create-text1">出品が完了しました</p>
+  <div>
+    <p class="create-text1">出品が完了しました</p>
+  </div>
 
   <div class="create-menus">
-    <p class="create-menu"><%= link_to '商品ページへ', bazaar_path(@bazaar.id) %></p>
-    <p class="create-menu"><%= link_to '出品を続ける', nenw_bazaar_path %></p>
-    <p class="create-menu"><%= link_to 'バザートップへ', bazaars_path %></p>
+    <p><%= link_to '商品ページへ', bazaar_path(@bazaar.id), class: "create-menu" %></p>
+    <p><%= link_to '出品を続ける', new_bazaar_path, class: "create-menu" %></p>
+    <p><%= link_to 'バザートップへ', bazaars_path, class: "create-menu" %></p>
   </div>
 </div>
