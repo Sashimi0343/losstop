@@ -1,0 +1,94 @@
+
+/* indexの下地 */
+.auction-wrapper {
+  display: flex;
+  width: 100vw;
+  font-size: 1.5rem;
+}
+
+.auction-search {
+  width: 20%;
+}
+
+.auction-top {
+  width: 80%;
+}
+
+.auction-container {
+  width: 100%;
+}
+
+/* 導入 */
+.index-guide1 {
+  font-size: 6rem;
+  text-align: center;
+  margin: 18rem 0 20rem;
+}
+
+.h1-text {
+  color: red;
+  font-size: 9rem;
+}
+
+
+.index-guide2 {
+  font-size: 6rem;
+  text-align: center;
+}
+
+.bazaar-examples {
+  margin: auto;
+}
+
+.bazaar-examples td{
+  padding: 0 8rem 8rem;
+}
+
+
+.index-guide3 {
+  font-size: 4rem;
+  text-align: center;
+  margin-top: 15rem;
+}
+
+.h2-text {
+  color: red;
+  font-size: 8rem;
+}
+
+.bazaar-index-image {
+  text-align: center;
+}
+
+/* 出品手順 */
+
+.index-guide4 {
+  margin: 20rem 0 5rem;
+  font-size: 8rem;
+  text-align: center;
+}
+
+.bazaar-steps {
+  display: flex;
+  justify-content: space-around;
+}
+
+.bazaar-steps li{
+  margin-left: 2rem;
+  margin-right: 2rem;
+}
+
+
+/* 最後の一押し */
+.index-guide5 {
+  font-size: 6rem;
+  text-align: center;
+  margin: 15rem 0 15rem;
+}
+
+
+/* 新着商品について */
+.index-guide6 {
+  font-size: 3rem;
+  border-bottom: solid 0.2rem black;
+}

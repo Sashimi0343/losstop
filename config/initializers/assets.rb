@@ -22,6 +22,7 @@ Rails.application.config.assets.precompile += %w(
 
   losstops/*
   bazaars/*
+  auctions/*
 
   order_bazaars/*
 )
