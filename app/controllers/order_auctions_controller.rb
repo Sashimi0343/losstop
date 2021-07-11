@@ -8,9 +8,7 @@ class OrderAuctionsController < ApplicationController
 
   def create
     @order_auction = OrderAuction.new(order_auction_params)
-    if @auction.stock >= @order_auction.quantity
-      @auction.update_columns(stock: @auction.stock - @order_auction.quantity)
-      @order_auction.save
+    if @order_auction.save
     else
       render :new
     end

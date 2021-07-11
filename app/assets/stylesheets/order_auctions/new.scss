@@ -32,7 +32,6 @@ h4 {
 .form-table1 {
   border: solid 0.2rem black;
   width: 60%;
-  margin: 1rem 0 3rem;
 }
 
 .form-table1 th,td{
@@ -41,37 +40,10 @@ h4 {
   background:rgba(188, 251, 255, 0.5);
 }
 
-.form-table1 td{
-  width: 20%;
-}
-
 .show-text1 {
   font-size: 2rem;
   background:rgba(188, 251, 255, 0.5);
   padding: 0.5rem;
-}
-
-
-/* image */
-.form-image {
-  background:rgba(188, 251, 255, 0.5);
-}
-
-#image_bazaar {
-  margin: auto;
-  height: 150px;
-  width: 150px;
-
-}
-
-#image_bazaar img {
-  height: 150px;
-  width: 150px;
-  object-fit: contain;
-}
-
-#bazaar_image {
-  display: none;
 }
 
 
@@ -84,17 +56,62 @@ h4 {
 }
 
 
-/* 購入に関して */
-.order-field {
-  font-size: 2.5rem;
+
+/* テーブル2つ目のみにある */
+/* image */
+.item-form {
+  margin-top: 8rem;
 }
 
-.order-button {
-  font-size: 2.3rem;
-  padding: 0.2rem;
+.form-title {
+  width: 80%;
+}
+
+.form-image {
+  background:rgba(188, 251, 255, 0.5);
+  width: 35%;
+}
+
+.show-text2 {
+  font-size: 2rem;
+  background:rgba(188, 251, 255, 0.5);
+  padding: 0.5rem;
+  text-align: center;
+}
+
+#image_auction {
+  margin: auto;
+  height: 150px;
+  width: 150px;
+
+}
+
+#image_auction img {
+  height: 150px;
+  width: 150px;
+  object-fit: contain;
+}
+
+#auction_image {
+  display: none;
+}
+
+.form-price {
+  width: 30%;
+}
+
+.form-description {
+  width: 100%;
+  height: 20rem;
+}
+
+.form-button {
+  width: 15rem;
+  padding: 0.5rem;
   border-radius: 0.5rem;
   background-color: #ebebeb;
   border: 1px solid black;
-  color: black;
-  text-decoration: none;
+  display: block;
+  text-align: center;
+  margin: auto;
 }

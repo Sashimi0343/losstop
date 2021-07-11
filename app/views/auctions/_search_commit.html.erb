@@ -12,7 +12,7 @@
   <div class="search-result-container">
     <% if @results_auction.length !=0 %>
       <% @results_auction.each do |result| %>
-        <% if (result.deadline > Time.new) && (result.stock > 0) %>
+        <% if result.deadline > Time.new %>
 
           <div class="search-result">
             <table class="result-table">

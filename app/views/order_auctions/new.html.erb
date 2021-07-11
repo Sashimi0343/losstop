@@ -11,16 +11,17 @@
   <div class="check-hope">
     <table class="form-table1">
       <tr>
-        <td><span class="show-text1">予算(単価)
-          <br><%= @auction.price %>円</span></td>
-        <td><span class="show-text1">欲しい数(上限)
-          <br><%= @auction.stock %>個まで</span></td>
-        <td><span class="show-text1">送料
-          <br><%= @auction.delivery_charge.name %></span></td>
+        <th colspan="2">タイトル：<%= @auction.title %></th>
+      </tr>
+      <tr>
+        <td><span class="show-text1">予算：
+          <%= @auction.price %>円</span></td>
+        <td><span class="show-text1">送料：
+          <%= @auction.delivery_charge.name %></span></td>
       </tr>
 
       <tr>
-        <td colspan="3"><span class="show-text1">詳細</span>
+        <td colspan="2"><span class="show-text1">詳細</span>
         <p class="show-description"><%= @auction.description %></p></td>
       </tr>
     </table>
@@ -32,18 +33,22 @@
       <%= render 'shared/error_messages', model: f.object %>
       <table class="form-table1">
         <tr>
-          <th rowspan="2" class="form-image">
-            <p class="form-text2">画像をアップロード</p>
-            <div id="image_bazaar"></div>
-            <label for="bazaar_image">
-              <span class="form-button">画像を選択</span><%= f.file_field :image, id: "bazaar_image" %>
-            </label>
-          </th>
-          <td><span class="form-text1">商品名：<%= f.text_field :title, placeholder:"30文字まで", maxlength:"30", class: "form-title" %></td>
+          <th colspan="2"><span class="show-text1">商品名：<%= f.text_field :title, placeholder:"30文字まで", maxlength:"30", class: "form-title" %></th>
         </tr>
 
         <tr>
-          <td colspan="3"><span class="form-text1">商品説明
+          <td rowspan="2" class="form-image">
+            <p class="show-text2">画像をアップロード</p>
+            <div id="image_auction"></div>
+            <label for="auction_image">
+              <p class="form-button">画像を選択</p><%= f.file_field :image, id: "auction_image", class: "form-button" %>
+            </label>
+          </td>
+          <td><span class="show-text1">価格：<%= f.text_field :price, placeholder:"半角数字", class: "form-price" %>円</td>
+        </tr>
+
+        <tr>
+          <td colspan="3"><span class="show-text1">商品説明<br>
           <%= f.text_area :description, placeholder:"商品PR(文字数制限無し)", class: "form-description" %></span></td>
         </tr>
       </table>
