@@ -25,4 +25,5 @@ Rails.application.config.assets.precompile += %w(
   auctions/*
 
   order_bazaars/*
+  order_auctions/*
 )

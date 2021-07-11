@@ -50,19 +50,14 @@
     </tr>
 
     <tr>
-      <td rowspan="2" class="form-image">
-        <div id="image_bazaar">
-          <%= image_tag "bazaar/example1.png" ,class:"" %>
-        </div>
+      <td rowspan="2" class="auction-price">
+        <span class="show-text3">予算<br>
+        <%= @auction.price %>円</span>
       </td>
-      <td><span class="show-text1">予算(単価)<br>
-        <%= @auction.price %>円</span></td>
-      <td><span class="show-text1">欲しい数(上限)<br>
-        <%= @auction.stock %>個まで</span></td>
     </tr>
 
     <tr>
-      <td><span class="show-text1">送料<br>
+      <td><span class="show-text4">送料<br>
         <%= @auction.delivery_charge.name %></span></td>
       <td>
         <span class="show-text1">この日までに欲しい<br>
@@ -94,6 +89,7 @@
     <% end %>
   </div>
 </div>
+<%= render 'shared/footer' %>
 
 
 

@@ -13,22 +13,15 @@
     <% if @results_auction.length !=0 %>
       <% @results_auction.each do |result| %>
         <% if (result.deadline > Time.new) && (result.stock > 0) %>
-          <div class="search-result">
-            <div class="result-image">
-              <%= link_to auction_path(result.id) do %>
-                <%= image_tag 'bazaar/example1.png', size: '200x200' %>
-              <% end %>
-            </div>
 
+          <div class="search-result">
             <table class="result-table">
               <tr class="result-title">
                 <th colspan="2"><%= link_to result.title, auction_path(result.id), class: "result-title" %></th>
-                <th>価格<br><%= result.price %>円</th>
               </tr>
               <tr class="result-text">
-                <td>在庫：<%= result.stock %>個</td>
-                <td>期限：<%= result.deadline %>まで</td>
-                <td><%= result.delivery_charge.name %></td>
+                <td>予算：<%= result.price %>円</td>
+                <td>カテゴリー：<%= result.category.name %></td>
               </tr>
             </table>
           </div>

@@ -1,41 +1,53 @@
-<h1>取引希望ページ作成</h1>
-<p>ここで取引用の連絡部屋のレコードを生成する</p>
+<%= stylesheet_link_tag 'order_auctions/new', :media => "all" %>
 
-<p><%= @auction.title %>の購入を希望する</p>
-<p>カテゴリー<br><%= @auction.category.name %></p>
-<br>
-<p>希望価格(単価)：<%= @auction.price %></p>
-<p>購入数上限：<%= @auction.stock %></p>
-<p>出品：<%= @auction.user.name %></p>
-<p>送料：<%= @auction.delivery_charge.name %></p>
+<div class="new-wrap">
+  <h1><span class="user-and-company"><%= @auction.user.name %>さん</span>
+  へ　商品を売り込む。</h1>
+  <h2>商品PR　兼　連絡部屋を作成します。</h2>
+  <h3>取引が成立した際の商品発送や代金の支払いに関する相談も今から作成する部屋で行います。</h3>
 
 
-<%= form_with model: @order_auction, url: auction_order_auctions_path, id: 'new_auction', local: true do |f| %>
-<%= render 'shared/error_messages', model: f.object %>
-  <br>
+  <h4>欲しい物の詳細・確認</h4>
+  <div class="check-hope">
+    <table class="form-table1">
+      <tr>
+        <td><span class="show-text1">予算(単価)
+          <br><%= @auction.price %>円</span></td>
+        <td><span class="show-text1">欲しい数(上限)
+          <br><%= @auction.stock %>個まで</span></td>
+        <td><span class="show-text1">送料
+          <br><%= @auction.delivery_charge.name %></span></td>
+      </tr>
 
-  <div id=image_auction></div>
-  <div>
-    <p id="text_auction">クリックしてファイルをアップロード</p>
-    <%= f.file_field :image %>
+      <tr>
+        <td colspan="3"><span class="show-text1">詳細</span>
+        <p class="show-description"><%= @auction.description %></p></td>
+      </tr>
+    </table>
   </div>
 
-  <div>
-    <%= f.label :title %><br>
-    <%= f.text_area :title, placeholder:"商品名（必須)"%>
-  </div>
 
-  <div>
-    <%= f.label :description %><br>
-    <%= f.text_area :description, placeholder:"商品説明（必須)"%>
-  </div>
+  <div class="item-form">
+    <%= form_with model: @order_auction, url: auction_order_auctions_path, id: 'new_auction', local: true do |f| %>
+      <%= render 'shared/error_messages', model: f.object %>
+      <table class="form-table1">
+        <tr>
+          <th rowspan="2" class="form-image">
+            <p class="form-text2">画像をアップロード</p>
+            <div id="image_bazaar"></div>
+            <label for="bazaar_image">
+              <span class="form-button">画像を選択</span><%= f.file_field :image, id: "bazaar_image" %>
+            </label>
+          </th>
+          <td><span class="form-text1">商品名：<%= f.text_field :title, placeholder:"30文字まで", maxlength:"30", class: "form-title" %></td>
+        </tr>
 
-  <div>
-    <%= f.label :quantity %><br>
-    <%= f.text_field :quantity, placeholder:"販売希望数（必須)"%>
+        <tr>
+          <td colspan="3"><span class="form-text1">商品説明
+          <%= f.text_area :description, placeholder:"商品PR(文字数制限無し)", class: "form-description" %></span></td>
+        </tr>
+      </table>
+      <%= f.submit "連絡部屋作成" ,class:"" %>
+    <% end %>
   </div>
-
-  <div>
-    <%= f.submit "連絡部屋作成" ,class:"" %>
-  </div>
-<% end %>
+</div>
