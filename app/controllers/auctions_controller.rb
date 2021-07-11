@@ -23,8 +23,6 @@ class AuctionsController < ApplicationController
 
   def show
     @order = @auction.order_auctions
-    @review = ReviewAuction.new
-    @reviews = @auction.review_auctions.order('created_at DESC')
   end
 
   def edit
@@ -50,7 +48,7 @@ class AuctionsController < ApplicationController
   private
 
   def auction_params
-    params.require(:auction).permit(:title, :description, :price, :stock, :deadline, :category_id,
+    params.require(:auction).permit(:title, :description, :price, :deadline, :category_id,
                                     :delivery_charge_id).merge(user_id: current_user.id)
   end
 

@@ -36,7 +36,7 @@ class OrderAuctionsController < ApplicationController
   private
 
   def order_auction_params
-    params.require(:order_auction).permit(:title, :description, :quantity, :image).merge(
+    params.require(:order_auction).permit(:title, :description, :price, :image).merge(
       company_id: current_company.id, user_id: @auction.user.id, auction_id: @auction.id)
   end
 
