@@ -4,7 +4,6 @@ class CreateAuctions < ActiveRecord::Migration[6.0]
       t.string     :title,               null: false
       t.text       :description,         null: false
       t.integer    :price,               null: false
-      t.integer    :stock,               null: false
       t.integer    :category_id,         null: false
       t.integer    :delivery_charge_id,  null: false
       t.date       :deadline,            null: false

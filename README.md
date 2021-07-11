@@ -81,7 +81,6 @@ Things you may want to cover:
 ### Association：逆オークション
 - has_many :auctions
 - has_many :order_auctions
-- has_many :review_auctions
 - has_many :contact_auctions
 
 
@@ -99,7 +98,6 @@ Things you may want to cover:
 | deadline            | date       | null: false                    |
 | category_id         | integer    | null: false                    |
 | delivery_charge_id  | integer    | null: false                    |
-| days_to_ship_id     | integer    | null: false                    |
 | company             | references | null: false, foreign_key: true |
 #### imageはActiveStorageを使用するため未記載
 
@@ -170,7 +168,6 @@ Things you may want to cover:
 | title               | string     | null: false                    |
 | description         | text       | null: false                    |
 | price               | integer    | null: false                    |
-| stock               | integer    | null: false                    |
 | category_id         | integer    | null: false                    |
 | delivery_charge_id  | integer    | null: false                    |
 | deadline            | date       | null: false                    |
@@ -179,7 +176,6 @@ Things you may want to cover:
 
 ### Association
 - has_many   :order_auctions
-- has_many   :reviews
 - belongs_to :user
 
 
@@ -191,7 +187,7 @@ Things you may want to cover:
 | ------------ | ---------- | ------------------------------ |
 | title        | string     |                                |
 | description  | text       |                                |
-| quantity     | integer    |                                |
+| price        | integer    |                                |
 | auction      | references | null: false, foreign_key: true |
 | company      | references | null: false, foreign_key: true |
 #### imageはActiveStorageを使用するため未記載
@@ -219,21 +215,3 @@ Things you may want to cover:
 - belongs_to :order_order
 - belongs_to :user
 - belongs_to :company
-
-
-
-
-## review_auctions テーブル
-
-| Column    | Type       | Options                        |
-| --------- | ---------- | ------------------------------ |
-| name      | string     | null: false                    |
-| comment   | text       | null: false                    |
-| auction   | references | null: false, foreign_key: true |
-| user      | references | null: false, foreign_key: true |
-| company   | references | null: false, foreign_key: true |
-
-### Association
-- belongs_to :bazaar
-- belongs_to :company
-- belongs_to :user

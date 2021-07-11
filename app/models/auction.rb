@@ -6,9 +6,6 @@ class Auction < ApplicationRecord
 
     validates :price, numericality: { only_integer: true, message: 'は半角数字で入力してください。' }
     validates_inclusion_of :price, in: 300..999_999_999, message: 'は300円から設定可能です。'
-
-    validates :stock, numericality: { only_integer: true, message: 'は半角数字で入力してください。' }
-    validates_inclusion_of :stock, in: 1..99_999, message: 'は1〜99,999個まで設定可能です。'
   end
 
   with_options numericality: { message: 'を選択してください。' } do
