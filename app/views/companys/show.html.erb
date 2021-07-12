@@ -1,100 +1,89 @@
-<div>
-  <div>
-    <p><%= @company.name %>さんのマイページ</p><br>
-    <%= image_tag @company.image %><br>
-    <% if current_user.nil? && @company.id == current_company.id %>
-      <%= link_to "マイページを編集する", edit_company_registration_path(@company.id) %>
+<%= stylesheet_link_tag 'companys/show', :media => "all" %>
+
+<div class="mypage-wrap">
+  <h1><u><%= @company.name %>さんのマイページ</u></h1>
+
+  <div class="profile-container">
+    <table class="profile">
+      <tr>
+        <th rowspan="5" class="image"><%= image_tag @company.image, size: "300x300" %></th>
+        <th>会社名：<%= @company.name %></th>
+      </tr>
+
+      <tr><td>代表：<%= @company.president %></td></tr>
+      <tr><td>所在地<br>
+        <%= @company.prefecture.name %><%= @company.city %><%= @company.address %></td></tr>
+      <tr><td><%= @company.phone %></td></tr>
+      <tr><td><%= link_to "会社HP", @company.homepage, class: "link-button1" %>※外部リンク</td></tr>
+
+      <tr><td colspan="2" class="description"><%= @company.profile %></td></tr>
+    </table>
+  </div>
+
+
+  <p class="text1">出品中の商品一覧</p>
+  <div class="bazaar-container">
+    <table class="bazaars">
+      <tr>
+        <th class="number">出品番号</th>
+        <th class="bazaar-title">商品名</th>
+      </tr>
+
+      <% @company.bazaars.each do |bazaar| %>
+        <tr>
+          <td class="number"><%= bazaar.id %></td>
+          <td class="bazaar-title"><%= link_to bazaar.title, bazaar_path(bazaar.id), class: "blocks" %>
+        </tr>
+      <% end %>
+    </table>
+  </div>
+
+
+  <% if company_signed_in? %>
+    <% if @company.id == current_company.id %>
+      <p class="text2">以下はこのアカウント本人のみに見えています。</p>
+      <p class="text1">取引中のバザー</p>
+
+      <div class="orders-container">
+        <table class="orders">
+          <tr>
+            <th class="order-number">部屋番号</th>
+            <th class="order-title">商品名</th>
+            <th>お相手のお名前</th>
+            <th class="order-link">リンク</th></tr>
+            <% @company.order_bazaars.each do |order| %>
+              <tr>
+                <td class="order-number"><%= order.id %></td>
+                <td class="order-title"><%= link_to order.bazaar.title, bazaar_path(order.bazaar.id), class: "blocks" %></td>
+                <td class="customer"><%= order.user.name %></td>
+                <td class="order-link"><%= link_to "連絡部屋へ", bazaar_order_bazaar_path(order.id), class: "link-button2" %></td>
+              </tr>
+            <% end %>
+        </table>
+      </div>
+
+
+      <p class="text1">取引中のオークション</p>
+      <div class="orders-container">
+        <table class="orders">
+          <tr>
+            <th class="order-number">部屋番号</th>
+            <th class="order-title">タイトル</th>
+            <th class="customer">お相手のお名前</th>
+            <th class="order-link">リンク</th>
+          </tr>
+
+          <% @company.order_auctions.each do |order| %>
+            <tr>
+              <td class="order-number"><%= order.id %></td>
+              <td class="order-title"><%= link_to order.auction.title, auction_path(order.auction.id), class: "blocks" %></td>
+              <td class="customer"><%= order.user.name %></td>
+              <td class="order-link"><%= link_to "連絡部屋へ", auction_order_auction_path(order.id), class: "link-button2" %></td>
+            </tr>
+          <% end %>
+        </table>
+      </div>
     <% end %>
-  </div>
-
-  <div>
-    <div>
-      <table>
-        <tbody>
-          <tr>
-            <th>会社名</th>
-            <td><%= @company.name %></td>
-          </tr>
-
-          <tr>
-            <th>代表</th>
-            <td><%= @company.president %></td>
-          </tr>
-
-          <tr>
-            <th>所在地</th>
-            <td><%= @company.prefecture.name %><%= @company.address %><%= @company.city %></td>
-          </tr>
-
-          <tr>
-            <th>電話番号</th>
-            <td><%= @company.phone %></td>
-          </tr>
-
-          <tr>
-            <th>会社概要</th>
-            <td><%= @company.profile %></td>
-          </tr>
-
-          <tr>
-            <th>会社HP</th>
-            <td><%= @company.homepage %></td>
-          </tr>
-
-        </tbody>
-      </table>
-    </div>
-  <br><br><br>
-    <div>
-      <table>
-        <tbody>
-          <tr>
-            <th>カテゴリー</th>
-            <td>タイトル</td>
-            <td>販売額</td>
-            <td>在庫数</td>
-          </tr>
-
-          <% @bazaars.each do |bazaar| %>
-            <% if bazaar.deadline > Time.new %>
-              <tr>
-                <th><%= bazaar.category.name %></th>
-                <td><%= bazaar.title %></td>
-                <td><%= bazaar.price %></td>
-                <td><%= bazaar.stock %></td>
-                <td><%= link_to "詳細ページへ", bazaar_path(bazaar.id) %><td>
-              </tr>
-            <% end %>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-
-    <br><br>
-
-    <div>
-      <table>
-        <tbody>
-          <tr>
-            <th>バザー取引一覧</th>
-            <td>タイトル</td>
-            <td>お相手のお名前</td>
-            <td>連絡部屋へ</td>
-          </tr>
-
-          <% @orders.each_with_index do |order, index| %>
-            <% if order.bazaar.deadline > Time.new %>
-              <tr>
-                <th><%= "取引番号#{index}" %></th>
-                <td><%= order.bazaar.title %></th>
-                <td><%= order.user.name %></td>
-                <td><%= link_to "取引部屋へ", bazaar_order_bazaar_path(order.id) %><td>
-              </tr>
-            <% end %>
-          <% end %>
-        </tbody>
-      </table>
-    </div>
-
-  </div>
+  <% end %>
 </div>
+<%= render 'shared/footer' %>

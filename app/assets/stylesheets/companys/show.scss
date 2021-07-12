@@ -1,3 +1,176 @@
 // Place all the styles related to the companys controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+/* 各下地の設定 */
+.mypage-wrap {
+  width: 100%;
+  font-size: 2rem;
+  padding: 2rem;
+}
+
+
+.profile-container {
+  width: 100%;
+  margin: 0 auto 6rem;
+  border: solid 0.2rem black;
+}
+
+.bazaar-container {
+  width: 100%;
+  margin: 0 auto 6rem;
+}
+
+.orders-container {
+  width: 100%;
+  margin: 0 auto 6rem;
+}
+
+
+/* 案内文 */
+h1 {
+  font-size: 4rem;
+  margin-bottom: 6rem;
+}
+
+.text1 {
+  font-size: 4rem;
+}
+
+.text2 {
+  width: 50%;
+  margin-bottom: 2rem;
+  border-bottom: solid 0.2rem black;
+}
+
+.blocks {
+  background:rgba(188, 251, 255, 0.5);
+}
+
+.link-button1 {
+  font-size: 3rem;
+  padding: 0.5rem;
+  margin-left: 1rem;
+  border-radius: 0.5rem;
+  background-color: #ebebeb;
+  border: 1px solid black;
+  color: black;
+  text-decoration: none;
+}
+
+.link-button2 {
+  font-size: 2rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: #ebebeb;
+  border: 1px solid black;
+  color: black;
+  text-decoration: none;
+}
+
+/* profileのtable */
+.profile {
+  font-size: 3rem;
+  padding: 1rem;
+  border: solid 0.2rem black;
+}
+
+.profile th{
+  background:rgba(188, 251, 255, 0.5);
+  border: solid 0.2rem black;
+}
+
+.profile td{
+  width: 100%;
+  background:rgba(188, 251, 255, 0.5);
+  border: solid 0.2rem black;
+}
+
+.image {
+  padding: 2rem;
+}
+
+.image img {
+  margin: auto;
+}
+
+.description {
+  height: 25rem;
+}
+
+
+/* 出品中 */
+.bazaars {
+  width: 90%;
+  padding: 1rem;
+  border: solid 0.2rem black;
+}
+
+.bazaars th{
+  padding: 1rem;
+  border: solid 0.2rem black;
+  background-color: rgb(133, 255, 184);
+}
+
+.bazaars td{
+  padding: 1rem;
+  border: solid 0.2rem black;
+  background:rgba(188, 251, 255, 0.5);
+}
+
+.number {
+  width: 12%;
+  text-align: center;
+}
+
+.bazaar-title {
+  width: 73%;
+}
+
+.link {
+  width: 15%;
+  text-align: center;
+}
+
+
+/* 連絡部屋 */
+.orders {
+  width: 100%;
+  padding: 1rem;
+  border: solid 0.2rem black;
+}
+
+.orders th{
+  padding: 1rem;
+  border: solid 0.2rem black;
+  background-color: rgb(133, 255, 184);
+}
+
+.orders td{
+  padding: 1rem;
+  border: solid 0.2rem black;
+  background:rgba(188, 251, 255, 0.5);
+}
+
+.order-number {
+  width: 10%;
+  text-align: center;
+}
+
+.order-title {
+  width: 55%;
+}
+
+.customer {
+  width: 22%;
+}
+
+.order-link {
+  width: 13%;
+  text-align: center;
+}
+
+
+
+
