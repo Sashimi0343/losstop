@@ -36,14 +36,15 @@
   text-align: center;
 }
 
-.bazaar-examples {
-  margin: auto;
+.auction-examples {
+  display: flex;
+  justify-content: space-around;
 }
 
-.bazaar-examples td{
-  padding: 0 8rem 8rem;
+.auction-examples li{
+  margin-left: 2rem;
+  margin-right: 2rem;
 }
-
 
 .index-guide3 {
   font-size: 4rem;
@@ -56,11 +57,9 @@
   font-size: 8rem;
 }
 
-.bazaar-index-image {
+.auction-index-image {
   text-align: center;
 }
-
-/* 出品手順 */
 
 .index-guide4 {
   margin: 20rem 0 5rem;
@@ -68,15 +67,24 @@
   text-align: center;
 }
 
-.bazaar-steps {
-  display: flex;
-  justify-content: space-around;
+
+
+/* オークション利用方法について */
+.auction-steps {
+  margin: auto;
 }
 
-.bazaar-steps li{
-  margin-left: 2rem;
-  margin-right: 2rem;
+.auction-steps td{
+  padding: 0 3rem 5rem;
 }
+
+
+
+
+
+
+
+
 
 
 /* 最後の一押し */
