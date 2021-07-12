@@ -1,3 +1,173 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/* 各下地の設定 */
+.my-page-wrap {
+  width: 100%;
+  font-size: 2rem;
+  padding: 2rem;
+}
+
+.guide {
+  display: flex;
+  justify-content: space-between;
+}
+
+.edit-button {
+  font-size: 3rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: #ebebeb;
+  border: 1px solid black;
+  color: black;
+  text-decoration: none;
+}
+
+.profile-container {
+  width: 100%;
+  margin: 0 auto 6rem;
+}
+
+.auction-container {
+  width: 100%;
+  margin: 0 auto 6rem;
+}
+
+.orders-container {
+  width: 100%;
+  margin: 0 auto 6rem;
+}
+
+
+/* 案内文 */
+h1 {
+  font-size: 4rem;
+  margin-bottom: 6rem;
+}
+
+.text1 {
+  font-size: 4rem;
+}
+
+.text2 {
+  width: 50%;
+  margin-bottom: 2rem;
+  border-bottom: solid 0.2rem black;
+}
+
+.blocks {
+  background:rgba(188, 251, 255, 0.5);
+}
+
+.link-button1 {
+  font-size: 3rem;
+  padding: 0.5rem;
+  margin-left: 1rem;
+  border-radius: 0.5rem;
+  background-color: #ebebeb;
+  border: 1px solid black;
+  color: black;
+  text-decoration: none;
+}
+
+.link-button2 {
+  font-size: 2rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: #ebebeb;
+  border: 1px solid black;
+  color: black;
+  text-decoration: none;
+}
+
+/* profileのtable */
+.profile {
+  width: 90%;
+  font-size: 3rem;
+  padding: 1rem;
+  border: solid 0.2rem black;
+}
+
+.profile td{
+  width: 100%;
+  background:rgba(188, 251, 255, 0.5);
+  border: solid 0.2rem black;
+}
+
+.description {
+  height: 25rem;
+}
+
+
+/* 出品中 */
+.auctions {
+  width: 90%;
+  padding: 1rem;
+  border: solid 0.2rem black;
+}
+
+.auctions th{
+  padding: 1rem;
+  border: solid 0.2rem black;
+  background-color: rgb(133, 255, 184);
+}
+
+.auctions td{
+  padding: 1rem;
+  border: solid 0.2rem black;
+  background:rgba(188, 251, 255, 0.5);
+}
+
+.number {
+  width: 12%;
+  text-align: center;
+}
+
+.auction-title {
+  width: 73%;
+}
+
+.link {
+  width: 15%;
+  text-align: center;
+}
+
+
+/* 連絡部屋 */
+.orders {
+  width: 100%;
+  padding: 1rem;
+  border: solid 0.2rem black;
+}
+
+.orders th{
+  padding: 1rem;
+  border: solid 0.2rem black;
+  background-color: rgb(133, 255, 184);
+}
+
+.orders td{
+  padding: 1rem;
+  border: solid 0.2rem black;
+  background:rgba(188, 251, 255, 0.5);
+}
+
+.order-number {
+  width: 10%;
+  text-align: center;
+}
+
+.order-title {
+  width: 55%;
+}
+
+.customer {
+  width: 22%;
+}
+
+.order-link {
+  width: 13%;
+  text-align: center;
+}
+

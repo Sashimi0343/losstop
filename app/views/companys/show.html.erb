@@ -1,7 +1,15 @@
 <%= stylesheet_link_tag 'companys/show', :media => "all" %>
 
-<div class="mypage-wrap">
-  <h1><u><%= @company.name %>さんのマイページ</u></h1>
+<div class="my-page-wrap">
+  <div class="guide">
+    <h1><u><%= @company.name %>さんのマイページ</u></h1>
+
+    <div>
+      <% if company_signed_in? && @company.id == current_company.id %>
+        <%= link_to "マイページの編集", edit_company_registration_path(@company.id), class: "edit-button" %>
+      <% end %>
+    </div>
+  </div>
 
   <div class="profile-container">
     <table class="profile">

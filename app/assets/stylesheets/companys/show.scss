@@ -4,12 +4,26 @@
 
 
 /* 各下地の設定 */
-.mypage-wrap {
+.my-page-wrap {
   width: 100%;
   font-size: 2rem;
   padding: 2rem;
 }
 
+.guide {
+  display: flex;
+  justify-content: space-between;
+}
+
+.edit-button {
+  font-size: 3rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: #ebebeb;
+  border: 1px solid black;
+  color: black;
+  text-decoration: none;
+}
 
 .profile-container {
   width: 100%;
