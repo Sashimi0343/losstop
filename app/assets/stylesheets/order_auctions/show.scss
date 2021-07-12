@@ -31,7 +31,7 @@ h1 {
 }
 
 h2 {
-  font-size: 2.5rem;
+  font-size: 4rem;
 }
 
 /* table */
@@ -40,41 +40,49 @@ h2 {
   width: 90%;
 }
 
-.form-table1 th,td{
+.form-table1 th{
   padding: 0.5rem;
   border: solid 0.3rem black;
   background:rgba(188, 251, 255, 0.5);
 }
 
 .form-table1 td{
-  width: 20%;
+  padding: 0.5rem;
+  border: solid 0.3rem black;
+  vertical-align: top;
+  background:rgba(188, 251, 255, 0.5);
+}
+
+.item-description {
+  height: 18rem;
 }
 
 .show-text1 {
   background:rgba(188, 251, 255, 0.5);
 }
 
+.under-line {
+  background: rgba(188, 251, 255, 0.5);
+}
 
 /* image */
 .form-image {
   background:rgba(188, 251, 255, 0.5);
+  width: 30%;
 }
 
-#image_bazaar {
+#image_auction {
   margin: auto;
   height: 150px;
   width: 150px;
 
 }
 
-#image_bazaar img {
+#image_auction img {
+
   height: 150px;
   width: 150px;
   object-fit: contain;
-}
-
-#bazaar_image {
-  display: none;
 }
 
 

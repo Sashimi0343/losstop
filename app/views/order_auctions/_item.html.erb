@@ -1,21 +1,24 @@
 <h1><span class="user-and-company"><%= @order.user.name %>さん</span>と<br>
   <span class="user-and-company"><%= @order.company.name %>さん</span>の連絡部屋</h1>
 
-<p><%= @order.user.name %>さんが欲しい物</p>
+<p><%= @order.company.name %>さんの提案する商品</p>
 <table class="form-table1">
   <tr>
-    <td colspan="2"><span class="show-text1">タイトル：<%= @order.auction.title %></span></td>
+    <td colspan="2"><span class="show-text1">商品名：<%= @order.title %></span></td>
   </tr>
 
   <tr>
-    <td><span class="show-text1">予算<br>
-      <%= @order.auction.price %>円</span></td>
-    <td><span class="show-text1">送料<br></span>
-      <%= @order.auction.delivery_charge.name %></span></td>
-  </tr>
+    <td class="form-image">
+      <div id="image_auction">
+        <%= image_tag @order.image %>
+      </div>
+    </td>
 
-  <tr>
-    <td colspan="2"><span class="show-text1">商品説明</span>
-    <p class="show-description"><%= @order.auction.description %></p></td>
+    <td class="item-description"><span class="show-text1"><u class="under-line">商品詳細</u><br><%= @order.description %>円</span></td>
   </tr>
 </table>
+
+<h2>総額：
+  <span class="total-price"><%= @order.price %></span>円 + <span class="total-price">送料</span>
+</h2>
+※送料は出品者負担の場合は0円。
