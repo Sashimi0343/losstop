@@ -9,7 +9,7 @@
   <div class="basic-items">
     <table class="basic-form">
       <tr>
-        <th colspan="2">基礎項目</th>
+        <th colspan="2">基礎項目(マイページには表示されません)</th>
       </tr>
 
       <tr>
@@ -19,12 +19,12 @@
 
       <tr>
         <th>パスワード</th>
-        <td><%= f.password_field :password %></td>
+        <td><%= f.password_field :password, placeholder:"半角英数字混合(6文字以上)" %></td>
       </tr>
 
       <tr>
         <th>パスワード(確認)</th>
-        <td><%= f.password_field :password_confirmation %></td>
+        <td><%= f.password_field :password_confirmation, placeholder:"半角英数字混合(6文字以上)" %></td>
       </tr>
     </table>
   </div>
