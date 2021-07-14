@@ -1,18 +1,12 @@
-<%= @order.user.id %><br>
+<%= stylesheet_link_tag 'order_bazaars/show', :media => "all" %>
 
-<%= image_tag @order.bazaar.image %>
+<div class="show-wrap">
+  <div class="order-item">
+    <%= render "item" %>
+  </div>
 
-
-<%= form_with model: @contact, url: bazaar_order_bazaar_contact_bazaars_path(bazaar_id: @bazaar.id, order_bazaar_id: @order.id), local: true do |f| %>
-  <%= f.text_area :message, placeholder: "ここに入力してください", rows: "2" %>
-  <%= f.submit "送信" %>
-<% end %>
-
-<div id='messages'>
-  <% @contacts.each do |contact| %>
-    <div>
-      <p><%= contact.name %></p>
-      <p><strong><%= contact.message %></strong></p><br>
-    </div>
-  <% end %>
+  <div class="order-chat">
+    <%= render "chat" %>
+  </div>
 </div>
+<%= render 'shared/footer' %>

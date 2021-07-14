@@ -1,0 +1,121 @@
+
+/* 下地・基礎部分 */
+.show-wrap {
+  font-size: 2rem;
+  display: flex;
+  padding: 1rem 2rem;
+}
+
+.order-item {
+  width: 60%;
+}
+
+.order-chat {
+  width: 40%;
+}
+
+
+/* _item.html.erb */
+h1 {
+  margin-bottom: 4rem;
+}
+
+.user-and-company {
+  font-size: 3rem;
+  color: red;
+}
+
+.total-price {
+  font-size: 3.5rem;
+  color: red;
+}
+
+h2 {
+  font-size: 4rem;
+}
+
+/* table */
+.form-table1 {
+  border: solid 0.2rem black;
+  width: 90%;
+}
+
+.form-table1 th{
+  padding: 0.5rem;
+  border: solid 0.3rem black;
+  background:rgba(188, 251, 255, 0.5);
+}
+
+.form-table1 td{
+  padding: 0.5rem;
+  border: solid 0.3rem black;
+  vertical-align: top;
+  background:rgba(188, 251, 255, 0.5);
+}
+
+.item-description {
+  height: 18rem;
+}
+
+.show-text1 {
+  background:rgba(188, 251, 255, 0.5);
+}
+
+.under-line {
+  background: rgba(188, 251, 255, 0.5);
+}
+
+/* image */
+.form-image {
+  background:rgba(188, 251, 255, 0.5);
+  width: 30%;
+}
+
+#image_auction {
+  margin: auto;
+  height: 150px;
+  width: 150px;
+
+}
+
+#image_auction img {
+
+  height: 150px;
+  width: 150px;
+  object-fit: contain;
+}
+
+
+/* description */
+.show-description {
+  width: 100%;
+  font-size: 2rem;
+  background:rgba(188, 251, 255, 0.5);
+}
+
+
+/* chat */
+h3 {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+
+.messages {
+  padding: 0.5rem;
+  width: 90%;
+  height: 33rem;
+  overflow: auto;
+}
+
+.message {
+  border-bottom: solid 0.1rem gray;
+}
+
+.created_at {
+  font-size: 1.5rem;
+}
+
+.chat-form {
+  width: 85%;
+}

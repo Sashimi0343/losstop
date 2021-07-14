@@ -1,0 +1,62 @@
+/* ヘッダー全体の配置・設定 */
+.header-wrap {
+  height: 20vh;
+  width: 100vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: solid 0.2rem black;
+}
+
+
+/* ヘッダー内の左側 */
+.header-links {
+  display: flex;
+  justify-content: space-around;
+  color: black;
+  text-align: center;
+}
+
+.logo {
+  margin: 0 3rem 0 0;
+}
+
+.top-lists {
+  display: flex;
+  margin-top: 10px;
+  font-size: 2rem;
+}
+
+.top-lists a{
+  text-decoration: none;
+  color: black;
+}
+
+.top-list {
+  margin-right: 30px;
+}
+
+
+/* ヘッダー内の右側 */
+
+.header-menus {
+  display: flex;
+  justify-content: space-around;
+  color: black;
+  text-align: center;
+}
+
+.menu-lists {
+  display: flex;
+  margin-top: 10px;
+  font-size: 2rem;
+}
+
+.menu-lists a{
+  text-decoration: none;
+  color: black;
+}
+
+.menu-list {
+  margin-right: 30px;
+}

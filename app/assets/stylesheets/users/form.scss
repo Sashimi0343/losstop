@@ -1,0 +1,89 @@
+// Place all the styles related to the companys controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+/* 各下地の設定 */
+.form-wrap {
+  width: 100%;
+  font-size: 2rem;
+  padding: 2rem;
+}
+
+.basic-items {
+  width: 100%;
+  margin: 0 auto 6rem;
+}
+
+.guide {
+  width: 70%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.profile-container {
+  width: 100%;
+  margin: 0 auto 6rem;
+}
+
+
+/* 案内文 */
+h1 {
+  font-size: 4rem;
+  margin-bottom: 6rem;
+}
+
+
+.basic-form th,td{
+  border: solid 0.2rem black;
+  padding: 1rem;
+}
+
+.text1 {
+  font-size: 3rem;
+}
+
+.form-button {
+  font-size: 3rem;
+  padding: 0.5rem;
+  margin-left: 1rem;
+  border-radius: 0.5rem;
+  background-color: #ebebeb;
+  border: 1px solid black;
+  color: black;
+  text-decoration: none;
+}
+/* profileのtable */
+.profile {
+  font-size: 3rem;
+  padding: 1rem;
+  border: solid 0.2rem black;
+  background:rgba(188, 251, 255, 0.5);
+}
+
+.profile th{
+  width: 25%;
+  font-size: 3rem;
+  padding: 1rem;
+  background:rgba(188, 251, 255, 0.5);
+  border: solid 0.2rem black;
+}
+
+.profile td{
+  padding: 1rem;
+  background:rgba(188, 251, 255, 0.5);
+  border: solid 0.2rem black;
+}
+
+
+
+/* その他設定 */
+.name {
+  width: 100%;
+}
+
+.description {
+  width: 100%;
+  height: 25rem;
+}

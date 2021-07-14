@@ -1,21 +1,19 @@
 document.addEventListener('DOMContentLoaded', function(){
   if ( document.getElementById('new_company')){
-    const ImageBazaar = document.getElementById('image_company');
+    const ImageProfile = document.getElementById('image');
 
-    document.getElementById('company_image').addEventListener('change', function(e){
-      const createImageHTML = (imageURL) => {
+    const createImageHTML = (imageURL) => {
+      const divElement = document.createElement('div');
+      const image = document.createElement('img');
+      image.setAttribute('src', imageURL);
 
-        const text = document.getElementById('text_company')
-        const divElement = document.createElement('div');
-        const image = document.createElement('img');
-        image.setAttribute('src', imageURL);
+      divElement.appendChild(image);
+      ImageProfile.appendChild(divElement);
+    };
 
-        divElement.appendChild(image);
-        ImageBazaar.appendChild(divElement);
-        text.remove();
-      };
+    document.getElementById('image_form').addEventListener('change', function(e){
 
-      const imageContent = document.querySelector('img');
+      const imageContent = ImageProfile.querySelector('img');
       if (imageContent){
         imageContent.remove();
       }

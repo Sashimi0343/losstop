@@ -1,11 +1,14 @@
-<div class="wrapper">
+<%= stylesheet_link_tag 'search', :media => "all" %>
+<%= stylesheet_link_tag 'bazaars/top', :media => "all" %>
 
-  <div class="search">
+<div class="bazaar-wrapper">
+
+  <div class="bazaar-search">
     <%= render "search" %>
   </div>
 
-  <div class="top-bazaar">
+  <div class="bazaar-top">
     <%= render "main" %>
   </div>
-
 </div>
+<%= render 'shared/footer' %>

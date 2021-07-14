@@ -1,1 +1,14 @@
-<%= link_to "買いたい！ページへ", auction_path(@auction.id) %>
+<%= stylesheet_link_tag 'auctions/create', :media => "all" %>
+<div class="create-wrap">
+
+  <div>
+    <p class="create-text1">連絡部屋を作成しました</p>
+  </div>
+
+  <div class="create-menus">
+    <p><%= link_to 'こんなの欲しい！ページへ', auction_path(@auction.id), class: "create-menu" %></p>
+    <p><%= link_to 'オークショントップへ', auctions_path, class: "create-menu" %></p>
+  </div>
+</div>
+
+<%= render 'shared/footer' %>

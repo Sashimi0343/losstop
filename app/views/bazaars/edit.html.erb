@@ -1,10 +1,6 @@
-<p>内容を編集します</p>
-<br>
-<br>
-<br>
-<br>
+<div class="form-wrap">
+  <p class="new-guide1">情報を編集する</p>
+  <p class="new-guide2">商品の内容を変更できます。</p>
 
-
-<%= render partial: "form", locals: { bazaar: @bazaar }%>
-
-<li><%= link_to 'トップへ戻る', bazaars_path %></li>
+  <%= render partial: "form", locals: { bazaar: @bazaar }%>
+</div>

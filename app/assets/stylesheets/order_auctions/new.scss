@@ -1,0 +1,117 @@
+
+.new-wrap {
+  font-size: 2rem;
+  padding: 3rem;
+}
+
+/* 上部テキスト。説明。 */
+h1 {
+  font-size: 4rem;
+}
+
+.user-and-company {
+  font-size: 5rem;
+  color: red;
+  border-bottom: solid 0.1rem black;
+}
+
+h2 {
+  font-size: 3rem;
+}
+
+h3 {
+  margin-bottom: 7rem;
+}
+
+h4 {
+  font-size: 3rem;
+}
+
+
+/* tableー基本設定 */
+.form-table1 {
+  border: solid 0.2rem black;
+  width: 60%;
+}
+
+.form-table1 th,td{
+  padding: 0.5rem;
+  border: solid 0.3rem black;
+  background:rgba(188, 251, 255, 0.5);
+}
+
+.show-text1 {
+  font-size: 2rem;
+  background:rgba(188, 251, 255, 0.5);
+  padding: 0.5rem;
+}
+
+
+/* description */
+.show-description {
+  width: 100%;
+  height: 10rem;
+  font-size: 2rem;
+  background:rgba(188, 251, 255, 0.5);
+}
+
+
+
+/* テーブル2つ目のみにある */
+/* image */
+.item-form {
+  margin-top: 8rem;
+}
+
+.form-title {
+  width: 80%;
+}
+
+.form-image {
+  background:rgba(188, 251, 255, 0.5);
+  width: 35%;
+}
+
+.show-text2 {
+  font-size: 2rem;
+  background:rgba(188, 251, 255, 0.5);
+  padding: 0.5rem;
+  text-align: center;
+}
+
+#image_auction {
+  margin: auto;
+  height: 150px;
+  width: 150px;
+
+}
+
+#image_auction img {
+  height: 150px;
+  width: 150px;
+  object-fit: contain;
+}
+
+#auction_image {
+  display: none;
+}
+
+.form-price {
+  width: 30%;
+}
+
+.form-description {
+  width: 100%;
+  height: 20rem;
+}
+
+.form-button {
+  width: 15rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: #ebebeb;
+  border: 1px solid black;
+  display: block;
+  text-align: center;
+  margin: auto;
+}

@@ -12,11 +12,10 @@ class Bazaar < ApplicationRecord
   end
 
   with_options numericality: { message: 'を選択してください。' } do
-    validates :category_id, :delivery_charge_id, :days_to_ship_id
+    validates :category_id, :delivery_charge_id
   end
 
   belongs_to :category
-  belongs_to :days_to_ship
   belongs_to :delivery_charge
 
   has_one_attached :image

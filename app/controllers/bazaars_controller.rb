@@ -59,7 +59,7 @@ class BazaarsController < ApplicationController
 
   def bazaar_params
     params.require(:bazaar).permit(:image, :title, :description, :price, :stock, :deadline,
-                                    :category_id, :delivery_charge_id, :days_to_ship_id).merge(company_id: current_company.id)
+                                    :category_id, :delivery_charge_id).merge(company_id: current_company.id)
   end
 
   def set_bazaar

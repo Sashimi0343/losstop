@@ -1,30 +1,34 @@
-<div class="commit">
+<div class="commit-wrap">
 
-  <h1>
-    検索結果
-  </h1>
-  <%# 検索結果の個数で条件分岐 %>
-  <% if @results_auction.length !=0 %>
-    <% @results_auction.each do |result| %>
-      <% if (result.deadline > Time.new) && (result.stock > 0) %>
-        <%= link_to auction_path(result.id) do %>
-          <li class=''>
-            <div class=''>
-              <h1 class=''>
-                <%= result.title %>
-              </h1>
-              <div class=''>
-                <span><%= result.price %>円<br><%= result.delivery_charge.name %></span>
-              </div>
-            </div>
-          </li><br><br><br>
+  <div class="search-nav-container">
+    <p class="commit-text">検索結果</p>
+    <ul class="search-nav-list">
+      <li class="search-nav">新着</li>
+      <li class="search-nav">価格</li>
+      <li class="search-nav">在庫</li>
+    </ul>
+  </div>
+
+  <div class="search-result-container">
+    <% if @results_auction.length !=0 %>
+      <% @results_auction.each do |result| %>
+        <% if result.deadline > Time.new %>
+
+          <div class="search-result">
+            <table class="result-table">
+              <tr class="result-title">
+                <th colspan="2"><%= link_to result.title, auction_path(result.id), class: "result-title" %></th>
+              </tr>
+              <tr class="result-text">
+                <td>予算：<%= result.price %>円</td>
+                <td>カテゴリー：<%= result.category.name %></td>
+              </tr>
+            </table>
+          </div>
         <% end %>
       <% end %>
+    <% else %>
+      該当する商品はありません
     <% end %>
-  <% else %>
-    該当する商品はありません
-  <% end %>
-  <br>
-  <%= link_to '戻る', auctions_path %>
-
+  </div>
 </div>

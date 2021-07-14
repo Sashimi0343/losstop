@@ -1,5 +1,15 @@
-<p>ここがバザーの出品完了ページ</p>
-<p>出品できました。</p>
+<%= stylesheet_link_tag 'bazaars/create', :media => "all" %>
+<div class="create-wrap">
 
+  <div>
+    <p class="create-text1">出品が完了しました</p>
+  </div>
 
-<p><%= link_to 'トップページに戻る', bazaars_path %></p>
+  <div class="create-menus">
+    <p><%= link_to '商品ページへ', bazaar_path(@bazaar.id), class: "create-menu" %></p>
+    <p><%= link_to '出品を続ける', new_bazaar_path, class: "create-menu" %></p>
+    <p><%= link_to 'バザートップへ', bazaars_path, class: "create-menu" %></p>
+  </div>
+</div>
+
+<%= render 'shared/footer' %>

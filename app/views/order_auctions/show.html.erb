@@ -1,37 +1,12 @@
-<%= @order.company.name %><p>さんと</p><br>
-<%= @order.auction.user.name %><p>さんの取引連絡ページ。</p><br>
+<%= stylesheet_link_tag 'order_auctions/show', :media => "all" %>
 
-<div>
-  <br>
-  <p>商品画像</p><br>
-  <%= image_tag @order.image %>
+<div class="show-wrap">
+  <div class="order-item">
+    <%= render "item" %>
+  </div>
+
+  <div class="order-chat">
+    <%= render "chat" %>
+  </div>
 </div>
-
-<div>
-  <br>
-  <p>商品名：</p><%= @order.title %>
-</div>
-
-<div>
-  <br>
-  <p>商品説明文：</p><%= @order.description %>
-</div>
-
-<div>
-  <br>
-  <p>販売希望数：</p><%= @order.quantity %>
-</div>
-
-<%= form_with model: @contact, url: auction_order_auction_contact_auctions_path(auction_id: @auction.id, order_auction_id: @order.id), local: true do |f| %>
-  <%= f.text_area :message, placeholder: "ここに入力してください", rows: "2" %>
-  <%= f.submit "送信" %>
-<% end %>
-
-<div id='messages'>
-  <% @contacts.each do |contact| %>
-    <div>
-      <p><%= contact.name %></p>
-      <p><strong><%= contact.message %></strong></p><br>
-    </div>
-  <% end %>
-</div>
+<%= render 'shared/footer' %>

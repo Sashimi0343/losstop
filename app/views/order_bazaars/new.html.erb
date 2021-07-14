@@ -1,26 +1,55 @@
-<h1>取引希望ページ作成</h1>
-<p>ここで取引用の連絡部屋のレコードを生成する</p>
+<%= stylesheet_link_tag 'order_bazaars/new', :media => "all" %>
 
-<p><%= @bazaar.title %>の購入を希望する</p>
-<p>画像<br><%= image_tag @bazaar.image %></p>
-<br>
-<p>価格：<%= @bazaar.price %></p>
-<p>在庫：<%= @bazaar.stock %></p>
-<p>期限：<%= @bazaar.deadline %></p>
-<p>出品：<%= @bazaar.company.name %></p>
-<p>送料：<%= @bazaar.delivery_charge.name %></p>
+<div class="new-wrap">
+  <h1><span class="user-and-company"><%= current_user.name %>さん</span>
+  　と　<span class="user-and-company"><%= @bazaar.company.name %>さん</span>の</h1>
+  <h2>連絡部屋を作成する。</h2>
+  <h3>商品発送や代金の支払いに関する相談を、専用の連絡部屋で行います。</h3>
+
+  <h4>商品の詳細・確認</h4>
+  <table class="form-table1">
+    <tr>
+      <td colspan="3"><span class="show-text1">商品名：<%= @bazaar.title %></span></td>
+    </tr>
+
+    <tr>
+      <td rowspan="2" class="form-image">
+        <div id="image_bazaar">
+          <%= image_tag @bazaar.image ,class:"" %>
+        </div>
+      </td>
+
+      <td><span class="show-text1">価格<br>
+        <%= @bazaar.price %>円</span></td>
+      <td><span class="show-text1">在庫<br>
+        <%= @bazaar.stock %>個</span></td>
+    </tr>
+
+    <tr>
+      <td><span class="show-text1">送料の負担<br></span>
+        <%= @bazaar.delivery_charge.name %></td>
+      <td>
+        <span class="show-text1">出品期間<br>
+        <%= @bazaar.deadline %></span>まで
+      </td>
+    </tr>
+
+    <tr>
+      <td colspan="3"><span class="show-text1">商品説明</span>
+      <p class="show-description"><%= @bazaar.description %></p></td>
+    </tr>
+  </table>
 
 
-<%= form_with model: @order_bazaar, url: bazaar_order_bazaars_path, local: true do |f| %>
-<%= render 'shared/error_messages', model: f.object %>
-  <br>
+  <%= form_with model: @order_bazaar, url: bazaar_order_bazaars_path, local: true do |f| %>
+    <%= render 'shared/error_messages', model: f.object %>
 
-  <div>
-    <%= f.label :quantity %><br>
-    <%= f.text_field :quantity, placeholder:"購入希望数（必須)"%>
-  </div>
+    <div>
+      <p>購入したい数を入力する</p>
+      <%= f.text_field :quantity, placeholder:"半角数字", class: "order-field" %>
+      <%= f.submit "連絡部屋作成" ,class:"order-button" %>
+    </div>
+  <% end %>
 
-  <div>
-    <%= f.submit "連絡部屋作成" ,class:"" %>
-  </div>
-<% end %>
+
+</div>

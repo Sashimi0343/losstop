@@ -37,7 +37,6 @@ ActiveRecord::Schema.define(version: 2021_07_01_192023) do
     t.string "title", null: false
     t.text "description", null: false
     t.integer "price", null: false
-    t.integer "stock", null: false
     t.integer "category_id", null: false
     t.integer "delivery_charge_id", null: false
     t.date "deadline", null: false
@@ -55,7 +54,6 @@ ActiveRecord::Schema.define(version: 2021_07_01_192023) do
     t.date "deadline", null: false
     t.integer "category_id", null: false
     t.integer "delivery_charge_id", null: false
-    t.integer "days_to_ship_id", null: false
     t.bigint "company_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
@@ -134,7 +132,7 @@ ActiveRecord::Schema.define(version: 2021_07_01_192023) do
   create_table "order_auctions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "title", null: false
     t.text "description", null: false
-    t.integer "quantity", null: false
+    t.integer "price", null: false
     t.bigint "auction_id", null: false
     t.bigint "user_id", null: false
     t.bigint "company_id", null: false
@@ -155,19 +153,6 @@ ActiveRecord::Schema.define(version: 2021_07_01_192023) do
     t.index ["bazaar_id"], name: "index_order_bazaars_on_bazaar_id"
     t.index ["company_id"], name: "index_order_bazaars_on_company_id"
     t.index ["user_id"], name: "index_order_bazaars_on_user_id"
-  end
-
-  create_table "review_auctions", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
-    t.text "comment", null: false
-    t.bigint "auction_id", null: false
-    t.bigint "user_id"
-    t.bigint "company_id"
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-    t.index ["auction_id"], name: "index_review_auctions_on_auction_id"
-    t.index ["company_id"], name: "index_review_auctions_on_company_id"
-    t.index ["user_id"], name: "index_review_auctions_on_user_id"
   end
 
   create_table "review_bazaars", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -217,9 +202,6 @@ ActiveRecord::Schema.define(version: 2021_07_01_192023) do
   add_foreign_key "order_bazaars", "bazaars"
   add_foreign_key "order_bazaars", "companies"
   add_foreign_key "order_bazaars", "users"
-  add_foreign_key "review_auctions", "auctions"
-  add_foreign_key "review_auctions", "companies"
-  add_foreign_key "review_auctions", "users"
   add_foreign_key "review_bazaars", "bazaars"
   add_foreign_key "review_bazaars", "companies"
   add_foreign_key "review_bazaars", "users"

@@ -8,9 +8,7 @@ class OrderAuctionsController < ApplicationController
 
   def create
     @order_auction = OrderAuction.new(order_auction_params)
-    if @auction.stock >= @order_auction.quantity
-      @auction.update_columns(stock: @auction.stock - @order_auction.quantity)
-      @order_auction.save
+    if @order_auction.save
     else
       render :new
     end
@@ -36,7 +34,7 @@ class OrderAuctionsController < ApplicationController
   private
 
   def order_auction_params
-    params.require(:order_auction).permit(:title, :description, :quantity, :image).merge(
+    params.require(:order_auction).permit(:title, :description, :price, :image).merge(
       company_id: current_company.id, user_id: @auction.user.id, auction_id: @auction.id)
   end
 

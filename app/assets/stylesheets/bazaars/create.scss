@@ -1,0 +1,27 @@
+
+.create-wrap {
+  font-size: 4rem;
+}
+
+.create-text1 {
+  font-size: 6rem;
+  text-align: center;
+  margin-top: 4rem;
+}
+
+.create-menus {
+  display: flex;
+  justify-content: space-around;
+  margin: 20rem auto 5rem;
+}
+
+.create-menu {
+  margin: 0 4rem;
+  font-size: 3rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: #ebebeb;
+  border: 1px solid black;
+  color: black;
+  text-decoration: none;
+}

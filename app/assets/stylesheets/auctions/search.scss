@@ -1,0 +1,88 @@
+/* searchアクションの左側 */
+.search-wrap {
+  width: 95%;
+  border: 0.7rem double black;
+  padding: 1rem;
+  margin: 1rem;
+}
+
+.price-search {
+  font-size: 1.5rem;
+}
+
+.search-field {
+  width: 95%;
+}
+
+/* searchアクションの右側 */
+.search-commit {
+  width: 80vw;
+}
+
+.commit-wrap {
+  width: 100%;
+  padding: 1rem;
+}
+
+
+/* 検索結果の上側nav部分 */
+.search-nav-container {
+  width: 98%;
+  display: flex;
+  justify-content: space-between;
+  border-bottom: solid 0.4rem black;
+}
+
+.commit-text {
+  font-size: 5rem;
+}
+
+.search-nav-list {
+  display: flex;
+}
+
+.search-nav {
+  font-size: 2rem;
+  margin: 4rem 2rem 0;
+}
+
+
+/* 検索画面の下側result部分 */
+.search-result-container {
+  width: 98%;
+}
+
+.search-result {
+  border-bottom: solid 0.3rem black;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 5rem;
+  margin-bottom: 2rem;
+  background:rgba(155,252,255,0.2);
+}
+
+.result-table {
+  margin-left: 2rem;
+}
+
+.result-table th{
+  height: 70%;
+  padding-bottom: 3rem;
+  background:rgba(155,252,255,0.2);
+}
+
+.result-table td{
+  font-size: 4.5rem;
+  width: 600px;
+  background:rgba(155,252,255,0.2);
+}
+
+.result-title{
+  width: 80%;
+  font-size: 4rem;
+  background:rgba(155,252,255,0);
+}
+
+.result-text {
+  font-size: 2rem;
+}

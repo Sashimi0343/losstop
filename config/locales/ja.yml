@@ -40,12 +40,12 @@ ja:
       auction:
         title: タイトル
         description: 欲しい商品の詳細
-        price: 希望価格(単価)
-        stock: 購入希望上限数
+        price: 予算(単価)
+        stock: 欲しい数
         category_id: カテゴリー
-        delivery_charge_id: 送料の負担
+        delivery_charge_id: 送料
         days_to_ship_id: 発送までの日にち
-        deadline: この日までに欲しい！
+        deadline: この日までに欲しい
       order_auction:
         title: 商品名
         description: 商品説明欄

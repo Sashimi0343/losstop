@@ -1,1 +1,14 @@
-<%= link_to "商品ページへ", bazaar_path(@bazaar.id) %>
+<%= stylesheet_link_tag 'bazaars/create', :media => "all" %>
+<div class="create-wrap">
+
+  <div>
+    <p class="create-text1">連絡部屋を作成しました</p>
+  </div>
+
+  <div class="create-menus">
+    <p><%= link_to '商品ページへ', bazaar_path(@bazaar.id), class: "create-menu" %></p>
+    <p><%= link_to 'バザートップへ', bazaars_path, class: "create-menu" %></p>
+  </div>
+</div>
+
+<%= render 'shared/footer' %>

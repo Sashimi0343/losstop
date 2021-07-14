@@ -1,0 +1,144 @@
+// Place all the styles related to the companys controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+/* 各下地の設定 */
+.form-wrap {
+  width: 100%;
+  font-size: 2rem;
+  padding: 2rem;
+}
+
+.basic-items {
+  width: 100%;
+  margin: 0 auto 6rem;
+}
+
+.guide {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
+.profile-container {
+  width: 100%;
+  margin: 0 auto 6rem;
+}
+
+
+/* 案内文 */
+h1 {
+  font-size: 4rem;
+  margin-bottom: 6rem;
+}
+
+.basic-form th,td{
+  padding: 1rem;
+}
+
+.basic-form th,td{
+  border: solid 0.2rem black;
+}
+
+.text1 {
+  font-size: 3rem;
+}
+
+.form-button {
+  font-size: 3rem;
+  padding: 0.5rem;
+  margin-left: 1rem;
+  border-radius: 0.5rem;
+  background-color: #ebebeb;
+  border: 1px solid black;
+  color: black;
+  text-decoration: none;
+}
+/* profileのtable */
+.profile {
+  font-size: 3rem;
+  padding: 1rem;
+  border: solid 0.2rem black;
+  background:rgba(188, 251, 255, 0.5);
+}
+
+.profile th{
+  padding: 2rem;
+  background:rgba(188, 251, 255, 0.5);
+  border: solid 0.2rem black;
+}
+
+.profile td{
+  padding: 1rem;
+  width: 100%;
+  background:rgba(188, 251, 255, 0.5);
+  border: solid 0.2rem black;
+}
+
+
+/* image設定 */
+.form-image {
+  background:rgba(188, 251, 255, 0.5);
+  width: 400px;
+}
+
+#image {
+  margin: auto;
+  height: 300px;
+  width: 300px;
+}
+
+#image img {
+  height: 300px;
+  width: 300px;
+  object-fit: contain;
+}
+
+#image_form {
+  display: none;
+}
+
+.form-button2 {
+  font-size: 2rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  background-color: #ebebeb;
+  border: 1px solid black;
+  color: black;
+  text-decoration: none;
+}
+
+.text2 {
+  background:rgba(188, 251, 255, 0.5);
+  text-align: center;
+}
+/* その他設定 */
+.name {
+  width: 85%;
+}
+
+.president {
+  width: 85%;
+}
+
+.prefecture {
+  width: 20%;
+}
+
+.city-address {
+  width: 97%;
+}
+
+.phone {
+  width: 30%;
+}
+
+.homepage {
+  width: 90%;
+}
+
+.description {
+  width: 98%;
+  height: 25rem;
+}
