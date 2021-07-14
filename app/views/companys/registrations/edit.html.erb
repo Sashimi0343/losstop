@@ -1,70 +1,70 @@
-<h2 id="new_company">Edit <%= resource_name.to_s.humanize %></h2>
+<%= stylesheet_link_tag 'companys/form', :media => "all" %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= render "companys/shared/error_messages", resource: resource %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }, id: 'edit_company') do |f| %>
+<%= render "companys/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true %>
+
+<div class="form-wrap">
+<h1>会社新規登録</h1>
+
+  <div class="basic-items">
+    <table class="basic-form">
+      <tr>
+        <th colspan="2">基礎項目</th>
+      </tr>
+
+      <tr>
+        <th>メール</th>
+        <td><%= f.email_field :email, autofocus: true %></td>
+      </tr>
+
+      <tr>
+        <th>新パスワード</th>
+        <td><%= f.password_field :password %></td>
+      </tr>
+
+      <tr>
+        <th>新パスワード(確認)</th>
+        <td><%= f.password_field :password_confirmation %></td>
+      </tr>
+
+      <tr>
+        <th>現在のパスワード</th>
+        <td><%= f.password_field :current_password %></td>
+      </tr>
+    </table>
   </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
 
-  <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-    <div>Currently waiting confirmation for: <%= resource.unconfirmed_email %></div>
-  <% end %>
+  <div class="profile-container">
+    <div class="guide">
+      <div class="text1">マイページ記載項目</div>
+      <div class="actions">
+          <%= f.submit "この内容で更新する", class: "form-button" %>
+      </div>
+    </div>
+    <table class="profile">
+      <tr>
+        <th rowspan="4" class="form-image">
+          <p class="text2">画像をアップロード</p>
+          <div id="image"><%= image_tag @company.image ,class:"" %></div>
+          <label for="image_form">
+            <span class="form-button2">画像を選択</span><%= f.file_field :image, id: "image_form" %>
+          </label>
+        </th>
+        <td>会社名：<%= f.text_field :name, class: "name", placeholder:"必須" %></td>
+      </tr>
 
-  <div class="field">
-    <%= f.label :password %> <i>(新しいパスワード)</i><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-    <% if @minimum_password_length %>
-      <br />
-      <em><%= @minimum_password_length %> 文字以上　半角英数混合</em>
+      <tr><td>代表者：<%= f.text_field :president, placeholder:"社長・店長", class: "president" %></td></tr>
+      <tr><td>電話番号：<%= f.text_field :phone, placeholder:"必須(半角数字のみ)", class: "phone" %></td></tr>
+      <tr><td>HP：<%= f.text_field :homepage, placeholder:"任意", class: "homepage" %></td></tr>
+
+      <tr>
+        <td colspan="2">
+        会社紹介<br><%= f.text_area :profile, placeholder:"会社PR", class: "description" %></td>
+      </tr>
+      </table>
     <% end %>
   </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :current_password %> <i>(現在のパスワード)</i><br />
-    <%= f.password_field :current_password, autocomplete: "current-password" %>
-  </div><br><br>
-
-  <div id="image_company"></div>
-  <div>
-    <p id="text_company">画像を変更する場合はクリックしてアップロード</p>
-    <%= f.file_field :image %>
-  </div>
-
-  <div class="field">
-    <%= f.label :president %><br />
-    <%= f.text_field :president, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :profile %><br />
-    <%= f.text_area :profile, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :phone %><br />
-    <%= f.text_field :phone, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :homepage %><br />
-    <%= f.text_area :homepage, autofocus: true %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Update" %>
-  </div>
-<% end %>
-
-<%= link_to "Back", :back %>
+</div>
+<%= render "companys/shared/links" %>

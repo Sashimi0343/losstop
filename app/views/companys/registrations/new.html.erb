@@ -1,83 +1,68 @@
-<h1 id="new_company">会社新規登録</h1><br>
+<%= stylesheet_link_tag 'companys/form', :media => "all" %>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "companys/shared/error_messages", resource: resource %>
+<%= form_for(resource, as: resource_name, url: registration_path(resource_name), id: 'new_company') do |f| %>
+<%= render "companys/shared/error_messages", resource: resource %>
 
+<div class="form-wrap">
+<h1>会社新規登録</h1>
 
-<%# ================================基本３項目============================== %>
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name, autofocus: true %>
+  <div class="basic-items">
+    <table class="basic-form">
+      <tr>
+        <th colspan="2">基礎項目</th>
+      </tr>
+
+      <tr>
+        <th>メール</th>
+        <td><%= f.email_field :email, autofocus: true %></td>
+      </tr>
+
+      <tr>
+        <th>パスワード</th>
+        <td><%= f.password_field :password %></td>
+      </tr>
+
+      <tr>
+        <th>パスワード(確認)</th>
+        <td><%= f.password_field :password_confirmation %></td>
+      </tr>
+    </table>
   </div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+
+  <div class="profile-container">
+    <div class="guide">
+      <div class="text1">マイページ記載項目</div>
+      <div class="actions">
+          <%= f.submit "この内容で登録する", class: "form-button" %>
+      </div>
+    </div>
+    <table class="profile">
+      <tr>
+        <th rowspan="5" class="form-image">
+          <p class="text2">画像をアップロード</p>
+          <div id="image"></div>
+          <label for="image_form">
+            <span class="form-button2">画像を選択</span><%= f.file_field :image, id: "image_form" %>
+          </label>
+        </th>
+        <td>会社名：<%= f.text_field :name, class: "name", placeholder:"必須" %></td>
+      </tr>
+
+      <tr><td>代表者：<%= f.text_field :president, placeholder:"社長・店長", class: "president" %></td></tr>
+      <tr><td>所在地<br>
+        <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"prefecture", id:"item-prefecture"}) %>
+        <br><%= f.text_field :city, placeholder:"必須：市区町村", class: "city-address" %>
+        <br><%= f.text_field :address, placeholder:"必須：番地・建物", class: "city-address" %></td></tr>
+      <tr><td>電話番号：<%= f.text_field :phone, placeholder:"必須(半角数字のみ)", class: "phone" %></td></tr>
+      <tr><td>HP：<%= f.text_field :homepage, placeholder:"任意", class: "homepage" %></td></tr>
+
+      <tr>
+        <td colspan="2">
+        会社紹介<br><%= f.text_area :profile, placeholder:"会社PR", class: "description" %></td>
+      </tr>
+      </table>
+    <% end %>
   </div>
-
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-<%# ================================基本３項目============================== %>
-
-
-<%# ================================残り８項目============================== %>
-
-  <div id="image_company"></div>
-  <div>
-    <p id="text_company">クリックしてファイルをアップロード</p>
-    <%= f.file_field :image %>
-  </div>
-
-  <div class="field">
-    <%= f.label :president %><br />
-    <%= f.text_field :president, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :profile %><br />
-    <%= f.text_area :profile, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :phone %><br />
-    <%= f.text_field :phone, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :prefecture_id %><br />
-    <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"select-box", id:"item-prefecture"}) %>
-  </div>
-
-  <div class="field">
-    <%= f.label :city %><br />
-    <%= f.text_field :city, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :address %><br />
-    <%= f.text_field :address, autofocus: true %>
-  </div>
-
-  <div class="field">
-    <%= f.label :homepage %><br />
-    <%= f.text_area :homepage, autofocus: true %>
-  </div>
-
-<%# ================================残り８項目============================== %>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
+</div>
 <%= render "companys/shared/links" %>

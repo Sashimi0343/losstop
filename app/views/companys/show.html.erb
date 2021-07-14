@@ -24,9 +24,13 @@
       <tr><td><%= @company.phone %></td></tr>
       <tr><td><%= link_to "会社HP", @company.homepage, class: "link-button1" %>※外部リンク</td></tr>
 
-      <tr><td colspan="2" class="description"><%= @company.profile %></td></tr>
+      <tr>
+        <td colspan="2">会社紹介
+        <p class="description"><%= @company.profile %></p></td>
+      </tr>
     </table>
   </div>
+
 
 
   <p class="text1">出品中の商品一覧</p>

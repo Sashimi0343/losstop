@@ -6,7 +6,11 @@ class CompanysController < ApplicationController
     @order_auctions = @company.order_auctions
   end
 
-  def edit; end
+  def edit
+    @company = Company.find(params[:id])
+  end
 
-  def update; end
+  def update
+    @company = Company.find(params[:id])
+  end
 end

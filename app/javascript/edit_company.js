@@ -1,5 +1,5 @@
 document.addEventListener('DOMContentLoaded', function(){
-  if ( document.getElementById('new_company')){
+  if ( document.getElementById('edit_company')){
     const ImageProfile = document.getElementById('image');
 
     const createImageHTML = (imageURL) => {
