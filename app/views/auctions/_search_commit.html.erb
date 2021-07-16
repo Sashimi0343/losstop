@@ -3,9 +3,8 @@
   <div class="search-nav-container">
     <p class="commit-text">検索結果</p>
     <ul class="search-nav-list">
-      <li class="search-nav">新着</li>
-      <li class="search-nav">価格</li>
-      <li class="search-nav">在庫</li>
+      <li class="search-nav"><%= sort_link(@a, :created_at, "新着") %></li>
+      <li class="search-nav"><%= sort_link(@a, :price, "予算") %></li>
     </ul>
   </div>
 
