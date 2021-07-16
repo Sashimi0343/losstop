@@ -2,11 +2,14 @@
 
   <div class="search-nav-container">
     <p class="commit-text">検索結果</p>
-    <ul class="search-nav-list">
-      <li class="search-nav">新着</li>
-      <li class="search-nav">価格</li>
-      <li class="search-nav">在庫</li>
-    </ul>
+    <div>
+      <p class="nav-guide">クリックで順番を入れ替え</p>
+      <ul class="search-nav-list">
+        <li class="search-nav"><%= sort_link(@b, :created_at, "新着") %></li>
+        <li class="search-nav"><%= sort_link(@b, :price, "価格") %></li>
+        <li class="search-nav"><%= sort_link(@b, :stock, "在庫") %></li>
+      </ul>
+    </div>
   </div>
 
   <div class="search-result-container">
@@ -16,7 +19,7 @@
           <div class="search-result">
             <div class="result-image">
               <%= link_to bazaar_path(result.id) do %>
-                <%= image_tag result.image, size: '200x200' %>
+                <%= image_tag result.image %>
               <% end %>
             </div>
 

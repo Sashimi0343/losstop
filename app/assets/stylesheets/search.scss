@@ -41,11 +41,19 @@
   display: flex;
 }
 
-.search-nav {
-  font-size: 2rem;
-  margin: 4rem 2rem 0;
+.nav-guide {
+  margin: 0 2rem 0;
 }
 
+.search-nav {
+  font-size: 2rem;
+  margin: 0rem 2rem 0;
+}
+
+.search-nav a{
+  text-decoration: none;
+  color: black;
+}
 
 /* 検索画面の下側result部分 */
 .search-result-container {
@@ -73,6 +81,12 @@
 .result-table td{
   width: 600px;
   background:rgba(155,252,255,0.2);
+}
+
+.result-image img{
+  height: 200px;
+  width: 200px;
+  object-fit: contain;
 }
 
 .result-title{
