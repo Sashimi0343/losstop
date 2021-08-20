@@ -53,17 +53,9 @@
       <%#= お知らせ %>
       <% if company_signed_in? %>
         <li class="menu-list">
-          <%= link_to(notice_companys_path) do %>
-            <p>お知らせ</p>
-            <%= image_tag 'header/notice.png' , size: '95x80' %>
-          <% end %>
         </li>
       <% elsif user_signed_in? %>
         <li class="menu-list">
-          <%= link_to(notice_companys_path) do %><%# ここ出来次第変える %>
-            <p>お知らせ</p>
-            <%= image_tag 'header/notice.png' , size: '95x80' %>
-          <% end %>
         </li>
       <% else %>
         <li class="menu-list">
