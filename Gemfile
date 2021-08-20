@@ -35,6 +35,12 @@ group :development, :test do
   gem 'faker'
   gem 'gimei'
   gem 'rspec-rails', '~> 4.0.0'
+
+  gem 'capistrano'
+  gem 'capistrano-rbenv'
+  gem 'capistrano-bundler'
+  gem 'capistrano-rails'
+  gem 'capistrano3-unicorn'
 end
 
 group :development do
@@ -58,6 +64,7 @@ end
 group :production do
   gem 'unicorn', '5.4.1'
 end
+
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
