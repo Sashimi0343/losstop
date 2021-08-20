@@ -12,9 +12,6 @@ class ContactBazaarsController < ApplicationController
       redirect_to root_path
     else
       contact_bazaar.save
-
-      #current_user か current_companyがnil?で条件分岐して作ってみる。
-      #order_bazaar.create_notice_contact!(current_user, contact_bazaar.id)
       redirect_back(fallback_location: bazaar_order_bazaar_path(order.id, order.bazaar.id))
     end
   end
