@@ -26,9 +26,10 @@ Pass：0343<br>
 <br><br>
 
 # 概要
-食品に特化した、オークション形式の商品販売サイト。<br>
+食品に特化した、ユーザー主導の商品販売サイト。<br>
+一般的なオークション形式と、逆オークション形式の2つがある。<br><br>
 企業・店舗側は食品を出品、または販売提案することが出来る。<br>
-一般ユーザーは企業・店舗が出品した食品を購入し、また募集することも出来る。<br><br>
+一般ユーザーは企業・店舗が出品した食品を購入、または募集することが出来る。<br><br>
 食品を扱う企業や個人店がなんらかの事情により抱えてしまった過剰在庫を販売することを目的とする。<br>
 クラウドファンディング等を利用せずとも在庫処理の機会を得られるのが魅力。<br><br><br>
 
@@ -39,6 +40,7 @@ Pass：0343<br>
 
 ## こういった方々におすすめ
 [![Image from Gyazo](https://i.gyazo.com/f39e537006a7af4e2c55cfc721967819.png)](https://gyazo.com/f39e537006a7af4e2c55cfc721967819)
+[![Image from Gyazo](https://i.gyazo.com/53a661b6a20875ae33beef90fc45547a.png)](https://gyazo.com/53a661b6a20875ae33beef90fc45547a)
 <br><br>
 
 
@@ -77,7 +79,8 @@ Pass：0343<br>
 <br><br>
 一般ユーザー<br>
 [![Image from Gyazo](https://i.gyazo.com/32b1d28ca7d69057cc60731c0bdc7932.gif)](https://gyazo.com/32b1d28ca7d69057cc60731c0bdc7932)
-<br><br><br>
+<br><br><br><br>
+
 
 # バザー
 ## 全体の流れ
@@ -88,24 +91,57 @@ Pass：0343<br>
 企業・店舗は販売したい商品を出品できる。<br>
 出品した物はマイページから確認できる。<br>
 [![Image from Gyazo](https://i.gyazo.com/5096095fd45af396e417e7d4feeaa305.gif)](https://gyazo.com/5096095fd45af396e417e7d4feeaa305)
-<br><br>
+<br><br><br>
 
 ## STEP2-購入を希望する（一般ユーザー）
 一般ユーザーは気に入った商品に購入希望を出せる。<br>
 この時点では、まだ取引は成立していない。<br>
 [![Image from Gyazo](https://i.gyazo.com/f7f02b61c1f8a448700b8428f8d18a64.gif)](https://gyazo.com/f7f02b61c1f8a448700b8428f8d18a64)
-<br><br>
+<br><br><br>
 
-## STEP3-購入を希望する（一般ユーザー）
-専用の連絡部屋で取引に関する相談を行う。<br>
+## STEP3・4-専用の部屋で支払いや配送についての連絡を取る
+こちらは会社から見た場合<br>
+商品ページ・マイページどちらからでもアクセスできる。<br>
+[![Image from Gyazo](https://i.gyazo.com/a458ca4d5adf657361230309bdf5c853.gif)](https://gyazo.com/a458ca4d5adf657361230309bdf5c853)
+<br><br><br>
+
+こちらが、一般ユーザーから見た場合。<br>
+[![Image from Gyazo](https://i.gyazo.com/bac2f52d05dbd8e0dae29d640da34767.gif)](https://gyazo.com/bac2f52d05dbd8e0dae29d640da34767)
+<br><br><br><br>
 
 
+# 逆オークション
+## 全体の流れ
+[![Image from Gyazo](https://i.gyazo.com/1ae1828659b95470775ecbce63aff6aa.png)](https://gyazo.com/1ae1828659b95470775ecbce63aff6aa)
+<br><br><br>
 
 
+## STEP1-欲しいモノのイメージを投稿する（一般ユーザー）
+どういったモノが、どんな用途で欲しいか？<br>
+大まかなイメージを投稿する。<br>
+[![Image from Gyazo](https://i.gyazo.com/dcf2886e9bd4d0a20dbacf42144b6c21.gif)](https://gyazo.com/dcf2886e9bd4d0a20dbacf42144b6c21)
+<br><br><br>
 
 
+## STEP2・3-条件に合う投稿を探し、商品PR・提案を行う（企業・お店）
+複数の企業・お店が1つのユーザー投稿に対してPR・提案が出来る。<br>
+[![Image from Gyazo](https://i.gyazo.com/4653e5cab6ffac0bec72fb62e5a0db47.gif)](https://gyazo.com/4653e5cab6ffac0bec72fb62e5a0db47)
+<br><br><br>
 
 
+## STEP4-気に入った物に返信する（一般ユーザー）
+商品PR・提案の企業投稿がそのまま専用の連絡部屋になる。<br>
+投稿ページ・マイページどちらからでもアクセスできる。<br>
+使い方はバザーと同じ。<br>
+
+<br><br><br>
+
+
+## STEP5・6-支払いや配送についての連絡を取る（企業・お店）
+投稿ページ・マイページどちらからでもアクセスできる。<br>
+使い方はバザーと同じ。<br>
+
+<br><br><br><br>
 
 
 # 工夫したポイント
