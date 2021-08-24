@@ -68,7 +68,7 @@
                 <td class="order-number"><%= order.id %></td>
                 <td class="order-title"><%= link_to order.bazaar.title, bazaar_path(order.bazaar.id), class: "blocks" %></td>
                 <td class="customer"><%= order.user.name %></td>
-                <td class="order-link"><%= link_to "連絡部屋へ", bazaar_order_bazaar_path(order.id), class: "link-button2" %></td>
+                <td class="order-link"><%= link_to "連絡部屋へ", bazaar_order_bazaar_path(order.id, order.bazaar.id), class: "link-button2" %></td>
               </tr>
             <% end %>
         </table>
@@ -90,7 +90,7 @@
               <td class="order-number"><%= order.id %></td>
               <td class="order-title"><%= link_to order.auction.title, auction_path(order.auction.id), class: "blocks" %></td>
               <td class="customer"><%= order.user.name %></td>
-              <td class="order-link"><%= link_to "連絡部屋へ", auction_order_auction_path(order.id), class: "link-button2" %></td>
+              <td class="order-link"><%= link_to "連絡部屋へ", auction_order_auction_path(order.id, order.auction.id), class: "link-button2" %></td>
             </tr>
           <% end %>
         </table>

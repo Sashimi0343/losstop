@@ -70,15 +70,43 @@ Pass：0343<br>
 
 # 使い方<br>
 
-# 企業・一般　共通
+## 企業・一般　共通
 まずは会員登録を行う。<br>
+企業・店舗<br>
 [![Image from Gyazo](https://i.gyazo.com/44ea3bdd2a2851b01c27e4287b03a267.gif)](https://gyazo.com/44ea3bdd2a2851b01c27e4287b03a267)
 <br><br>
-
+一般ユーザー<br>
+[![Image from Gyazo](https://i.gyazo.com/32b1d28ca7d69057cc60731c0bdc7932.gif)](https://gyazo.com/32b1d28ca7d69057cc60731c0bdc7932)
 <br><br><br>
 
-## バザー機能
-企業は必要事項を記入して出品が出来る。
+# バザー
+## 全体の流れ
+[![Image from Gyazo](https://i.gyazo.com/e2deb8e4e5ece1fd9c5962c1b12a5677.png)](https://gyazo.com/e2deb8e4e5ece1fd9c5962c1b12a5677)
+<br><br><br>
+
+## STEP1-出品（企業・店舗）
+企業・店舗は販売したい商品を出品できる。<br>
+出品した物はマイページから確認できる。<br>
+[![Image from Gyazo](https://i.gyazo.com/5096095fd45af396e417e7d4feeaa305.gif)](https://gyazo.com/5096095fd45af396e417e7d4feeaa305)
+<br><br>
+
+## STEP2-購入を希望する（一般ユーザー）
+一般ユーザーは気に入った商品に購入希望を出せる。<br>
+この時点では、まだ取引は成立していない。<br>
+[![Image from Gyazo](https://i.gyazo.com/f7f02b61c1f8a448700b8428f8d18a64.gif)](https://gyazo.com/f7f02b61c1f8a448700b8428f8d18a64)
+<br><br>
+
+## STEP3-購入を希望する（一般ユーザー）
+専用の連絡部屋で取引に関する相談を行う。<br>
+
+
+
+
+
+
+
+
+
 
 # 工夫したポイント
 特にUIの分かり易さに注力しました。<br>
