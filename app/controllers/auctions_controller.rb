@@ -65,7 +65,7 @@ class AuctionsController < ApplicationController
   end
 
   def deadline_or_stock
-    if (@auction.deadline < Time.now) || (@auction.stock == 0)
+    if (@auction.deadline < Time.now)
       redirect_to root_path
     end
   end

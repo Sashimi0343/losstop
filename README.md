@@ -119,7 +119,7 @@ Pass：0343<br>
 ## STEP1-欲しいモノのイメージを投稿する（一般ユーザー）
 どういったモノが、どんな用途で欲しいか？<br>
 大まかなイメージを投稿する。<br>
-[![Image from Gyazo](https://i.gyazo.com/dcf2886e9bd4d0a20dbacf42144b6c21.gif)](https://gyazo.com/dcf2886e9bd4d0a20dbacf42144b6c21)
+[![Image from Gyazo](https://i.gyazo.com/a4969113e52cd087618ba2c14adb0df5.gif)](https://gyazo.com/a4969113e52cd087618ba2c14adb0df5)
 <br><br><br>
 
 
