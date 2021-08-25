@@ -125,7 +125,7 @@ Pass：0343<br>
 
 ## STEP2・3-条件に合う投稿を探し、商品PR・提案を行う（企業・お店）
 複数の企業・お店が1つのユーザー投稿に対してPR・提案が出来る。<br>
-[![Image from Gyazo](https://i.gyazo.com/4653e5cab6ffac0bec72fb62e5a0db47.gif)](https://gyazo.com/4653e5cab6ffac0bec72fb62e5a0db47)
+[![Image from Gyazo](https://i.gyazo.com/cfd93e39c366a2294be57cb887435596.gif)](https://gyazo.com/cfd93e39c366a2294be57cb887435596)
 <br><br><br>
 
 
@@ -133,14 +133,14 @@ Pass：0343<br>
 商品PR・提案の企業投稿がそのまま専用の連絡部屋になる。<br>
 投稿ページ・マイページどちらからでもアクセスできる。<br>
 使い方はバザーと同じ。<br>
-
+[![Image from Gyazo](https://i.gyazo.com/9d1b805fa9229ec1845bed246a0ecd96.gif)](https://gyazo.com/9d1b805fa9229ec1845bed246a0ecd96)
 <br><br><br>
 
 
 ## STEP5・6-支払いや配送についての連絡を取る（企業・お店）
 投稿ページ・マイページどちらからでもアクセスできる。<br>
 使い方はバザーと同じ。<br>
-
+[![Image from Gyazo](https://i.gyazo.com/b44debde894216b858460f272894ca55.gif)](https://gyazo.com/b44debde894216b858460f272894ca55)
 <br><br><br><br>
 
 
