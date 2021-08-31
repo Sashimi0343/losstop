@@ -2,7 +2,7 @@ class ContactBazaarsController < ApplicationController
   before_action :check_login, only: %i[create]
 
   def create
-    order = OrderBazaar.find(params[:bazaar_id])
+    order = OrderBazaar.find(params[:order_bazaar_id])
     contact_bazaar = ContactBazaar.new(contact_params)
     order_bazaar = contact_bazaar.order_bazaar
 

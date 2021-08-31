@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2021_07_01_192023) do
     t.string "title", null: false
     t.text "description", null: false
     t.integer "price", null: false
+    t.string "active"
     t.integer "category_id", null: false
     t.integer "delivery_charge_id", null: false
     t.date "deadline", null: false
@@ -52,6 +53,7 @@ ActiveRecord::Schema.define(version: 2021_07_01_192023) do
     t.integer "price", null: false
     t.integer "stock", null: false
     t.date "deadline", null: false
+    t.string "active"
     t.integer "category_id", null: false
     t.integer "delivery_charge_id", null: false
     t.bigint "company_id", null: false
@@ -133,6 +135,7 @@ ActiveRecord::Schema.define(version: 2021_07_01_192023) do
     t.string "title", null: false
     t.text "description", null: false
     t.integer "price", null: false
+    t.string "active"
     t.bigint "auction_id", null: false
     t.bigint "user_id", null: false
     t.bigint "company_id", null: false
@@ -145,6 +148,7 @@ ActiveRecord::Schema.define(version: 2021_07_01_192023) do
 
   create_table "order_bazaars", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "quantity", null: false
+    t.string "active"
     t.bigint "bazaar_id", null: false
     t.bigint "company_id", null: false
     t.bigint "user_id", null: false

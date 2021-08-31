@@ -118,6 +118,13 @@ h1 {
 
 
 /* 出品中 */
+.bazaar-info {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
 .bazaars {
   width: 90%;
   padding: 1rem;
@@ -137,12 +144,24 @@ h1 {
 }
 
 .number {
-  width: 12%;
+  width: 10%;
   text-align: center;
 }
 
 .bazaar-title {
-  width: 73%;
+  width: 52%;
+}
+
+.bazaar-price {
+  width: 10%;
+}
+
+.bazaar-stock {
+  width: 10%;
+}
+
+.bazaar-deadline {
+  width: 18%;
 }
 
 .link {

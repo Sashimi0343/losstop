@@ -16,8 +16,16 @@
 
 
 /* _item.html.erb */
+h3 {
+  font-size: 4rem;
+}
+
+.order-status {
+  color: red;
+}
+
 h1 {
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
 }
 
 .user-and-company {
@@ -31,7 +39,7 @@ h1 {
 }
 
 h2 {
-  font-size: 4rem;
+  font-size: 2.5rem;
 }
 
 /* table */
@@ -104,12 +112,13 @@ h3 {
 .messages {
   padding: 0.5rem;
   width: 90%;
-  height: 33rem;
+  height: 50rem;
   overflow: auto;
 }
 
 .message {
   border-bottom: solid 0.1rem gray;
+  margin-bottom: 2rem;
 }
 
 .created_at {
@@ -118,4 +127,16 @@ h3 {
 
 .chat-form {
   width: 85%;
+}
+
+
+/* End Button */
+.end-button {
+  font-size: 3rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: #ebebeb;
+  border: 1px solid black;
+  color: black;
+  text-decoration: none;
 }

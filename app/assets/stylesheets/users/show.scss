@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
 /* 各下地の設定 */
 .my-page-wrap {
   width: 100%;
@@ -102,6 +103,13 @@ h1 {
 
 
 /* 出品中 */
+.auction-info {
+  width: 90%;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1rem;
+}
+
 .auctions {
   width: 90%;
   padding: 1rem;
@@ -121,12 +129,20 @@ h1 {
 }
 
 .number {
-  width: 12%;
+  width: 11%;
   text-align: center;
 }
 
 .auction-title {
-  width: 73%;
+  width: 61%;
+}
+
+.auction-price {
+  width: 10%;
+}
+
+.bazaar-deadline {
+  width: 18%;
 }
 
 .link {

@@ -37,7 +37,7 @@ class AuctionsController < ApplicationController
   end
 
   def destroy
-    @auction.update(deadline: Time.now.yesterday)
+    @auction.update(active: "close")
     redirect_to auctions_path
   end
 
@@ -49,7 +49,7 @@ class AuctionsController < ApplicationController
 
   def auction_params
     params.require(:auction).permit(:title, :description, :price, :deadline, :category_id,
-                                    :delivery_charge_id).merge(user_id: current_user.id)
+                                    :delivery_charge_id).merge(user_id: current_user.id, active: "active")
   end
 
   def set_auction

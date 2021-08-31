@@ -1,0 +1,89 @@
+<%= stylesheet_link_tag 'companys/show', :media => "all" %>
+
+<div class="my-page-wrap">
+  <div class="guide">
+    <h1><u>終了した出品・取引の一覧</u></h1>
+
+    <div>
+      <%= link_to "進行中の出品・取引へ戻る", company_path(current_company.id), class: "edit-button" %>
+    </div>
+  </div>
+
+  <br><br><br>
+  <p class="text1">出品が終了した商品</p>
+  <div class="bazaar-container">
+    <table class="bazaars">
+      <tr>
+        <th class="number">出品番号</th>
+        <th class="bazaar-title">商品名</th>
+        <th class="bazaar-price">価格</th>
+        <th class="bazaar-stock">在庫</th>
+        <th class="bazaar-deadline">出品期間</th>
+      </tr>
+
+      <% @company.bazaars.each do |bazaar| %>
+        <% if (bazaar.deadline < Time.new) || (bazaar.stock == 0) || (bazaar.active == "close") %>
+          <tr>
+            <td class="number"><%= bazaar.id %></td>
+            <td class="bazaar-title"><%= link_to bazaar.title, bazaar_path(bazaar.id), class: "blocks" %></td>
+            <td class="bazaar-price"><%= bazaar.price %>円</td>
+            <td class="bazaar-stock"><%= bazaar.stock %>個</td>
+            <td class="bazaar-deadline"><%= bazaar.deadline %>まで</td>
+          </tr>
+        <% end %>
+      <% end %>
+    </table>
+  </div>
+
+
+  <% if company_signed_in? %>
+    <% if @company.id == current_company.id %>
+      <p class="text1">取引中が終了したバザー</p>
+
+      <div class="orders-container">
+        <table class="orders">
+          <tr>
+            <th class="order-number">部屋番号</th>
+            <th class="order-title">商品名</th>
+            <th>お相手のお名前</th>
+            <th class="order-link">リンク</th></tr>
+            <% @company.order_bazaars.each do |order| %>
+              <% if order.active == "close" %>
+                <tr>
+                  <td class="order-number"><%= order.id %></td>
+                  <td class="order-title"><%= link_to order.bazaar.title, bazaar_path(order.bazaar.id), class: "blocks" %></td>
+                  <td class="customer"><%= order.user.name %></td>
+                  <td class="order-link"><%= link_to "連絡部屋へ", bazaar_order_bazaar_path(order.id, order.bazaar.id), class: "link-button2" %></td>
+                </tr>
+              <% end %>
+            <% end %>
+        </table>
+      </div>
+
+
+      <p class="text1">取引が終了したオークション</p>
+      <div class="orders-container">
+        <table class="orders">
+          <tr>
+            <th class="order-number">部屋番号</th>
+            <th class="order-title">タイトル</th>
+            <th class="customer">お相手のお名前</th>
+            <th class="order-link">リンク</th>
+          </tr>
+
+          <% @company.order_auctions.each do |order| %>
+            <% if order.active == "close" %>
+              <tr>
+                <td class="order-number"><%= order.id %></td>
+                <td class="order-title"><%= link_to order.auction.title, auction_path(order.auction.id), class: "blocks" %></td>
+                <td class="customer"><%= order.user.name %></td>
+                <td class="order-link"><%= link_to "連絡部屋へ", auction_order_auction_path(order.id, order.auction.id), class: "link-button2" %></td>
+              </tr>
+            <% end %>
+          <% end %>
+        </table>
+      </div>
+    <% end %>
+  <% end %>
+</div>
+<%= render 'shared/footer' %>

@@ -15,7 +15,7 @@
   <div class="search-result-container">
     <% if @results_bazaar.length !=0 %>
       <% @results_bazaar.each do |result| %>
-        <% if (result.deadline > Time.new) && (result.stock > 0) %>
+        <% if (result.deadline > Time.new) && (result.stock > 0) && (result.active == "active") %>
           <div class="search-result">
             <div class="result-image">
               <%= link_to bazaar_path(result.id) do %>
