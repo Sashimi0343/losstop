@@ -11,7 +11,7 @@
   <div class="search-result-container">
     <% if @results_auction.length !=0 %>
       <% @results_auction.each do |result| %>
-        <% if (result.deadline > Time.new) && (auction.active == true) %>
+        <% if (result.deadline > Time.new) && (result.active == "active") %>
 
           <div class="search-result">
             <table class="result-table">

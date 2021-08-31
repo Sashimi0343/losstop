@@ -39,7 +39,7 @@
   <p class="index-guide6">新着10件</p>
 
   <% @auctions.each do |auction| %>
-    <% if (auction.deadline > Time.new) && (auction.active == true) %>
+    <% if (auction.deadline > Time.new) && (auction.active == "active") %>
       <div class="search-result">
         <table class="result-table">
           <tr class="result-title">
