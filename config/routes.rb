@@ -4,17 +4,21 @@ Rails.application.routes.draw do
     passwords: 'companys/passwords',
     registrations: 'companys/registrations'
   }
+  get 'companys/end_list'
+  resources :companys, only: %i[show edit update]
+
   devise_for :users, controllers: {
     sessions: 'users/sessions',
     passwords: 'users/passwords',
     registrations: 'users/registrations'
   }
+  get 'users/end_list'
+  resources :users, only: %i[show edit update]
 
 
   root to: 'losstops#index'
   resources :losstops, only: [:index]
-  resources :companys, only: %i[show edit update]
-  resources :users, only: %i[show edit update]
+
 
   get 'bazaars/search'
   resources :bazaars do
@@ -23,6 +27,7 @@ Rails.application.routes.draw do
       resources :contact_bazaars, only: [:create]
     end
   end
+
 
   get 'auctions/search'
   resources :auctions do
