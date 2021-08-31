@@ -1,5 +1,5 @@
 class OrderBazaarsController < ApplicationController
-  before_action :set_bazaar, only: %i[new create]
+  before_action :set_bazaar, only: %i[new create destroy]
   before_action :authenticate_user!, only: %i[new create]
 
   def new
@@ -33,10 +33,17 @@ class OrderBazaarsController < ApplicationController
     end
   end
 
+  def destroy
+    @order = OrderBazaar.find(params[:bazaar_id])
+    @order.update(active: "close")
+    redirect_to bazaars_path
+  end
+
   private
 
   def order_bazaar_params
-    params.require(:order_bazaar).permit(:quantity).merge(user_id: current_user.id, company_id: @bazaar.company.id, bazaar_id: @bazaar.id)
+    params.require(:order_bazaar).permit(:quantity).merge(
+                    active: "active", user_id: current_user.id, company_id: @bazaar.company.id, bazaar_id: @bazaar.id)
   end
 
   def set_bazaar

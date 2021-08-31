@@ -1,4 +1,12 @@
-<h1><span class="user-and-company"><%= @order.user.name %>さん</span>と<br>
+<h3>現在のステータス：
+  <% if @order.active == "active" %>
+    <span class="order-status">取引中</span>
+  <% else %>
+    <span class="order-status">取引終了</span>
+  <% end %>
+  </h3>
+
+<h1><span class="user-and-company"><%= @order.user.name %>さん</span>と
   <span class="user-and-company"><%= @order.company.name %>さん</span>の連絡部屋</h1>
 
 <table class="form-table1">
@@ -31,3 +39,11 @@
   <span class="total-price"><%= @order.quantity %></span>個　＝
   <span class="total-price"><%= @order.bazaar.price * @order.quantity %></span>円 + 送料
 </p>
+
+<br><br>
+<% if @order.active == "active" %>
+  <%= link_to "この取引を終了する", bazaar_order_bazaar_path(@order.id), method: :delete, class:"end-button" %>
+  <p>※両者の内、どちらかがボタンを押すと取引は「終了状態」となります。</p>
+<% else %>
+  <p>※この取引は終了されました。</p>
+<% end %>
