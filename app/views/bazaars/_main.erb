@@ -37,7 +37,7 @@
   <p class="index-guide6">新着10件</p>
 
   <% @bazaars.each do |bazaar| %>
-    <% if (bazaar.deadline > Time.new) && (bazaar.stock > 0) %>
+    <% if (bazaar.deadline > Time.new) && (bazaar.stock > 0) && (bazaar.active == true) %>
       <div class="search-result">
         <div class="result-image">
           <%= link_to bazaar_path(bazaar.id) do %>

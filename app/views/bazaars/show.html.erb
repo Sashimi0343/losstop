@@ -28,7 +28,7 @@
 
     <div>
       <% if @bazaar.stock != 0 %>
-        <% if @bazaar.deadline > Time.now %>
+        <% if (@bazaar.deadline > Time.now) && (bazaar.active == true) %>
           <% if (company_signed_in?) && (current_company.id == @bazaar.company.id) %>
             <%= link_to "商品の編集", edit_bazaar_path(@bazaar.id), method: :get, class: "show-button" %>
             <%= link_to "この出品を終了する", bazaar_path(@bazaar.id), method: :delete, class:"show-button" %>
