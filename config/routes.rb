@@ -19,7 +19,7 @@ Rails.application.routes.draw do
   get 'bazaars/search'
   resources :bazaars do
     resources :review_bazaars, only: [:create]
-    resources :order_bazaars, only: %i[new create show] do
+    resources :order_bazaars, only: %i[new create show destroy] do
       resources :contact_bazaars, only: [:create]
     end
   end
@@ -27,7 +27,7 @@ Rails.application.routes.draw do
   get 'auctions/search'
   resources :auctions do
     resources :review_auctions, only: [:create]
-    resources :order_auctions, only: %i[new create show] do
+    resources :order_auctions, only: %i[new create show destroy] do
       resources :contact_auctions, only: [:create]
     end
   end
