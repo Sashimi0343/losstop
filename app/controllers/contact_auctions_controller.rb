@@ -2,7 +2,7 @@ class ContactAuctionsController < ApplicationController
   before_action :check_login, only: %i[create]
 
   def create
-    auction = OrderAuction.find(params[:auction_id])
+    auction = OrderAuction.find(params[:order_auction_id])
     contact_auction = ContactAuction.new(contact_params)
 
     if current_company.nil? && (current_user.id != contact_auction.user.id)

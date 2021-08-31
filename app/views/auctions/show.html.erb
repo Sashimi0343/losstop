@@ -25,7 +25,7 @@
   <div class="category-and-submit">
     <p>カテゴリー：<%= @auction.category.name %></p>
     <div>
-      <% if (@auction.deadline > Time.now) && (auction.active == true) %>
+      <% if (@auction.deadline > Time.now) && (@auction.active == "active") %>
         <% if (user_signed_in?) && (current_user.id == @auction.user.id) %>
           <%= link_to "商品の編集", edit_auction_path(@auction.id), method: :get, class: "show-button" %>
           <%= link_to "このページを終了する", auction_path(@auction.id), method: :delete, class:"show-button" %>

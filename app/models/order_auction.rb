@@ -1,6 +1,6 @@
 class OrderAuction < ApplicationRecord
   with_options presence: true do
-    validates :title, :description, :image, :auction_id, :company_id
+    validates :title, :description, :image, :active
     validates :price, numericality: { only_integer: true, message: 'は半角数字で入力してください。' }
   end
 

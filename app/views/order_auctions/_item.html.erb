@@ -1,4 +1,12 @@
-<h1><span class="user-and-company"><%= @order.user.name %>さん</span>と<br>
+<h3>現在のステータス：
+  <% if @order.active == "active" %>
+    <span class="order-status">取引中</span>
+  <% else %>
+    <span class="order-status">取引終了</span>
+  <% end %>
+  </h3>
+
+<h1><span class="user-and-company"><%= @order.user.name %>さん</span>と
   <span class="user-and-company"><%= @order.company.name %>さん</span>の連絡部屋</h1>
 
 <p><%= @order.company.name %>さんの提案する商品</p>
@@ -21,4 +29,12 @@
 <h2>総額：
   <span class="total-price"><%= @order.price %></span>円 + <span class="total-price">送料</span>
 </h2>
-※送料は出品者負担の場合は0円。
+<p>※送料は出品者負担の場合は0円です。</p>
+
+<br><br>
+<% if @order.active == "active" %>
+  <%= link_to "この取引を終了する", auction_order_auction_path(@order.id), method: :delete, class:"end-button" %>
+  <p>※両者の内、どちらかがボタンを押すと取引は「終了状態」となります。</p>
+<% else %>
+  <p>※この取引は終了されました。</p>
+<% end %>
