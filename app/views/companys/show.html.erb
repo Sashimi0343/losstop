@@ -33,19 +33,35 @@
 
 
 
-  <p class="text1">出品中の商品一覧</p>
+  <div class="bazaar-info">
+    <p class="text1">出品中の商品</p>
+
+    <% if company_signed_in? %>
+      <% if @company.id == current_company.id %>
+        <%= link_to "終了した出品・取引一覧へ", companys_end_list_path(current_company.id), class: "edit-button" %>
+      <% end %>
+    <% end %>
+  </div>
   <div class="bazaar-container">
     <table class="bazaars">
       <tr>
         <th class="number">出品番号</th>
         <th class="bazaar-title">商品名</th>
+        <th class="bazaar-price">価格</th>
+        <th class="bazaar-stock">在庫</th>
+        <th class="bazaar-stock">出品期間</th>
       </tr>
 
       <% @company.bazaars.each do |bazaar| %>
-        <tr>
-          <td class="number"><%= bazaar.id %></td>
-          <td class="bazaar-title"><%= link_to bazaar.title, bazaar_path(bazaar.id), class: "blocks" %>
-        </tr>
+        <% if (bazaar.deadline > Time.new) && (bazaar.stock > 0) && (bazaar.active == "active") %>
+          <tr>
+            <td class="number"><%= bazaar.id %></td>
+            <td class="bazaar-title"><%= link_to bazaar.title, bazaar_path(bazaar.id), class: "blocks" %></td>
+            <td class="bazaar-price"><%= bazaar.price %>円</td>
+            <td class="bazaar-stock"><%= bazaar.stock %>個</td>
+            <td class="bazaar-deadline"><%= bazaar.deadline %>まで</td>
+          </tr>
+        <% end %>
       <% end %>
     </table>
   </div>
@@ -62,8 +78,10 @@
             <th class="order-number">部屋番号</th>
             <th class="order-title">商品名</th>
             <th>お相手のお名前</th>
-            <th class="order-link">リンク</th></tr>
-            <% @company.order_bazaars.each do |order| %>
+            <th class="order-link">リンク</th>
+          </tr>
+          <% @company.order_bazaars.each do |order| %>
+            <% if order.active == "active" %>
               <tr>
                 <td class="order-number"><%= order.id %></td>
                 <td class="order-title"><%= link_to order.bazaar.title, bazaar_path(order.bazaar.id), class: "blocks" %></td>
@@ -71,6 +89,7 @@
                 <td class="order-link"><%= link_to "連絡部屋へ", bazaar_order_bazaar_path(order.id, order.bazaar.id), class: "link-button2" %></td>
               </tr>
             <% end %>
+          <% end %>
         </table>
       </div>
 
@@ -86,12 +105,14 @@
           </tr>
 
           <% @company.order_auctions.each do |order| %>
-            <tr>
-              <td class="order-number"><%= order.id %></td>
-              <td class="order-title"><%= link_to order.auction.title, auction_path(order.auction.id), class: "blocks" %></td>
-              <td class="customer"><%= order.user.name %></td>
-              <td class="order-link"><%= link_to "連絡部屋へ", auction_order_auction_path(order.id, order.auction.id), class: "link-button2" %></td>
-            </tr>
+            <% if order.active == "active" %>
+              <tr>
+                <td class="order-number"><%= order.id %></td>
+                <td class="order-title"><%= link_to order.auction.title, auction_path(order.auction.id), class: "blocks" %></td>
+                <td class="customer"><%= order.user.name %></td>
+                <td class="order-link"><%= link_to "連絡部屋へ", auction_order_auction_path(order.id, order.auction.id), class: "link-button2" %></td>
+              </tr>
+            <% end %>
           <% end %>
         </table>
       </div>
