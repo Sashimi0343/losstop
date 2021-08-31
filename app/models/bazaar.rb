@@ -2,7 +2,7 @@ class Bazaar < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
 
   with_options presence: true do
-    validates :title, :description, :deadline, :image
+    validates :title, :description, :deadline, :active, :image
 
     validates :price, numericality: { only_integer: true, message: 'は半角数字で入力してください。' }
     validates_inclusion_of :price, in: 300..999_999_999, message: 'は300円から設定可能です。'

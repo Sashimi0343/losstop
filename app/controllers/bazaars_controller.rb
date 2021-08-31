@@ -45,7 +45,7 @@ class BazaarsController < ApplicationController
 
 
   def destroy
-    @bazaar.update(active: false)
+    @bazaar.update(active: "close")
     redirect_to bazaars_path
   end
 
@@ -59,7 +59,7 @@ class BazaarsController < ApplicationController
 
   def bazaar_params
     params.require(:bazaar).permit(:image, :title, :description, :price, :stock, :deadline,
-                                    :category_id, :delivery_charge_id).merge(company_id: current_company.id, active: true)
+                                    :category_id, :delivery_charge_id).merge(company_id: current_company.id, active: "active")
   end
 
   def set_bazaar

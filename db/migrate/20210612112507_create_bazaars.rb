@@ -6,7 +6,7 @@ class CreateBazaars < ActiveRecord::Migration[6.0]
       t.integer    :price,               null: false
       t.integer    :stock,               null: false
       t.date       :deadline,            null: false
-      t.boolean    :active,              nill: false
+      t.string     :active,              nill: false
       t.integer    :category_id,         null: false
       t.integer    :delivery_charge_id,  null: false
       t.references :company,             null: false, foreign_key: true
