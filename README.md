@@ -270,6 +270,7 @@ VSCode
 | price               | integer    | null: false                    |
 | stock               | integer    | null: false                    |
 | deadline            | date       | null: false                    |
+| active              | string     | null: false                    |
 | category_id         | integer    | null: false                    |
 | delivery_charge_id  | integer    | null: false                    |
 | company             | references | null: false, foreign_key: true |
@@ -287,6 +288,7 @@ VSCode
 | Column    | Type       | Options                        |
 | --------- | ---------- | ------------------------------ |
 | quantity  | integer    |                                |
+| active    | string     | null: false                    |
 | bazaar    | references | null: false, foreign_key: true |
 | user      | references | null: false, foreign_key: true |
 
@@ -340,6 +342,7 @@ VSCode
 | title               | string     | null: false                    |
 | description         | text       | null: false                    |
 | price               | integer    | null: false                    |
+| active              | string     | null: false                    |
 | category_id         | integer    | null: false                    |
 | delivery_charge_id  | integer    | null: false                    |
 | deadline            | date       | null: false                    |
@@ -360,6 +363,7 @@ VSCode
 | title        | string     |                                |
 | description  | text       |                                |
 | price        | integer    |                                |
+| active       | string     | null: false                    |
 | auction      | references | null: false, foreign_key: true |
 | company      | references | null: false, foreign_key: true |
 #### imageはActiveStorageを使用するため未記載
