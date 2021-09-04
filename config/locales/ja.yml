@@ -27,7 +27,7 @@ ja:
         description: 商品の紹介
         price: 価格
         stock: 在庫
-        deadline: 消費期限
+        deadline: 出品期間
         category_id: カテゴリー
         delivery_charge_id: 送料の負担
         days_to_ship_id: 発送までの日にち
@@ -40,17 +40,17 @@ ja:
       auction:
         title: タイトル
         description: 欲しい商品の詳細
-        price: 予算(単価)
+        price: 予算
         stock: 欲しい数
         category_id: カテゴリー
         delivery_charge_id: 送料
         days_to_ship_id: 発送までの日にち
-        deadline: この日までに欲しい
+        deadline: 公開期間
       order_auction:
         title: 商品名
         description: 商品説明欄
         image: 商品の画像
-        quantity: 販売希望数
+        price: 価格
       contact_auction:
         message: メッセージ
       review_auction:

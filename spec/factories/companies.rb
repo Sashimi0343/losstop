@@ -11,5 +11,9 @@ FactoryBot.define do
     city                     { Gimei.city.kanji }
     address                  { '番地〜建物〜部屋番号' }
     homepage                 { Faker::Lorem.sentence }
+
+    after(:build) do |item|
+      item.image.attach(io: File.open('public/images/test_image.png'), filename: 'test_image.png')
+    end
   end
 end
