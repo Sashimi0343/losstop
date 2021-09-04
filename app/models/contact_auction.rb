@@ -1,6 +1,6 @@
 class ContactAuction < ApplicationRecord
   with_options presence: true do
-    validates :message, :name
+    validates :message
   end
 
   has_many :notice_companys, dependent: :destroy

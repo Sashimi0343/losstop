@@ -9,11 +9,13 @@ RSpec.describe Company, type: :model do
     context '会社登録ができる' do
       it 'OK：全ての項目が適切に記入出来ていれば登録ができる。' do
         expect(@company).to be_valid
+        sleep 0.1
       end
 
       it 'OK：homepageは無くても良い' do
         @company.homepage = ''
         expect(@company).to be_valid
+        sleep 0.1
       end
     end
 
@@ -23,12 +25,14 @@ RSpec.describe Company, type: :model do
           @company.name = ''
           @company.valid?
           expect(@company.errors.full_messages).to include('会社・お店の名前を入力してください')
+          sleep 0.1
         end
 
         it 'NG：emailが空' do
           @company.email = ''
           @company.valid?
           expect(@company.errors.full_messages).to include('Eメールを入力してください')
+          sleep 0.1
         end
 
         it 'NG：emailが既に使用されている' do
@@ -37,18 +41,21 @@ RSpec.describe Company, type: :model do
           @company2.email = @company.email
           @company2.valid?
           expect(@company2.errors.full_messages).to include('Eメールはすでに存在します')
+          sleep 0.1
         end
 
         it 'NG：emailに＠がない' do
           @company.email = '12345'
           @company.valid?
           expect(@company.errors.full_messages).to include('Eメールは不正な値です')
+          sleep 0.1
         end
 
         it 'NG：passwordが空' do
           @company.password = ''
           @company.valid?
           expect(@company.errors.full_messages).to include('パスワードを入力してください')
+          sleep 0.1
         end
 
         it 'NG：passwordが5文字以下' do
@@ -56,6 +63,7 @@ RSpec.describe Company, type: :model do
           @company.password_confirmation = 'test1'
           @company.valid?
           expect(@company.errors.full_messages).to include('パスワードは6文字以上で入力してください')
+          sleep 0.1
         end
 
         it 'NG：passwordが半角英語のみでは登録できない' do
@@ -63,6 +71,7 @@ RSpec.describe Company, type: :model do
           @company.password_confirmation = 'testtest'
           @company.valid?
           expect(@company.errors.full_messages).to include('パスワードは、半角の英数字両方を使用してください。')
+          sleep 0.1
         end
 
         it 'NG：passwordが数字のみの登録はできない' do
@@ -70,6 +79,7 @@ RSpec.describe Company, type: :model do
           @company.password_confirmation = '111111'
           @company.valid?
           expect(@company.errors.full_messages).to include('パスワードは、半角の英数字両方を使用してください。')
+          sleep 0.1
         end
 
         it 'NG：passwordが全角英数混合は登録できない' do
@@ -77,12 +87,14 @@ RSpec.describe Company, type: :model do
           @company.password_confirmation = 'qwrt１２'
           @company.valid?
           expect(@company.errors.full_messages).to include('パスワードは、半角の英数字両方を使用してください。')
+          sleep 0.1
         end
 
         it 'NG：password_confirmationが不一致' do
           @company.password_confirmation = 'test10000'
           @company.valid?
           expect(@company.errors.full_messages).to include('パスワード（確認用）とパスワードの入力が一致しません')
+          sleep 0.1
         end
       end
 
@@ -91,36 +103,42 @@ RSpec.describe Company, type: :model do
           @company.president = ''
           @company.valid?
           expect(@company.errors.full_messages).to include('代表者名を入力してください')
+          sleep 0.1
         end
 
         it 'NG：profileが空' do
           @company.profile = ''
           @company.valid?
           expect(@company.errors.full_messages).to include('会社・お店の紹介を入力してください')
+          sleep 0.1
         end
 
         it 'NG：phoneが空' do
           @company.phone = ''
           @company.valid?
-          expect(@company.errors.full_messages).to include('電話番号を入力してください')
+          expect(@company.errors.full_messages).to include('電話番号は半角数字で入力してください。')
+          sleep 0.1
         end
 
         it 'NG：phoneの桁数が多い' do
           @company.phone = '080123456789'
           @company.valid?
           expect(@company.errors.full_messages).to include('電話番号は11桁以内で入力してください。')
+          sleep 0.1
         end
 
-        it 'NG：phoneが空' do
+        it 'NG：phoneが全角数字' do
           @company.phone = '０８０５４８６４１２４'
           @company.valid?
           expect(@company.errors.full_messages).to include('電話番号は半角数字で入力してください。')
+          sleep 0.1
         end
 
-        it 'NG：phoneが空' do
+        it 'NG：phoneが半角英数混同' do
           @company.phone = 'test1000000'
           @company.valid?
           expect(@company.errors.full_messages).to include('電話番号は半角数字で入力してください。')
+          sleep 0.1
         end
       end
 
@@ -129,18 +147,21 @@ RSpec.describe Company, type: :model do
           @company.prefecture_id = 0
           @company.valid?
           expect(@company.errors.full_messages).to include('都道府県を選択してください。')
+          sleep 0.1
         end
 
         it 'NG：cityが空' do
-          @company.city = ''
+          @company.city = ""
           @company.valid?
           expect(@company.errors.full_messages).to include('市区町村を入力してください')
+          sleep 0.1
         end
 
         it 'NG：addressが空' do
-          @company.address = ''
+          @company.address = ""
           @company.valid?
           expect(@company.errors.full_messages).to include('番地〜建物〜部屋番号を入力してください')
+          sleep 0.1
         end
       end
     end
